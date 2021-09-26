@@ -3,4 +3,7 @@
 * HTML
 * CSS
 * React
-  * Redux
+  * Redux & Redux Toolkit
+* Jest
+* Enzyme
+* Figma
