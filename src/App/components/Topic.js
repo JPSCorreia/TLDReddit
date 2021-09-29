@@ -1,36 +1,21 @@
 import React from 'react'
-import RedditAPI from '../RedditAPI';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { changeTopic } from '../features/topicSlice'
 
+function Topic(props) {
 
-function Topic() {
+  // const dispatch = useDispatch();
+  // const topic = useSelector((state) => state.topic)
 
-  const dispatch = useDispatch();
-  const topic = useSelector((state) => state.topic.value)
+  // useEffect(() =>  {
+  //   dispatch(RedditAPI.getSingleTopic(props.id))
+  // }, [dispatch, props.id]);
 
-  const fetchFirstTopic = () => {
-      RedditAPI.fetchTopicInfo(0).then(result => {
-        dispatch(changeTopic( { title: result.title, author: result.author }))
-      })
-  }
-
-  // For testing purposes
-  const fetchFirstTopicTest = () => {
-      dispatch(changeTopic( { title: 'Teste 1', author: 'Teste 2'}))
-  }
-
-  useEffect(() =>  {
-    //fetchFirstTopic();
-    fetchFirstTopicTest();
-  }, );
-
+ 
   return (
-    <div>
-      <h3>Top Thread from r/all:</h3>
-      <p>topic title: {topic.title}</p>
-      <p>author name: {topic.author}</p>
+    <div className='topic'>
+      <h4>{props.topicName}</h4>
+      {/* <img alt='thumbnail' src={props.topicList[props.id].data.thumbnail}></img>
+      <p>Author: {props.topicList[props.id].data.author}</p>
+      <p>Subreddit: r/{props.topicList[props.id].data.subreddit}</p> */}
     </div>
   );
 }

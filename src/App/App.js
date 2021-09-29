@@ -1,19 +1,17 @@
 
 import '../Style/App.css';
 import logoTLDReddit from '../Style/TLDRedditlogo.png'
-import Topic from './components/Topic';
+import TopicList from './components/TopicList';
 
 function App() {
 
-
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img alt="logo" src={logoTLDReddit}></img>
-        <Topic />
-        <h4>Coming soon...</h4>
-      </header>
+      
+        <img className='logo' alt='logo' src={logoTLDReddit}></img>
+        <h2>r/all</h2>
+        <TopicList />
+
     </div>
   );
 }

@@ -1,31 +1,39 @@
 import { createSlice } from '@reduxjs/toolkit'
+import * as RedditAPI from '../RedditAPI';
 
 
 export const topicSlice = createSlice({
   name: 'topic',
-  initialState: { value: { 
-    title: 'loading title...',
+  initialState: { 
+    title: '',
     clicked: false,
     score: 0,
     subreddit: '',
-    author: 'loading author...',
+    author: '',
     visited: false,
     numberOfComments: 0,
     upvoteRatio: 1,
     thumbnail: '' 
-  } },
+  },
   reducers: {
-    changeTopic: (state, action) => {
-      state.value = action.payload;
-    }
+  },
+  extraReducers: {
+
+    [RedditAPI.getSingleTopic.pending]: (state, action) => {
+      state.title = 'loading...';
+      state.author = 'loading...';
+    },
+    [RedditAPI.getSingleTopic.fulfilled]: (state, action) => {
+      state = action.payload;
+    },
+    [RedditAPI.getSingleTopic.rejected]: (state, action) => {
+      state.title = 'failed to load.';
+      state.author = 'failed to load.';
+    },
   }
 })
 
-export const { changeTopic } = topicSlice.actions;
 export default topicSlice.reducer;
-
-
-
 
 
 

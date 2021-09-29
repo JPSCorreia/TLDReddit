@@ -1,8 +1,24 @@
+
 .App {
   text-align: center;
 }
 
-.App-logo {
+.topic {
+  border-left: orange 1px solid;
+  border-right: orange 1px solid;
+  border-top: orange 1px solid;
+  color: black;
+  width: 100%;
+}
+
+.logo {
+  margin-top: 1%;
+}
+
+
+
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +51,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

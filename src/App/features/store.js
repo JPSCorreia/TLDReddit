@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import topicReducer from './topicSlice';
+import topicListReducer from './topicListSlice';
+
 
 
 const store = configureStore({
   reducer: {
-    topic: topicReducer
+    topic: topicReducer,
+    topicList: topicListReducer
   },
 });
 
