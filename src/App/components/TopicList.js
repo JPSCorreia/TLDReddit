@@ -15,9 +15,9 @@ function TopicList() {
   },[dispatch]);
 
   const list = [];
-  topicList.forEach(topicName => {
-    list.push(<Topic topicName={topicName} />)
-  })
+  topicList.forEach((topic) => {
+    list.push(<Topic topic={topic} />);
+  });
 
    return (
     <div>

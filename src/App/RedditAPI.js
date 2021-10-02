@@ -12,13 +12,12 @@ export const getTopicList = createAsyncThunk(
       const arrayOfTopics = [];
 
       for (let i = 0; i < 25; i++) {
-        arrayOfTopics.push( 
-          //
-          jsonData.data.children[i].data.title,
-          // author: jsonData.data.children[i].data.author,
-          //subreddit: jsonData.data.children[i].data.subreddit
-          //
-        )
+        arrayOfTopics.push({
+          title: jsonData.data.children[i].data.title,
+          author: jsonData.data.children[i].data.author,
+          subreddit: jsonData.data.children[i].data.subreddit,
+          thumbnail: jsonData.data.children[i].data.thumbnail,
+        });
       };
 
       return arrayOfTopics;

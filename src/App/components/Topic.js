@@ -9,13 +9,27 @@ function Topic(props) {
   //   dispatch(RedditAPI.getSingleTopic(props.id))
   // }, [dispatch, props.id]);
 
- 
+  const thumbnailExists = (thumbnail) => {
+    if (!thumbnail || thumbnail !== "default") {
+      return <img alt="thumbnail" src={thumbnail}></img>;
+    }
+  };
+
   return (
-    <div className='topic'>
-      <h4>{props.topicName}</h4>
-      {/* <img alt='thumbnail' src={props.topicList[props.id].data.thumbnail}></img>
-      <p>Author: {props.topicList[props.id].data.author}</p>
-      <p>Subreddit: r/{props.topicList[props.id].data.subreddit}</p> */}
+    <div className="topic">
+      <h4>{props.topic.title}</h4>
+      {thumbnailExists(props.topic.thumbnail)}
+      <p>Author: {props.topic.author}</p>
+      <p>
+        Subreddit:{" "}
+        <a
+          href={`https://www.reddit.com/r/${props.topic.subreddit}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          r/{props.topic.subreddit}
+        </a>
+      </p>
     </div>
   );
 }
