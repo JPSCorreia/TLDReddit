@@ -2,27 +2,27 @@ import { createSlice } from '@reduxjs/toolkit'
 import * as RedditAPI from '../RedditAPI';
 
 
-export const topicListSlice = createSlice({
-  name: 'topicList',
+export const commentListSlice = createSlice({
+  name: 'commentList',
   initialState: {
     value: []
   },
   reducers: {},
   extraReducers: {
-    [RedditAPI.getTopicList.pending]: (state, action) => {
+    [RedditAPI.getCommentList.pending]: (state, action) => {
       state.status = 'loading'
       
     },
-    [RedditAPI.getTopicList.fulfilled]: (state, action) => {
+    [RedditAPI.getCommentList.fulfilled]: (state, action) => {
       state.value = action.payload;
       state.status = 'loaded'
       
     },
-    [RedditAPI.getTopicList.rejected]: (state, action) => {
+    [RedditAPI.getCommentList.rejected]: (state, action) => {
       state.status = 'failed to load.'
       
     },
   }
 })
 
-export default topicListSlice.reducer;
+export default commentListSlice.reducer;

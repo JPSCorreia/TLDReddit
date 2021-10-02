@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import topicReducer from './topicSlice';
 import topicListReducer from './topicListSlice';
+import commentListReducer from './commentListSlice';
 
 
 
 const store = configureStore({
   reducer: {
-    topic: topicReducer,
-    topicList: topicListReducer
+    topicList: topicListReducer,
+    commentList: commentListReducer,
   },
 });
 

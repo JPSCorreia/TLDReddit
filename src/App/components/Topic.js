@@ -1,20 +1,14 @@
 import React from 'react'
+import CommentList from './CommentList';
 
 function Topic(props) {
-
-  // const dispatch = useDispatch();
-  // const topic = useSelector((state) => state.topic)
-
-  // useEffect(() =>  {
-  //   dispatch(RedditAPI.getSingleTopic(props.id))
-  // }, [dispatch, props.id]);
 
   const thumbnailExists = (thumbnail) => {
     if (!thumbnail || thumbnail !== "default") {
       return <img alt="thumbnail" src={thumbnail}></img>;
     }
   };
-
+  
   return (
     <div className="topic">
       <h4>{props.topic.title}</h4>
@@ -29,9 +23,14 @@ function Topic(props) {
         >
           r/{props.topic.subreddit}
         </a>
+        <CommentList />
       </p>
     </div>
   );
+}
+
+export const permalink = (props) => {
+  return props.topic.permalink;
 }
 
 export default Topic;

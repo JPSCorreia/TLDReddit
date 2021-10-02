@@ -1,22 +1,22 @@
 import React from 'react'
-import Topic from './Topic';
+import Comment from './Comment';
 import * as RedditAPI from '../RedditAPI';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 
-function TopicList() {
+function CommentList() {
 
   const dispatch = useDispatch();
-  const topicList = useSelector((state) => state.topicList.value)
+  const commentList = useSelector((state) => state.commentList.value)
 
    useEffect(() =>  {
-    dispatch(RedditAPI.getTopicList())
+    dispatch(RedditAPI.getCommentList())
   },[dispatch]);
 
   const list = [];
-  topicList.forEach((topic) => {
-    list.push(<Topic topic={topic.data} />);
+  commentList.forEach((comment) => {
+    list.push(<Comment comment={comment.data} />);
   });
 
    return (
@@ -27,4 +27,4 @@ function TopicList() {
 
 }
 
-export default TopicList;
+export default CommentList;
