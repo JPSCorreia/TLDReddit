@@ -16,7 +16,7 @@ function TopicList() {
 
   const list = [];
   topicList.forEach((topic) => {
-    list.push(<Topic topic={topic.data} />);
+    list.push(<Topic topic={topic.data} key={topic.data.id} />);
   });
 
    return (

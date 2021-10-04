@@ -5,26 +5,30 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 
-function CommentList() {
-
+function CommentList(props) {
   const dispatch = useDispatch();
-  const commentList = useSelector((state) => state.commentList.value)
+  const commentList = useSelector((state) => state.commentList.value);
 
-   useEffect(() =>  {
-    dispatch(RedditAPI.getCommentList())
-  },[dispatch]);
+  useEffect(() => {
+    dispatch(RedditAPI.getCommentList(props.url));
+  }, [props.url]);
 
   const list = [];
+  let overTenComments = false;
   commentList.forEach((comment) => {
-    list.push(<Comment comment={comment.data} />);
+    // Only push 10 comments to the list
+    if (overTenComments) {
+      return;
+    }
+    if (list.length >= 10) {
+      overTenComments = true;
+      return;
+    }
+
+    list.push(<Comment comment={comment.data} key={comment.data.id} />);
   });
 
-   return (
-    <div>
-      {list}
-    </div>
-  )
-
+  return <div>{list}</div>;
 }
 
 export default CommentList;

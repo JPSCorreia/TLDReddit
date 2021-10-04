@@ -1,29 +1,27 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
-import permalink from './components/Topic';
-const apiURL = 'https://www.reddit.com/r/all.json'
-const commentApiURL = `https://www.reddit.com/${permalink}.json`
-
+import { createAsyncThunk } from "@reduxjs/toolkit";
+const apiURL = "https://www.reddit.com/r/all.json";
 
 export const getTopicList = createAsyncThunk(
-  'topicList/getTopicList',
+  "topicList/getTopicList",
   async () => {
     return await fetch(apiURL)
-    .then(data => data.json())
-    .then(jsonData => {
-      return jsonData.data.children;
-      }
-    )
+      .then((data) => data.json())
+      .then((jsonData) => {
+        return jsonData.data.children;
+      });
   }
-)
+);
 
 export const getCommentList = createAsyncThunk(
-  'commentList/getCommentList',
-  async () => {
-    return await fetch(commentApiURL)
-    .then(data => data.json())
-    .then(jsonData => {
-      return jsonData.data.children;
-      }
-    )
+  "commentList/getCommentList",
+  async (url) => {
+    return await fetch(`https://www.reddit.com/${url}.json`)
+      .then((data) => data.json())
+      .then((jsonData) => {
+        console.log(url);
+        // jsonData[0] is the post
+        // jsonData[1] is the comments
+        return jsonData[1].data.children;
+      });
   }
-)
+);
