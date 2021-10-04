@@ -1,5 +1,5 @@
 import React from 'react'
-import CommentList from './CommentList';
+// import CommentList from './CommentList';
 
 function Topic(props) {
   const thumbnailExists = (thumbnail) => {
@@ -23,7 +23,7 @@ function Topic(props) {
           r/{props.topic.subreddit}
         </a>
       </p>
-      <CommentList url={props.topic.permalink} />
+      {/* <CommentList url={props.topic.permalink} /> */}
     </div>
   );
 }

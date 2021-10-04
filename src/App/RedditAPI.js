@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-const apiURL = "https://www.reddit.com/r/all.json";
+
 
 export const getTopicList = createAsyncThunk(
   "topicList/getTopicList",
-  async () => {
-    return await fetch(apiURL)
+  async (url) => {
+    return await fetch(`https://www.reddit.com/${url}.json`)
       .then((data) => data.json())
       .then((jsonData) => {
         return jsonData.data.children;

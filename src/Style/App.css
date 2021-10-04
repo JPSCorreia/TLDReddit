@@ -16,6 +16,12 @@
 }
 
 
+.subreddit-name {
+  border-top: blue 2px solid;
+  text-decoration: underline;
+  padding-top: 1%;
+}
+
 
 
 /* .App-logo {
