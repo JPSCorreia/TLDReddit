@@ -1,16 +1,18 @@
 import React from 'react'
-// import CommentList from './CommentList';
+import CommentList from './CommentList';
+import ReactHtmlParser from 'react-html-parser';
 
 function Topic(props) {
+
   const thumbnailExists = (thumbnail) => {
-    if (!thumbnail || thumbnail !== "default") {
-      return <img alt="thumbnail" src={thumbnail}></img>;
+    if (!["default", "self"].includes(thumbnail)) {
+      return <img alt="thumbnail" title={thumbnail} src={thumbnail}></img>;
     }
   };
 
   return (
     <div className="topic">
-      <h4>{props.topic.title}</h4>
+      <h4>{ReactHtmlParser(props.topic.title)}</h4>
       {thumbnailExists(props.topic.thumbnail)}
       <p>Author: {props.topic.author}</p>
       <p>
@@ -23,7 +25,7 @@ function Topic(props) {
           r/{props.topic.subreddit}
         </a>
       </p>
-      {/* <CommentList url={props.topic.permalink} /> */}
+      <CommentList url={props.topic.permalink} />
     </div>
   );
 }

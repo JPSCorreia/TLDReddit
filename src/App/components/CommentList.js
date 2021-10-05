@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function CommentList(props) {
   const dispatch = useDispatch();
-  const commentList = useSelector((state) => state.commentList.value);
+  const commentList = useSelector((state) => state.commentList[props.url] || []);
   
   useEffect(() => {
     dispatch(RedditAPI.getCommentList(props.url)); 

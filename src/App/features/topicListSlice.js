@@ -4,9 +4,7 @@ import * as RedditAPI from '../RedditAPI';
 
 export const topicListSlice = createSlice({
   name: 'topicList',
-  initialState: {
-    value: []
-  },
+  initialState: {},
   reducers: {},
   extraReducers: {
     [RedditAPI.getTopicList.pending]: (state, action) => {
@@ -14,7 +12,7 @@ export const topicListSlice = createSlice({
       
     },
     [RedditAPI.getTopicList.fulfilled]: (state, action) => {
-      state.value = action.payload;
+      state[action.payload.key] = action.payload.data;
       state.status = 'loaded'
       
     },

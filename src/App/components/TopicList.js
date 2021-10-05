@@ -8,34 +8,19 @@ import { useSelector, useDispatch } from 'react-redux';
 function TopicList(props) {
 
   const dispatch = useDispatch();
-  const topicList = useSelector((state) => state.topicList.value)
+  const topicList = useSelector((state) => state.topicList[props.subreddit] || [])
+ 
+  useEffect(() =>  {
+    dispatch(RedditAPI.getTopicList(props.subreddit));
+  }, [dispatch, props.subreddit]);
 
-
-
-    useEffect(() =>  {
-
-       function dispatchTopicList () {
-        dispatch(RedditAPI.getTopicList(props.subreddit))
-       }
-       dispatchTopicList()
-
-    }, [dispatch, props.subreddit]);
-
-  const list = [];
-  topicList.forEach((topic, index) => {
-    // Provisorio só 3 topics a mostrar
-    //if (index === 0) dispatch(RedditAPI.getTopicList(props.subreddit))
-    if(index < 3) list.push(<Topic topic={topic.data} key={topic.data.id} />);
-  });
-
-   return (
+  return (
     <div>
       <br></br>
       <h2 className='subreddit-name'>{props.subreddit}:</h2>
-      {list}
+      { topicList.filter((topic, i) => i > 3).map(topic => (<Topic topic={topic.data} key={topic.data.id} />)) }
     </div>
   )
-
 }
 
 export default TopicList;

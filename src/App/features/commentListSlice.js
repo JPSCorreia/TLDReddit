@@ -4,9 +4,7 @@ import * as RedditAPI from '../RedditAPI';
 
 export const commentListSlice = createSlice({
   name: 'commentList',
-  initialState: {
-    value: []
-  },
+  initialState: {},
   reducers: {},
   extraReducers: {
     [RedditAPI.getCommentList.pending]: (state, action) => {
@@ -14,7 +12,7 @@ export const commentListSlice = createSlice({
       
     },
     [RedditAPI.getCommentList.fulfilled]: (state, action) => {
-      state.value = action.payload;
+      state[action.payload.key] = action.payload.data;
       state.status = 'loaded'
       
     },
