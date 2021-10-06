@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import * as RedditAPI from '../RedditAPI';
 
-
 export const commentListSlice = createSlice({
   name: 'commentList',
   initialState: {},
   reducers: {},
   extraReducers: {
+
+    // Reducers for getting comments from Reddit API.
     [RedditAPI.getCommentList.pending]: (state, action) => {
       state.status = 'loading'
       
@@ -20,6 +21,7 @@ export const commentListSlice = createSlice({
       state.status = 'failed to load.'
       
     },
+      
   }
 })
 

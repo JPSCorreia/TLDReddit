@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 
 function Comment(props) {
 
+  // console.log(props.comment.body);
   return (
     <div className="comment">
       <p>{props.comment.author}</p>

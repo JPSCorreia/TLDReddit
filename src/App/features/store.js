@@ -9,6 +9,20 @@ const store = configureStore({
     topicList: topicListReducer,
     commentList: commentListReducer,
   },
+  // Remove SerializableStateInvariantMiddleware warning.
+  middleware: getDefaultMiddleware => getDefaultMiddleware({
+    serializableCheck: false
+  })
 });
 
 export default store;
+
+
+
+
+
+
+
+
+
+// list.push(`<p>Comment ${i}</p>`)

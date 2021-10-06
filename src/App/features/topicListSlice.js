@@ -7,6 +7,8 @@ export const topicListSlice = createSlice({
   initialState: {},
   reducers: {},
   extraReducers: {
+
+    // Reducers for getting threads from Reddit API.
     [RedditAPI.getTopicList.pending]: (state, action) => {
       state.status = 'loading'
       

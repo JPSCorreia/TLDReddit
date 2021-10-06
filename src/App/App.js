@@ -8,11 +8,8 @@ function App() {
   return (
     <div className="App">
         <img className='logo' alt='logo' src={logoTLDReddit}></img>
-
         <TopicList subreddit={'r/all'}/>
-        <TopicList subreddit={'r/ProgrammerHumor'}/>
-
-        
+        <TopicList subreddit={'r/ProgrammerHumor'}/>       
     </div>
   );
 }
