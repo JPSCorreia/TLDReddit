@@ -6,74 +6,54 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react'
 
 
-
 function CommentList(props) {
 
   // Redux State/Action Management.
-  const list = []
-  const [toggleComments, setToggleComments] = useState(true);
   const dispatch = useDispatch();
   const commentList = useSelector((state) => state.commentList[props.url] || []);
   useEffect(() => {
-    dispatch(RedditAPI.getCommentList(props.url)); 
+    dispatch(RedditAPI.getCommentList(props.url));
   }, [dispatch, props.url]);
-
   
-  // Event Handler for button to show or hide comments from thread.
+
+  // Populate list array with with <Comment /> components using commentList state data.
+  const list = []
+  commentList.slice(0, 25).forEach((comment, index) => {
+    // Provisorio só 3 comments a mostrar)
+    list.push(<Comment commentData={comment.data} key={comment.data.id} dataKey={index} />);
+  });
+
+
+  // Event handler for toggling comments button and changing color of button.
+  const [toggleComments, setToggleComments] = useState(false);
   function handleToggleComments () {
-        
-    const commentsDiv = document.getElementById(`comments-${props.id}`)
-    
-    if (toggleComments) {
-      for (let i = 0; i < 3; i++) {
-        commentList.forEach((comment, index) => {
-          if(index < 3) {
-            list.push(<Comment comment={comment.data} key={comment.data.id} />)
-            console.log(comment)
-          }
-        })
-        setToggleComments(false)
-      }
-      commentsDiv.innerHTML = list;
+    setToggleComments(!toggleComments)
+    if (!toggleComments) {
+      document.getElementById(`show-or-hide-comments-${props.id}`).style.color = 'blue'
     } else {
-      commentsDiv.innerHTML = '';
-      //list.splice(0, list.length);
-      //list.length = 0;
-      setToggleComments(true)
+      document.getElementById(`show-or-hide-comments-${props.id}`).style.color = 'black'
     }
   }
 
-  // commentList.forEach((comment, index) => {
-  //   if(index < 3) list.push(<Comment comment={comment.data} key={comment.data.id} />)
-  // })
-
-
 
   return (
-    <div>
-      <button type="button" className='show-or-hide-comments' onClick={handleToggleComments}>Comments</button>
-      {/* <p>{`teste ${commentList.isShowingComments}`}</p> */}
-      <div className='comments' id={`comments-${props.id}`}>
-        {}
+    <div className='comment-list'>
+      <div className='topic-info'>
+        <p><b>Submitted:</b> {props.created} by <b>{props.author}</b> on <a
+          href={`https://www.reddit.com/r/${props.subName}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          r/{props.subName}
+        </a></p>
+        <button type='button' id={`show-or-hide-comments-${props.id}`} className='show-or-hide-comments' onClick={handleToggleComments}>{props.numComments} Comments</button>
       </div>
-      
-      
-    </div>);
+      <div className='comments' id={`comments-${props.id}`}>
+        {toggleComments? list : ''}
+      </div>
+    </div>
+  );
+
 }
 
 export default CommentList;
-
-
-
-// const list = [];
-
-// export function toggleShowComments () {
-
-//   if (!list) {
-//     commentList.forEach((comment, index) => {
-//       if(index < 3) list.push(<Comment comment={comment.data} key={comment.data.id} />)
-//     })
-//   } else {
-//     list.length = 0;
-//   }
-// }

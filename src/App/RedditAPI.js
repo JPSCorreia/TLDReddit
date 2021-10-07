@@ -23,3 +23,10 @@ export const getCommentList = createAsyncThunk(
       });
   }
 );
+
+export const selectSubreddit = createAsyncThunk(
+  "selectedSubreddit/selectSubreddit",
+  async (sub) => {
+    return sub;
+  }
+)

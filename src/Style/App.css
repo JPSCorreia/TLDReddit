@@ -1,14 +1,22 @@
+#root {
+  background-color: white;
+}
 
 .App {
   text-align: center;
+  width: 60%;
+  margin: auto;
+  font-family: 'Noto Sans', sans-serif;
+
 }
 
 .topic {
-  border-left: orange 1px solid;
-  border-right: orange 1px solid;
-  border-top: orange 1px solid;
+  border: #ff4500 1px solid;
   color: black;
   width: 100%;
+  margin-top: 1rem;
+  border-radius: 2px;
+  padding: 0.1rem;
 }
 
 .logo {
@@ -17,44 +25,142 @@
 
 
 .subreddit-name {
-  border-top: blue 2px solid;
+  /* border-top: blue 2px solid; */
   text-decoration: underline;
-  padding-top: 1%;
+  padding-top: 1rem;
 }
 
-
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.author {
+  font-weight: bold;
+  color: #369;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.comment {
+  background-color: rgb(245, 245, 245);
+  border: black 1px solid;
+  margin: 1px;
+  margin: 0.2rem;
+  padding-left: 0.3rem;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #e6e6e6;
-  min-height: 100vh;
+.show-or-hide-comments {
+  cursor: pointer;
+  border: 0;
+  transition-duration: 0.4s;
+  background-color: white;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+.show-or-hide-comments:hover {
+  color: blue !important;
+  
+}
+
+.show-or-hide-comments:active {
+  transform: translateY(3px);
+}
+
+.subreddit-button {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  border: 0;
+  transition-duration: 0.4s;
+  background-color: white;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.subreddit-button:hover {
+  color: #6b6b6b !important ;
+  
+}
+
+.subreddit-button:active {
+  transform: translateY(3px);
+}
+
+.topic-info {
+ display: flex;
+ justify-content: space-between;
+ padding-left: 0.5rem;
+ padding-right: 0.5rem;
+ font-size: 0.9rem;
+ align-content: center;
+ align-self: center;
+}
+
+#subreddit-button-all {
+  color: #ff4500;
+}
+
+.topic-and-thumbnail {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(0, 0, 0);
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.thumbnail-container {
+  width: 150px;
+  height: 80px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+img.thumbnail {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  max-width: 50%;
+ }
+
+ .topic-name {
+   padding-left: 0.5rem;
+   align-self: center;
+   font-size: 1.25rem;
+ }
+
+ p {
+  margin: 0.2rem;
+  text-align: left;
+ }
+
+ li {
+  text-align: left;
+ }
+
+ .author {
+   text-align: left;
+   margin: 0.2rem;
+   font-size: 0.8rem;
+ }
+
+ .author-info {
+  padding-bottom: 0rem;
+  display: flex;
+ }
+
+ .points {
+   font-size: 0.8rem;
+   font-weight: bold;
+   align-self: center;
+ }
+
+ .comment-created-when {
+  font-size: 0.8rem;
+  align-self: center;
+ }
+
+ .comment-body {
+   padding-bottom: 0.2rem;
+   padding-top: 0.05rem;
+ }
+
+
+
+
+
+
+@media only screen and (max-width: 900px) {
+  .App {
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+}

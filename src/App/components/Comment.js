@@ -1,15 +1,20 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import * as App from '../App'
 
 function Comment(props) {
 
-  // console.log(props.comment.body);
+  console.log(props.commentData)
   return (
     <div className="comment">
-      <p>{props.comment.author}</p>
-      <p><ReactMarkdown>{props.comment.body}</ReactMarkdown></p>
-      <p>{props.comment.permalink}</p>
-      <br />
+      <div className='author-info'>
+        <div className='author'>{props.commentData.author}</div>
+        <span className='separator'> &nbsp; </span>
+        <div className='points'>{props.commentData.ups} points</div>
+        <span className='separator'> &nbsp; </span>
+        <div className='comment-created-when'>{App.convertUnixToDate(props.commentData.created_utc)}</div>
+      </div>
+      <div className='comment-body'><ReactMarkdown>{props.commentData.body}</ReactMarkdown></div>
     </div>
   );
 }

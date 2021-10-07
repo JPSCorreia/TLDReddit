@@ -1,14 +1,10 @@
 import React from 'react'
 import CommentList from './CommentList';
 import ReactHtmlParser from 'react-html-parser';
+import * as App from '../App'
+
 
 function Topic(props) {
-
-  const thumbnailExists = (thumbnail) => {
-    if (!["default", "self"].includes(thumbnail)) {
-      return <img alt="thumbnail" title={thumbnail} src={thumbnail}></img>;
-    }
-  };
 
   return (
     <div 
@@ -16,29 +12,29 @@ function Topic(props) {
       topic-id={props.topicData.id} 
       id={`${props.subreddit}-${props.dataKey}`}
     >
-      <h4>{ReactHtmlParser(props.topicData.title)}</h4>
-      {thumbnailExists(props.topicData.thumbnail)}
-      <p>Author: {props.topicData.author}</p>
-      <p>
-        Subreddit:{" "}
-        <a
-          href={`https://www.reddit.com/r/${props.topicData.subreddit}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          r/{props.topicData.subreddit}
-        </a>
-      </p>
+      <div className='topic-and-thumbnail'>
+        <div className='topic-name'>
+          <b>
+          {ReactHtmlParser(props.topicData.title)}
+          </b>
+        </div>
+        <div className='thumbnail-container'>
+          {App.thumbnailExists(props.topicData.thumbnail)}
+        </div>
+      </div>
+
       <CommentList 
         url={props.topicData.permalink} 
         dataKey={props.dataKey} 
         subreddit={props.subreddit} 
+        subName={props.topicData.subreddit}
         id={`${props.subreddit}-${props.dataKey}`}
+        created={App.convertUnixToDate(props.topicData.created_utc)}
+        numComments={props.topicData.num_comments}
+        author={props.topicData.author}
       />
     </div>
   );
 }
 
 export default Topic;
-
-
