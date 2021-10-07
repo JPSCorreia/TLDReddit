@@ -6,6 +6,18 @@ import * as App from '../App'
 
 function Topic(props) {
 
+
+
+  const resizeThumbnail = () => {
+    document.getElementById(`thumbnail-${props.topicData.id}`).src='';
+  }
+
+  console.log(props.topicData.thumbnail)
+
+
+
+
+
   return (
     <div 
       className="topic" 
@@ -18,8 +30,10 @@ function Topic(props) {
           {ReactHtmlParser(props.topicData.title)}
           </b>
         </div>
+        
         <div className='thumbnail-container'>
-          {App.thumbnailExists(props.topicData.thumbnail)}
+          <button type='button' className='resize-image-button'></button>
+          {App.thumbnailExists(props.topicData.thumbnail, props.topicData.id)}
         </div>
       </div>
 

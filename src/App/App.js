@@ -29,9 +29,9 @@ import { useSelector } from 'react-redux';
 
 
   // Function that searchs if thumbnail exists and hides thumbnail if it doesn't
-  export const thumbnailExists = (thumbnail) => {
+  export const thumbnailExists = (thumbnail, id) => {
     if (!["default", "self"].includes(thumbnail)) {
-      return <img alt="thumbnail" title={thumbnail} src={thumbnail} className='thumbnail'></img>;
+      return <img alt="thumbnail" id={`thumbnail-${id}`} title={thumbnail} src={thumbnail} className='thumbnail'></img>;
     }
   };
 

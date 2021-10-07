@@ -103,6 +103,9 @@
 .thumbnail-container {
   width: 150px;
   height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 img.thumbnail {
@@ -110,6 +113,10 @@ img.thumbnail {
   padding-right: 0.5rem;
   padding-top: 0.5rem;
   max-width: 50%;
+
+  align-self: flex-end;
+
+
  }
 
  .topic-name {
@@ -154,7 +161,11 @@ img.thumbnail {
    padding-top: 0.05rem;
  }
 
-
+.resize-image-button {
+  height: 30%;
+  width: 18%;
+  align-self: flex-end;
+}
 
 
 
