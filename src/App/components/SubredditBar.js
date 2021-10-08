@@ -2,12 +2,12 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import * as RedditAPI from '../RedditAPI';
-
+let currentSub = 'subreddit-button-all';
 
 function SubredditBar(props) {
 
   // Redux State/Action Management.
-  let currentSub = 'subreddit-button-all';
+  
   const dispatch = useDispatch();
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value)
   useEffect(() =>  {
