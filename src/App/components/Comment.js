@@ -2,11 +2,11 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import * as App from '../App'
 
+
 function Comment(props) {
 
-  console.log(props.commentData)
   return (
-    <div className="comment">
+    <div className={`comment ${props.colorType}`} id={`comment-${props.topicId}-${props.dataKey}`}>
       <div className='author-info'>
         <div className='author'>{props.commentData.author}</div>
         <span className='separator'> &nbsp; </span>

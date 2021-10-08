@@ -1,49 +1,62 @@
+/* App-wide rules */
 #root {
   background-color: white;
+  margin: auto;
 }
-
 .App {
   text-align: center;
   width: 60%;
   margin: auto;
   font-family: 'Noto Sans', sans-serif;
-
 }
+.logo {
+  margin-top: 1%;
+}
+p {
+  margin: 0.2rem;
+  text-align: left;
+ }
 
+ li {
+  text-align: left;
+ }
+
+
+
+
+
+
+/* General subreddit page rules*/
+.subreddit-name {
+  text-decoration: underline;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  text-align: left;
+  margin: 0;
+}
 .topic {
   border: #ff4500 1px solid;
   color: black;
-  width: 100%;
   margin-top: 1rem;
   border-radius: 2px;
   padding: 0.1rem;
 }
+.topic-info {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.9rem;
+  align-content: center;
+  align-self: center;
+ }
 
-.logo {
-  margin-top: 1%;
-}
 
 
-.subreddit-name {
-  /* border-top: blue 2px solid; */
-  text-decoration: underline;
-  padding-top: 1rem;
-}
 
-.author {
-  font-weight: bold;
-  color: #369;
-}
 
-.comment {
-  background-color: rgb(245, 245, 245);
-  border: black 1px solid;
-  margin: 1px;
-  margin: 0.2rem;
-  padding-left: 0.3rem;
-  border-radius: 5px;
-}
 
+/* Show or hide comments button */
 .show-or-hide-comments {
   cursor: pointer;
   border: 0;
@@ -52,16 +65,19 @@
   font-family: 'Noto Sans', sans-serif;
   font-size: 0.9rem;
 }
-
 .show-or-hide-comments:hover {
   color: blue !important;
-  
 }
-
 .show-or-hide-comments:active {
   transform: translateY(3px);
 }
 
+
+
+
+
+
+/* Subreddit Bar rules */
 .subreddit-button {
   cursor: pointer;
   display: inline-block;
@@ -71,35 +87,32 @@
   background-color: white;
   font-family: 'Noto Sans', sans-serif;
 }
-
 .subreddit-button:hover {
   color: #6b6b6b !important ;
-  
 }
-
 .subreddit-button:active {
   transform: translateY(3px);
 }
-
-.topic-info {
- display: flex;
- justify-content: space-between;
- padding-left: 0.5rem;
- padding-right: 0.5rem;
- font-size: 0.9rem;
- align-content: center;
- align-self: center;
-}
-
 #subreddit-button-all {
   color: #ff4500;
 }
 
+
+
+
+
+
+/* Topic title and thumbnail container */
 .topic-and-thumbnail {
   display: flex;
   justify-content: space-between;
 }
-
+.topic-name {
+  padding-left: 0.5rem;
+  align-self: center;
+  font-size: 1rem;
+  text-align: left;
+}
 .thumbnail-container {
   width: 150px;
   height: 80px;
@@ -107,71 +120,190 @@
   align-items: center;
   justify-content: flex-end;
 }
-
 img.thumbnail {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-top: 0.5rem;
-  max-width: 50%;
-
+  max-width: 70px;
+  max-height: 70px;
   align-self: flex-end;
-
-
  }
 
- .topic-name {
-   padding-left: 0.5rem;
-   align-self: center;
-   font-size: 1.25rem;
- }
 
- p {
-  margin: 0.2rem;
-  text-align: left;
- }
 
- li {
-  text-align: left;
- }
 
+
+
+ /* Comment rules */
  .author {
-   text-align: left;
-   margin: 0.2rem;
-   font-size: 0.8rem;
- }
-
- .author-info {
+  font-weight: bold;
+  color: #369;
+  text-align: left;
+  margin: 0.2rem;
+  font-size: 0.8rem;
+}
+.comment {
+  border: rgb(220, 220, 220) 1px solid;
+  margin: 1px;
+  margin: 0.2rem;
+  padding-left: 0.3rem;
+  border-radius: 5px;
+}
+.comment-grey {
+  background-color: rgb(247, 248, 248);
+}
+.comment-white {
+  background-color: white;
+}
+.author-info {
   padding-bottom: 0rem;
   display: flex;
- }
-
- .points {
-   font-size: 0.8rem;
-   font-weight: bold;
-   align-self: center;
- }
-
- .comment-created-when {
+}
+.points {
+  font-size: 0.8rem;
+  font-weight: bold;
+  align-self: center;
+}
+.comment-created-when {
   font-size: 0.8rem;
   align-self: center;
- }
+}
+.comment-body {
+  padding-bottom: 0.2rem;
+  padding-top: 0.05rem;
+}
 
- .comment-body {
-   padding-bottom: 0.2rem;
-   padding-top: 0.05rem;
- }
 
-.resize-image-button {
+
+
+
+
+ /* Comment head rules */
+.comment-head {
+  background-color: white;
+  margin: 1px;
+  margin: 0.2rem;
+  padding-left: 0.3rem;
+  border-radius: 5px;
+}
+.author-in-comments {
+  color: rgb(232, 18, 240);
+  font-weight: bold;
+  text-align: left;
+  margin: 0.2rem;
+  font-size: 0.8rem;
+}
+.author-head {
+  font-weight: bold;
+  color: #369;
+}
+
+
+
+
+
+
+/* Upvote and Downvote arrows */
+.arrow {
+  max-width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.8rem;
+  justify-content: center;
+  transition-duration: 0.1s;
+}
+.arrow:active {
+  transform: translateY(3px);
+}
+
+.topic-arrows-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+} 
+
+.arrows-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-content: center;
+
+  justify-items: center;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+}
+.topic {
+  justify-content: center;
+  width: 100%;
+}
+.topic-score {
+  margin-top: 0.8rem; 
+  padding-right: 0.2rem;
+  min-width: 3rem;
+}
+
+
+
+
+
+
+
+
+/* .resize-image-button {
   height: 30%;
   width: 18%;
   align-self: flex-end;
+} */
+
+.loop-loading {
+  color: #ff4500;
 }
 
 
 
 
+/* Tablets, Phones and other small screen devices */
 @media only screen and (max-width: 900px) {
   .App {
-    width: 100%;
+    width: 98%;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+
   }
+
+  /* 
+  Tried to change loading component properties, not working.
+  .loop-loading {
+    color: #ff4500;
+    position:absolute;
+     top: 90%; 
+     left: 10%;  
+     margin: auto;
+     bottom: 0;
+     right: 0;
+    transform: "translate(-50%, -50%)" 
+  }
+  */
+
+
+
+
+
+
+
+
+
+
+
+  
 }
+
+
+
+
+
+
+

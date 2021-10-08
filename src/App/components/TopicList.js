@@ -20,13 +20,18 @@ function TopicList(props) {
   const list = [] 
   topicList.forEach((topic, index) => {
     // Mostrar 25 topicos.
-    if(index < 25) list.push(<Topic topicData={topic.data} key={index} dataKey={index} subreddit={props.subreddit}/>);
+    if(index < 25) list.push(<Topic topicData={topic.data} key={index+1} dataKey={index+1} subreddit={props.subreddit}/>);
   });
 
   return (
     <div subreddit={props.subreddit} className='subreddit'>
       <h2 className='subreddit-name'>{props.subreddit}</h2>
-      {totalTopicList.isLoading? <LoopCircleLoading color='#ff4500'/> : list }
+      {totalTopicList.isLoading? (
+      <LoopCircleLoading
+       className='loop-loading' 
+       color='#ff4500'
+      />) 
+       : list }
     </div>
   )
 }
