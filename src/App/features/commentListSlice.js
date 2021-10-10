@@ -7,19 +7,22 @@ export const commentListSlice = createSlice({
   initialState: {},
   reducers: {},
   extraReducers: {
+
+    // Reducers for getting comments from Reddit API.
     [RedditAPI.getCommentList.pending]: (state, action) => {
-      state.status = 'loading'
+      state.isLoaded = false
       
     },
     [RedditAPI.getCommentList.fulfilled]: (state, action) => {
       state[action.payload.key] = action.payload.data;
-      state.status = 'loaded'
+      state.isLoaded = true
       
     },
     [RedditAPI.getCommentList.rejected]: (state, action) => {
-      state.status = 'failed to load.'
+      state.isLoaded = false
       
     },
+      
   }
 })
 

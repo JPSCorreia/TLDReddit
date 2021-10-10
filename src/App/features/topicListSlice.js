@@ -4,20 +4,25 @@ import * as RedditAPI from '../RedditAPI';
 
 export const topicListSlice = createSlice({
   name: 'topicList',
-  initialState: {},
+  initialState: {
+    isLoading: true
+  },
   reducers: {},
   extraReducers: {
+
+    // Reducers for getting threads from Reddit API.
     [RedditAPI.getTopicList.pending]: (state, action) => {
-      state.status = 'loading'
+      state.isLoading = true;
+
       
     },
     [RedditAPI.getTopicList.fulfilled]: (state, action) => {
       state[action.payload.key] = action.payload.data;
-      state.status = 'loaded'
+      state.isLoading = false;
       
     },
     [RedditAPI.getTopicList.rejected]: (state, action) => {
-      state.status = 'failed to load.'
+      state.isLoading = true;
       
     },
   }
