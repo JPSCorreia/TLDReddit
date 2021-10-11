@@ -34,8 +34,7 @@ function SubredditBar(props) {
 
 
   return (
-    <div>
-      <br/>
+    <div className='subreddit-bar'>
       <button type="button" className='subreddit-button subreddit-button-selected' id='subreddit-button-all' onClick={handleSubredditChange}>All</button>
       <span className='separator'>-</span>
       <button type="button" className='subreddit-button' id='subreddit-button-astronomy' onClick={handleSubredditChange}>Astronomy</button>

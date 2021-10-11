@@ -1,5 +1,5 @@
 import "../Style/App.css";
-import logoTLDReddit from "../Style/TLDReddit-logo.png";
+//import logoTLDReddit from "../Style/TLDReddit-logo.png";
 import SubredditBar from "./components/SubredditBar";
 import TopicList from "./components/TopicList";
 import { useSelector } from "react-redux";
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <img className="logo" alt="logo" src={logoTLDReddit}></img>
+      <div className="logo" alt="logo"></div>
       <SubredditBar />
       <div className="main-body">
       <TopicList subreddit={selectedSubreddit} />

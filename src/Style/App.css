@@ -14,7 +14,20 @@
   margin: auto
 }
 .logo {
+
   margin-top: 1%;
+  margin-top: 0.8rem; 
+  justify-content: center;
+
+  cursor: pointer;
+  width: 370px;
+  margin: auto;
+  height: 2.6rem;
+
+  background-image: url(tldreddit-sprites.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  background-size: 50%;
 }
 p {
   margin: 0.2rem;
@@ -31,6 +44,9 @@ p {
 
 
 /* General subreddit page rules*/
+.subreddit-bar {
+  margin-top: 0.5rem;
+}
 .subreddit-name {
   padding-top: 1.5rem;
   padding-left: 4rem;
@@ -49,6 +65,8 @@ p {
       red,
       rgba(0, 0, 0, 0)
     ) 1 0 0 0;
+  justify-content: center;
+  width: 100%;
 }
 .topic-info {
   display: flex;
@@ -60,9 +78,24 @@ p {
   align-self: center;
  }
 
- .topic-arrows-container:hover {
+ .topic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+} 
+ .topic-container:hover {
   background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,0,0,0.05) 50%, rgba(255,255,255,0) 100%);
  }
+
+.whole-topic-container {
+  display: flex;
+  justify-content: flex-start
+}
+
+
+
+
 
 
 
@@ -244,42 +277,43 @@ img.thumbnail {
 .arrow {
   max-width: 1.5rem;
   height: 1.5rem;
-  margin-top: 0.8rem;
+  margin-top: 0.8rem; 
   justify-content: center;
-  transition-duration: 0.1s;
+
   cursor: pointer;
+  width: 100%;
+
+  background-image: url(tldreddit-sprites.png);
+  background-repeat: no-repeat;
 }
 .arrow:active {
   transform: translateY(3px);
 }
-
-.topic-arrows-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-} 
-
 .arrows-container {
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
   margin-bottom: 0.7rem;
-
-
-}
-.topic {
-  justify-content: center;
-  width: 100%;
+  max-width: 6%;
 }
 .topic-score {
   margin-top: 0.8rem; 
   padding-right: 0.2rem;
   min-width: 3rem;
 }
-
-
+.up-arrow {
+    background-position: 2.3% 70%;
+}
+.down-arrow {
+    background-position: 2.3% 90%;
+}
+.up-arrow-upvoted {
+  background-position: 10.1% 70%;
+}
+.down-arrow-downvoted {
+  background-position: 10.1% 90%;
+}
 
 
 

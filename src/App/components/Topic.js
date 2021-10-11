@@ -1,13 +1,16 @@
 import React from 'react'
 import CommentList from './CommentList';
 import ReactHtmlParser from "react-html-parser";
-import upArrow from "../../Style/up-arrow.png";
-import downArrow from "../../Style/down-arrow.png";
-import upArrowUpvoted from "../../Style/up-arrow-upvoted.png";
-import downArrowDownvoted from "../../Style/down-arrow-downvoted.png";
 import { useState } from "react";
 import textIcon from "../../Style/text-icon-2.png";
 import nsfwIcon from "../../Style/nsfw-icon-2.png";
+
+// import upArrow from "../../Style/up-arrow.png";
+// import downArrow from "../../Style/down-arrow.png";
+// import upArrowUpvoted from "../../Style/up-arrow-upvoted.png";
+// import downArrowDownvoted from "../../Style/down-arrow-downvoted.png";
+// import arrows from "../../Style/arrows.png";
+
 
 
 function Topic(props) {
@@ -77,108 +80,105 @@ function Topic(props) {
 
   // Function to toggle Upvote
   function toggleUpArrow(event) {
-    if (document.getElementById(event.target.id).alt === "up-arrow") {
-      if (
-        document.getElementById(
-          `topic-score-${event.target.attributes.topicid.nodeValue}`
-        ).style.color === "rgb(51, 102, 153)"
-      ) {
-        document.getElementById(
-          `topic-score-${event.target.attributes.topicid.nodeValue}`
-        ).style.color = "black";
+
+    if (document.getElementById(event.target.id).getAttribute('alt') === "up-arrow") {
+
+      if (document.getElementById(`topic-score-${event.target.attributes.topicid.nodeValue}`).style.color === "rgb(51, 102, 153)") {
+        document.getElementById(`topic-score-${event.target.attributes.topicid.nodeValue}`).style.color = "black";
         setCount(count + 2);
       } else {
         setCount(count + 1);
       }
-      document.getElementById(event.target.id).src = upArrowUpvoted;
-      document.getElementById(event.target.id).alt = "up-arrow-upvoted";
-      document.getElementById(
-        `topic-score-${event.target.attributes.topicid.nodeValue}`
-      ).style.color = "#ff4500";
-      document.getElementById(
-        `down-arrow-${event.target.attributes.topicid.nodeValue}`
-      ).src = downArrow;
-      document.getElementById(
-        `down-arrow-${event.target.attributes.topicid.nodeValue}`
-      ).alt = "down-arrow";
+
+      document.getElementById(event.target.id).classList.remove("up-arrow")
+      document.getElementById(event.target.id).classList.add("up-arrow-upvoted")
+      document.getElementById(event.target.id).setAttribute('alt', 'up-arrow-upvoted');
+
+      document.getElementById(`topic-score-${event.target.attributes.topicid.nodeValue}`).style.color = "#ff4500";
+      document.getElementById(`down-arrow-${event.target.attributes.topicid.nodeValue}`).classList.remove("down-arrow-downvoted")
+      document.getElementById(`down-arrow-${event.target.attributes.topicid.nodeValue}`).classList.add("down-arrow")
+      document.getElementById(`down-arrow-${event.target.attributes.topicid.nodeValue}`).setAttribute('alt', 'down-arrow');
+
     } else {
-      document.getElementById(event.target.id).src = upArrow;
-      document.getElementById(event.target.id).alt = "up-arrow";
-      document.getElementById(
-        `topic-score-${event.target.attributes.topicid.nodeValue}`
-      ).style.color = "black";
+
+      document.getElementById(event.target.id).classList.remove("up-arrow-upvoted")
+      document.getElementById(event.target.id).classList.add("up-arrow")
+      document.getElementById(event.target.id).setAttribute('alt', 'up-arrow');
+      document.getElementById(`topic-score-${event.target.attributes.topicid.nodeValue}`).style.color = "black";
       setCount(count + -1);
     }
+
   }
 
   // Function to toggle Downvote
   function toggleDownArrow(event) {
-    if (document.getElementById(event.target.id).alt === "down-arrow") {
-      if (
-        document.getElementById(
-          `topic-score-${event.target.attributes.topicid.nodeValue}`
-        ).style.color === "rgb(255, 69, 0)"
-      ) {
-        document.getElementById(
-          `topic-score-${event.target.attributes.topicid.nodeValue}`
-        ).style.color = "black";
+
+    if (document.getElementById(event.target.id).getAttribute('alt') === "down-arrow") {
+
+      if (document.getElementById(`topic-score-${event.target.attributes.topicid.nodeValue}`).style.color === "rgb(255, 69, 0)") {
+        document.getElementById(`topic-score-${event.target.attributes.topicid.nodeValue}`).style.color = "black";
         setCount(count - 2);
       } else {
         setCount(count - 1);
       }
-      document.getElementById(event.target.id).src = downArrowDownvoted;
-      document.getElementById(event.target.id).alt = "down-arrow-upvoted";
-      document.getElementById(
-        `topic-score-${event.target.attributes.topicid.nodeValue}`
-      ).style.color = "#369";
-      document.getElementById(
-        `up-arrow-${event.target.attributes.topicid.nodeValue}`
-      ).src = upArrow;
-      document.getElementById(
-        `up-arrow-${event.target.attributes.topicid.nodeValue}`
-      ).alt = "up-arrow";
+
+      document.getElementById(event.target.id).classList.remove("down-arrow")
+      document.getElementById(event.target.id).classList.add("down-arrow-downvoted")
+      document.getElementById(event.target.id).setAttribute('alt', 'down-arrow-downvoted');
+
+      document.getElementById(`topic-score-${event.target.attributes.topicid.nodeValue}`).style.color = "#369";
+      document.getElementById(`up-arrow-${event.target.attributes.topicid.nodeValue}`).classList.remove("up-arrow-upvoted")
+      document.getElementById(`up-arrow-${event.target.attributes.topicid.nodeValue}`).classList.add("up-arrow")
+      document.getElementById(`up-arrow-${event.target.attributes.topicid.nodeValue}`).setAttribute('alt', 'up-arrow');
+
     } else {
-      document.getElementById(event.target.id).src = downArrow;
-      document.getElementById(event.target.id).alt = "down-arrow";
-      document.getElementById(
-        `topic-score-${event.target.attributes.topicid.nodeValue}`
-      ).style.color = "black";
+
+      document.getElementById(event.target.id).classList.remove("down-arrow-downvoted")
+      document.getElementById(event.target.id).classList.add("down-arrow")
+      document.getElementById(event.target.id).setAttribute('alt', 'down-arrow')
+      document.getElementById(`topic-score-${event.target.attributes.topicid.nodeValue}`).style.color = "black";
       setCount(count + 1);
     }
+
   }
 
   return (
-    <div className="topic-arrows-container">
-      <div className="arrows-container">
-        <img
-          className="arrow"
+    <div className='whole-topic-container'>
+    <div className="arrows-container">
+        <div 
+          className="up-arrow arrow"
           alt="up-arrow"
-          src={upArrow}
           onClick={toggleUpArrow}
           id={`up-arrow-${props.subreddit}-${props.dataKey}`}
           topicid={`${props.subreddit}-${props.dataKey}`}
-        ></img>
+        >
+        </div>
         <div
           className="topic-score"
           id={`topic-score-${props.subreddit}-${props.dataKey}`}
         >
           {count}
         </div>
-        <img
-          className="arrow"
+        <div 
+          className="down-arrow arrow"
+          data-alt="down-arrow"
           alt="down-arrow"
-          src={downArrow}
           onClick={toggleDownArrow}
           id={`down-arrow-${props.subreddit}-${props.dataKey}`}
           topicid={`${props.subreddit}-${props.dataKey}`}
-        ></img>
+        ></div>
       </div>
+
+    <div className="topic-container">
       <div
         className="topic"
         topic-id={props.topicData.id}
         id={`${props.subreddit}-${props.dataKey}`}
       >
+   
+       
         <div className="topic-and-thumbnail">
+
           <div className="topic-name">
             <b>{ReactHtmlParser(props.topicData.title)}</b>
           </div>
@@ -202,6 +202,7 @@ function Topic(props) {
           author={props.topicData.author}
         />
       </div>
+    </div>
     </div>
   );
 }
