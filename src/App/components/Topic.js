@@ -1,16 +1,50 @@
 import React from 'react'
 import CommentList from './CommentList';
-import ReactHtmlParser from 'react-html-parser';
-import * as App from '../App'
-import upArrow from '../../Style/up-arrow.png'
-import downArrow from '../../Style/down-arrow.png'
-import upArrowUpvoted from '../../Style/up-arrow-upvoted.png'
-import downArrowDownvoted from '../../Style/down-arrow-downvoted.png'
-import { useState } from 'react'
+import ReactHtmlParser from "react-html-parser";
+import upArrow from "../../Style/up-arrow.png";
+import downArrow from "../../Style/down-arrow.png";
+import upArrowUpvoted from "../../Style/up-arrow-upvoted.png";
+import downArrowDownvoted from "../../Style/down-arrow-downvoted.png";
+import { useState } from "react";
+import textIcon from "../../Style/text-icon.png";
+import nsfwIcon from "../../Style/nsfw-icon.png";
 
-
+// Function that searchs for thumbnail, it adds a text thumbnail or nsfw thumbnail for posts of those types.
+const thumbnailExists = (thumbnail, id) => {
+  //console.log(`thumbnail is ${thumbnail} with id ${id}`)
+  if (["default", "self", ""].includes(thumbnail)) {
+    return (
+      <img
+        alt="thumbnail"
+        id={`thumbnail-${id}`}
+        title="text-icon"
+        src={textIcon}
+        className="thumbnail"
+      ></img>
+    );
+  } else if (["nsfw"].includes(thumbnail)) {
+    return (
+      <img
+        alt="thumbnail"
+        id={`thumbnail-${id}`}
+        title="nsfw-icon"
+        src={nsfwIcon}
+        className="thumbnail"
+      ></img>
+    );
+  } else {
+    return (
+      <img
+        alt="thumbnail"
+        id={`thumbnail-${id}`}
+        title={thumbnail}
+        src={thumbnail}
+        className="thumbnail"
+      ></img>
+    );
+  }
+};
 function Topic(props) {
-
   const [count, setCount] = useState(props.topicData.ups);
 
   // const resizeThumbnail = () => {
@@ -127,7 +161,7 @@ function Topic(props) {
 
           <div className="thumbnail-container">
             {/* <button type='button' className='resize-image-button'></button> */}
-            {App.thumbnailExists(props.topicData.thumbnail, props.topicData.id)}
+            {thumbnailExists(props.topicData.thumbnail, props.topicData.id)}
           </div>
         </div>
 

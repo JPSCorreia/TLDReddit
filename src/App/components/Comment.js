@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import * as App from '../App'
+import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 
 function Comment(props) {
