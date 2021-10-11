@@ -8,23 +8,6 @@ import textIcon from '../Style/text-icon.png';
 import nsfwIcon from '../Style/nsfw-icon.png';
 
 
-  // Function to convert Unix Timestamp to date in local timezone/locale.
-  export const convertUnixToDate = (unixTimestamp) => {
-    // Get user's locale (ie: 'en-us').
-    const getNavigatorLanguage = () => {
-      if (navigator.languages && navigator.languages.length) {
-        return navigator.languages[0];
-      } else {
-        return navigator.userLanguage || navigator.language || navigator.browserLanguage || 'en';
-      }
-    }
-    // Get user's timezone. (ie: 'Europe/Lisbon')
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    // Return date with locale and user timezone in consideration.
-    const date = new Date(unixTimestamp * 1000);
-    return date.toLocaleString(getNavigatorLanguage(), {timeZone: timeZone})
-  }
-
   // Function that searchs for thumbnail, it adds a text thumbnail or nsfw thumbnail for posts of those types.
   export const thumbnailExists = (thumbnail, id) => {
     // Not working in some subreddits like r/worldnews
