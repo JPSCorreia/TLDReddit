@@ -14,20 +14,19 @@
   margin: auto
 }
 .logo {
-
-  margin-top: 1%;
-  margin-top: 0.8rem; 
   justify-content: center;
 
   cursor: pointer;
   width: 370px;
   margin: auto;
+  margin-top: 0.5rem;
   height: 2.6rem;
 
+  background-size: 50%;
   background-image: url(tldreddit-sprites.png);
   background-repeat: no-repeat;
   background-position: 50% 0%;
-  background-size: 50%;
+  
 }
 p {
   margin: 0.2rem;
@@ -42,11 +41,7 @@ p {
 
 
 
-
 /* General subreddit page rules*/
-.subreddit-bar {
-  margin-top: 0.5rem;
-}
 .subreddit-name {
   padding-top: 1.5rem;
   padding-left: 4rem;
@@ -68,16 +63,6 @@ p {
   justify-content: center;
   width: 100%;
 }
-.topic-info {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 0.5rem;
-  padding-right: 0.15rem;
-  font-size: 0.9rem;
-  align-content: center;
-  align-self: center;
- }
-
  .topic-container {
   display: flex;
   justify-content: center;
@@ -85,9 +70,8 @@ p {
   flex: 1;
 } 
  .topic-container:hover {
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,0,0,0.05) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,0,0,0.03) 50%, rgba(255,255,255,0) 100%);
  }
-
 .whole-topic-container {
   display: flex;
   justify-content: flex-start
@@ -97,32 +81,10 @@ p {
 
 
 
-
-
-
-
-/* Show or hide comments button */
-.show-or-hide-comments {
-  cursor: pointer;
-  border: 0;
-  transition-duration: 0.4s;
-  background-color: rgba(0,0,0, 0);
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 0.9rem;
-}
-.show-or-hide-comments:hover {
-  color: blue !important;
-}
-.show-or-hide-comments:active {
-  transform: translateY(3px);
-}
-
-
-
-
-
-
 /* Subreddit Bar rules */
+.subreddit-bar {
+  margin-top: 0.5rem;
+}
 .subreddit-button {
   cursor: pointer;
   display: inline-block;
@@ -135,7 +97,6 @@ p {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   color: black;
-
 }
 .subreddit-button:hover {
   color: #6b6b6b !important ;
@@ -143,7 +104,6 @@ p {
 .subreddit-button:active {
   transform: translateY(3px);
 }
-
 .subreddit-button-selected {
   border-width: 1px;
   border-top: 0;
@@ -165,124 +125,14 @@ p {
 
 
 
-/* Topic title and thumbnail container */
-.topic-and-thumbnail {
-  display: flex;
-  justify-content: space-between;
-}
-.topic-name {
-  padding-left: 0.5rem;
-  align-self: center;
-  font-size: 1rem;
-  text-align: left;
-}
-.topic-name:hover {
-  cursor: pointer;
-}
-.thumbnail-container {
-  width: 150px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-img.thumbnail {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.5rem;
-  max-width: 70px;
-  max-height: 70px;
-  align-self: flex-end;
-
-  width: 70px;
-  aspect-ratio: auto 70 / 60;
-  height: 60px;
- }
-
-
-
-
-
-
- /* Comment rules */
- .author {
-  font-weight: bold;
-  color: #369;
-  text-align: left;
-  margin: 0.2rem;
-  font-size: 0.8rem;
-}
-.comment {
-  border: rgb(220, 220, 220) 1px solid;
-  margin: 1px;
-  margin: 0.2rem;
-  padding-left: 0.3rem;
-  border-radius: 5px;
-}
-.comment-grey {
-  background-color: rgb(247, 248, 248);
-}
-.comment-white {
-  background-color: white;
-}
-.author-info {
-  padding-bottom: 0rem;
-  display: flex;
-}
-.points {
-  font-size: 0.8rem;
-  font-weight: bold;
-  align-self: center;
-}
-.comment-created-when {
-  font-size: 0.8rem;
-  align-self: center;
-}
-.comment-body {
-  padding-bottom: 0.2rem;
-  padding-top: 0.05rem;
-}
-
-
-
-
-
-
- /* Comment head rules */
-.comment-head {
-  background-color: white;
-  margin: 1px;
-  margin: 0.2rem;
-  padding-left: 0.3rem;
-  border-radius: 5px;
-}
-.author-in-comments {
-  color: rgb(232, 18, 240);
-  font-weight: bold;
-  text-align: left;
-  margin: 0.2rem;
-  font-size: 0.8rem;
-}
-.author-head {
-  font-weight: bold;
-  color: #369;
-}
-
-
-
-
-
-
 /* Upvote and Downvote arrows */
 .arrow {
   max-width: 1.5rem;
   height: 1.5rem;
   margin-top: 0.8rem; 
   justify-content: center;
-
   cursor: pointer;
   width: 100%;
-
   background-image: url(tldreddit-sprites.png);
   background-repeat: no-repeat;
 }
@@ -319,13 +169,160 @@ img.thumbnail {
 
 
 
+/* Topic title and thumbnail container */
+.topic-and-thumbnail {
+  display: flex;
+  justify-content: space-between;
+}
+.topic-name {
+  padding-left: 0.5rem;
+  align-self: center;
+  font-size: 1rem;
+  text-align: left;
+}
+.topic-name:hover {
+  cursor: pointer;
+}
+.thumbnail-container {
+  width: 150px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+img.thumbnail {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  max-width: 70px;
+  max-height: 70px;
+  align-self: flex-end;
+  width: 70px;
+  aspect-ratio: auto 70 / 60;
+  height: 60px;
+ }
+
+
+
+
+
+/* Comment list rules */
+.topic-info {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+  padding-right: 0.15rem;
+  font-size: 0.7rem;
+  align-content: center;
+  align-self: center;
+ }
+
+
+
+
+
+/* Show or hide comments button */
+.show-or-hide-comments {
+  cursor: pointer;
+  border: 0;
+  transition-duration: 0.4s;
+  background-color: rgba(0,0,0, 0);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.7rem;
+}
+.show-or-hide-comments:hover {
+  color: blue !important;
+}
+.show-or-hide-comments:active {
+  transform: translateY(3px);
+}
+
+
+
+
+
+ /* Comment head rules */
+ .comment-head {
+  background-color: white;
+  margin: 1px;
+  margin: 0.2rem;
+  padding-left: 0.3rem;
+  border-radius: 5px;
+  width: 105%;
+}
+.author-in-comments {
+  color: rgb(232, 18, 240);
+  font-weight: bold;
+  text-align: left;
+  margin: 0.2rem;
+  font-size: 0.8rem;
+}
+.author-head {
+  font-weight: bold;
+  color: #369;
+}
+
+
+
+
+
+/* Comment rules */
+.author {
+  font-weight: bold;
+  color: #369;
+  text-align: left;
+  margin: 0.2rem;
+  font-size: 0.6rem;
+}
+.comment {
+  border: rgb(220, 220, 220) 1px solid;
+  margin: 1px;
+  margin: 0.2rem;
+  padding-left: 0.3rem;
+  border-radius: 5px;
+  word-wrap: break-word;
+  width: 105%;
+}
+.comment-grey {
+  background-color: rgb(247, 248, 248);
+}
+.comment-white {
+  background-color: white;
+}
+.author-info {
+  padding-bottom: 0rem;
+  display: flex;
+}
+.points {
+  font-size: 0.6rem;
+  font-weight: bold;
+  align-self: center;
+}
+.comment-created-when {
+  font-size: 0.6rem;
+  align-self: center;
+}
+.comment-body {
+  padding-bottom: 0.2rem;
+  padding-top: 0.05rem;
+}
+.comments {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+
+
+
 
 /* .resize-image-button {
   height: 30%;
   width: 18%;
   align-self: flex-end;
 } */
-
 
 
 
@@ -338,8 +335,82 @@ img.thumbnail {
     align-items: center;
     align-content: center;
     margin: auto;
-
+    font-size: 0.6rem;
   }
+
+  .arrows-container {
+    align-items: center;
+    margin-bottom: 0.5rem;
+    max-width: 8%;
+  }
+
+  .arrow {
+    background-size: 1500%;
+    max-width: 1rem;
+    height: 1rem;
+    margin-top: 0.8rem; 
+    justify-content: center;   
+  }
+
+
+  .main-body {
+    width: 100%;
+  }
+
+  .topic-container {
+    max-width: 95%
+  }
+
+  .subreddit-name {
+    font-size: 1.25rem;
+    padding-left: 2.5rem;
+  }
+
+  .topic-name {
+    font-size: 0.8rem;
+  }
+
+  .thumbnail-container {
+    max-width: 25%;
+  }
+
+  .topic-info {
+    font-size: 0.6rem;
+  }
+
+  .show-or-hide-comments {
+    font-size: 0.6rem;
+  }
+
+  .subreddit-button {
+    font-size: 0.8rem;
+  }
+
+  .comment {
+    width: 106%;
+  }
+
+
+  .comments {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 0.5rem
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /* 
   Tried to change loading component properties, not working.
