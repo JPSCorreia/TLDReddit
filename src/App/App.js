@@ -1,6 +1,6 @@
 
 import '../Style/App.css';
-import logoTLDReddit from '../Style/TLDRedditlogo.png'
+import logoTLDReddit from '../Style/TLDReddit-logo.png'
 import SubredditBar from './components/SubredditBar';
 import TopicList from './components/TopicList';
 import { useSelector } from 'react-redux';

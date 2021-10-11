@@ -28,24 +28,36 @@ p {
 
 /* General subreddit page rules*/
 .subreddit-name {
-  text-decoration: underline;
   padding-top: 1.5rem;
-  padding-left: 1.5rem;
+  padding-left: 4rem;
   text-align: left;
   margin: 0;
+  margin-bottom: 1rem;
 }
-.topic {
+/* .topic {
   border: #ff4500 1px solid;
   color: black;
   margin-top: 1rem;
   border-radius: 2px;
   padding: 0.1rem;
+} */
+.topic {
+  padding: 0.5rem 0;
+  border-width: 2px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to right, 
+      rgba(0, 0, 0, 0), 
+      red,
+      rgba(0, 0, 0, 0)
+    ) 1 0 0 0;
 }
 .topic-info {
   display: flex;
   justify-content: space-between;
   padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-right: 0.15rem;
   font-size: 0.9rem;
   align-content: center;
   align-self: center;
@@ -61,7 +73,7 @@ p {
   cursor: pointer;
   border: 0;
   transition-duration: 0.4s;
-  background-color: white;
+  background-color: rgba(0,0,0, 0);
   font-family: 'Noto Sans', sans-serif;
   font-size: 0.9rem;
 }
@@ -84,8 +96,13 @@ p {
   font-size: 1rem;
   border: 0;
   transition-duration: 0.4s;
-  background-color: white;
+  background-color: rgba(0,0,0, 0);
   font-family: 'Noto Sans', sans-serif;
+  padding: 0;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: black;
+
 }
 .subreddit-button:hover {
   color: #6b6b6b !important ;
@@ -93,10 +110,23 @@ p {
 .subreddit-button:active {
   transform: translateY(3px);
 }
-#subreddit-button-all {
-  color: #ff4500;
-}
 
+.subreddit-button-selected {
+  border-width: 1px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to right, 
+      rgba(0, 0, 0, 0), 
+      red,
+      rgba(0, 0, 0, 0)
+    ) 0 0 1 0;
+  color: red;
+  transition-duration: 0s;
+}
 
 
 
@@ -210,6 +240,7 @@ img.thumbnail {
   margin-top: 0.8rem;
   justify-content: center;
   transition-duration: 0.1s;
+  cursor: pointer;
 }
 .arrow:active {
   transform: translateY(3px);
@@ -226,13 +257,10 @@ img.thumbnail {
   display: flex;
   flex-direction: column;
   flex: 1;
-  justify-content: center;
-  align-content: center;
-
-  justify-items: center;
   align-items: center;
-  justify-self: center;
-  align-self: center;
+  margin-bottom: 0.7rem;
+
+
 }
 .topic {
   justify-content: center;
@@ -257,9 +285,7 @@ img.thumbnail {
   align-self: flex-end;
 } */
 
-.loop-loading {
-  color: #ff4500;
-}
+
 
 
 

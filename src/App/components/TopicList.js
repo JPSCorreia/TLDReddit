@@ -25,12 +25,13 @@ function TopicList(props) {
 
   return (
     <div subreddit={props.subreddit} className='subreddit'>
-      <h2 className='subreddit-name'>{props.subreddit}</h2>
+      <h2 className='subreddit-name'>
+        <div className='subreddit-name-border'>{props.subreddit}</div>
+      </h2>
       {totalTopicList.isLoading? (
       <LoopCircleLoading
-       className='loop-loading' 
-       color='#ff4500'
-      />) 
+        color='red'
+      />)
        : list }
     </div>
   )

@@ -16,18 +16,27 @@ function SubredditBar(props) {
 
   // Change subreddit and current subreddit/new subreddit button style on button click.
   function handleSubredditChange (event) {
-    document.getElementById(currentSub).style.transition = '0.4s'
-    document.getElementById(currentSub).style.color = 'black'
-    document.getElementById(event.target.id).style.color = '#ff4500'
-    document.getElementById(event.target.id).style.transition = '0s'
+    // document.getElementById(currentSub).style.transition = '0.4s'
+    // document.getElementById(currentSub).style.color = 'black'
+    // document.getElementById(event.target.id).style.color = '#ff4500'
+    // document.getElementById(event.target.id).style.transition = '0s'
+    document.getElementById(currentSub).classList.remove('subreddit-button-selected');
+    document.getElementById(event.target.id).classList.add('subreddit-button-selected');
+
+    console.log(currentSub)
+    console.log(event.target.id)
+
     dispatch(RedditAPI.selectSubreddit(`r/${event.target.innerText}`))
     currentSub = event.target.id;
   }
 
+
+
+
   return (
     <div>
       <br/>
-      <button type="button" className='subreddit-button' id='subreddit-button-all' onClick={handleSubredditChange}>All</button>
+      <button type="button" className='subreddit-button subreddit-button-selected' id='subreddit-button-all' onClick={handleSubredditChange}>All</button>
       <span className='separator'>-</span>
       <button type="button" className='subreddit-button' id='subreddit-button-astronomy' onClick={handleSubredditChange}>Astronomy</button>
       <span className='separator'>-</span>
