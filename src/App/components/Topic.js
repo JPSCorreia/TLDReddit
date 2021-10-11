@@ -9,47 +9,71 @@ import { useState } from "react";
 import textIcon from "../../Style/text-icon.png";
 import nsfwIcon from "../../Style/nsfw-icon.png";
 
-// Function that searchs for thumbnail, it adds a text thumbnail or nsfw thumbnail for posts of those types.
-const thumbnailExists = (thumbnail, id) => {
-  //console.log(`thumbnail is ${thumbnail} with id ${id}`)
-  if (["default", "self", ""].includes(thumbnail)) {
-    return (
-      <img
-        alt="thumbnail"
-        id={`thumbnail-${id}`}
-        title="text-icon"
-        src={textIcon}
-        className="thumbnail"
-      ></img>
-    );
-  } else if (["nsfw"].includes(thumbnail)) {
-    return (
-      <img
-        alt="thumbnail"
-        id={`thumbnail-${id}`}
-        title="nsfw-icon"
-        src={nsfwIcon}
-        className="thumbnail"
-      ></img>
-    );
-  } else {
-    return (
-      <img
-        alt="thumbnail"
-        id={`thumbnail-${id}`}
-        title={thumbnail}
-        src={thumbnail}
-        className="thumbnail"
-      ></img>
-    );
-  }
-};
+
 function Topic(props) {
   const [count, setCount] = useState(props.topicData.ups);
 
-  // const resizeThumbnail = () => {
-  //   document.getElementById(`thumbnail-${props.topicData.id}`).src='';
-  // }
+  // Function that searchs for thumbnail, it adds a text thumbnail or nsfw thumbnail for posts of those types.
+  const thumbnailExists = (thumbnail, id) => {
+    //console.log(`thumbnail is ${thumbnail} with id ${id}`)
+    if (["default", "self", ""].includes(thumbnail)) {
+      return (
+        <img
+          alt="thumbnail"
+          id={`thumbnail-${id}`}
+          title="text-icon"
+          src={textIcon}
+          className="thumbnail"
+        ></img>
+      );
+    } else if (["nsfw"].includes(thumbnail)) {
+      return (
+        <img
+          alt="thumbnail"
+          id={`thumbnail-${id}`}
+          title="nsfw-icon"
+          src={nsfwIcon}
+          className="thumbnail"
+        ></img>
+      );
+    } else {
+      return (
+        <img
+          alt="thumbnail"
+          id={`thumbnail-${id}`}
+          title={thumbnail}
+          src={thumbnail}
+          className="thumbnail"
+        ></img>
+      );
+    }
+  };
+
+  let thumbnailToggler = false;
+  function toggleThumbnail(event) {
+    if (!thumbnailToggler) {
+      // document.getElementById(
+      //   `thumbnail-${props.topicData.id}`
+      // ).src = `${props.topicData.url_overridden_by_dest}`;
+      document.getElementById(
+        `thumbnail-${props.topicData.id}`
+      ).style.maxWidth = "700px";
+      document.getElementById(
+        `thumbnail-${props.topicData.id}`
+      ).style.maxHeight = "700px";
+    } else {
+      // document.getElementById(
+      //   `thumbnail-${props.topicData.id}`
+      // ).src = `${props.topicData.thumbnail}`;
+      document.getElementById(
+        `thumbnail-${props.topicData.id}`
+      ).style.maxWidth = "70px";
+      document.getElementById(
+        `thumbnail-${props.topicData.id}`
+      ).style.maxHeight = "70px";
+    }
+    thumbnailToggler = !thumbnailToggler;
+  }
 
   // Function to toggle Upvote
   function toggleUpArrow(event) {
@@ -159,8 +183,7 @@ function Topic(props) {
             <b>{ReactHtmlParser(props.topicData.title)}</b>
           </div>
 
-          <div className="thumbnail-container">
-            {/* <button type='button' className='resize-image-button'></button> */}
+          <div className="thumbnail-container" onClick={toggleThumbnail}>
             {thumbnailExists(props.topicData.thumbnail, props.topicData.id)}
           </div>
         </div>
