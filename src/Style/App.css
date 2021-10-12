@@ -50,7 +50,7 @@ p {
   margin-bottom: 1rem;
 }
 .topic {
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
   border-width: 2px;
   border-style: solid;
   border-image: 
@@ -145,12 +145,13 @@ p {
   flex: 1;
   align-items: center;
   margin-bottom: 0.7rem;
-  max-width: 6%;
+  max-width: 5%;
 }
 .topic-score {
   margin-top: 0.8rem; 
   padding-right: 0.2rem;
   min-width: 3rem;
+  font-size: 0.7rem
 }
 .up-arrow {
     background-position: 2.3% 70%;
@@ -175,9 +176,9 @@ p {
   justify-content: space-between;
 }
 .topic-name {
-  padding-left: 0.5rem;
+  padding-left: 0.7rem;
   align-self: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-align: left;
 }
 .topic-name:hover {
@@ -189,18 +190,108 @@ p {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
 }
 img.thumbnail {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.5rem;
+
+
   max-width: 70px;
   max-height: 70px;
   align-self: flex-end;
   width: 70px;
-  aspect-ratio: auto 70 / 60;
-  height: 60px;
+  height:70px;
  }
+
+
+
+
+
+ /* Preview image button */
+.preview-image-button {
+  appearance: none;
+  align-self: flex-end;
+  background-color: #FAFBFC;
+  border: rgb(220, 220, 220, 0.5) 1px solid;
+  border-radius: 2px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  list-style: none;
+  padding: 3px 6px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+  margin-bottom: 0.2rem;
+  margin-right: 0.5rem;
+  width: 0.5rem;
+  height: 0.85rem;
+  background-size: 200%;
+  background-image: url(resize.png);
+  background-repeat: no-repeat;
+}
+.preview-image-button:hover {
+  background-color: rgb(247, 248, 248);
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+.preview-image-button:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+.preview-image-button:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+.preview-image-button:focus {
+  outline: 1px transparent;
+}
+.preview-image-button:before {
+  display: none;
+}
+.preview-image-button:-webkit-details-marker {
+  display: none;
+}
+
+.preview-image-button-open {
+
+  background-position: 0% 50%;
+  opacity: 0.8;
+}
+.preview-image-button-close {
+  background-position: 100% 50%;
+  opacity: 0.8;
+}
+
+
+
+/* Preview Image */
+
+.preview-image {
+  width: 50%;
+  margin: left;
+  padding-left: 0.7rem;
+}
+
+.preview-image img {
+  width: 100%;
+}
+
+
+
+
+
 
 
 
@@ -212,7 +303,7 @@ img.thumbnail {
   justify-content: space-between;
   padding-left: 0.5rem;
   padding-right: 0.15rem;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   align-content: center;
   align-self: center;
  }
@@ -228,7 +319,7 @@ img.thumbnail {
   transition-duration: 0.4s;
   background-color: rgba(0,0,0, 0);
   font-family: 'Noto Sans', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 .show-or-hide-comments:hover {
   color: blue !important;
@@ -283,12 +374,6 @@ img.thumbnail {
   word-wrap: break-word;
   width: 105%;
 }
-.comment-grey {
-  background-color: rgb(247, 248, 248);
-}
-.comment-white {
-  background-color: white;
-}
 .author-info {
   padding-bottom: 0rem;
   display: flex;
@@ -313,6 +398,10 @@ img.thumbnail {
   margin-left: 0.5rem;
   font-size: 0.8rem;
 }
+.comment:nth-child(odd) {
+  background-color: rgb(247, 248, 248);
+}
+
 
 
 

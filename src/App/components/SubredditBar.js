@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 import * as RedditAPI from '../RedditAPI';
 let currentSub = 'subreddit-button-all';
 
+
 function SubredditBar(props) {
 
   // Redux State/Action Management.
-  
   const dispatch = useDispatch();
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value)
   useEffect(() =>  {
@@ -16,10 +16,6 @@ function SubredditBar(props) {
 
   // Change subreddit and current subreddit/new subreddit button style on button click.
   function handleSubredditChange (event) {
-    // document.getElementById(currentSub).style.transition = '0.4s'
-    // document.getElementById(currentSub).style.color = 'black'
-    // document.getElementById(event.target.id).style.color = '#ff4500'
-    // document.getElementById(event.target.id).style.transition = '0s'
     document.getElementById(currentSub).classList.remove('subreddit-button-selected');
     document.getElementById(event.target.id).classList.add('subreddit-button-selected');
 
@@ -31,8 +27,6 @@ function SubredditBar(props) {
   }
 
 
-
-
   return (
     <div className='subreddit-bar'>
       <button type="button" className='subreddit-button subreddit-button-selected' id='subreddit-button-all' onClick={handleSubredditChange}>All</button>
@@ -42,6 +36,8 @@ function SubredditBar(props) {
       <button type="button" className='subreddit-button' id='subreddit-button-formula1' onClick={handleSubredditChange}>Formula1</button>
       <span className='separator'>-</span>
       <button type="button" className='subreddit-button' id='subreddit-button-futurology' onClick={handleSubredditChange}>Futurology</button>
+      <span className='separator'>-</span>
+      <button type="button" className='subreddit-button' id='subreddit-button-gifs' onClick={handleSubredditChange}>Gifs</button>
       <span className='separator'>-</span>
       <button type="button" className='subreddit-button' id='subreddit-button-pcgaming' onClick={handleSubredditChange}>PCGaming</button>
       <span className='separator'>-</span>

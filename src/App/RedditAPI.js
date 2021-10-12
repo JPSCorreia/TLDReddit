@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-
+// Get topic list from url Action
 export const getTopicList = createAsyncThunk(
   "topicList/getTopicList",
   async (url) => {
@@ -12,6 +12,7 @@ export const getTopicList = createAsyncThunk(
   }
 );
 
+// Get comment list from url Action
 export const getCommentList = createAsyncThunk(
   "commentList/getCommentList",
   async (url) => {
@@ -25,12 +26,22 @@ export const getCommentList = createAsyncThunk(
   }
 );
 
+// Select subreddit sub Action
 export const selectSubreddit = createAsyncThunk(
   "selectedSubreddit/selectSubreddit",
   async (sub) => {
     return sub;
   }
 )
+
+// Toggle preview image for a topic with property id=id Action
+export const previewImage = createAsyncThunk(
+  "selectedTopic/previewImage",
+   async (id) => {
+    return { id: id };
+    }
+)
+
 
 
   /* 

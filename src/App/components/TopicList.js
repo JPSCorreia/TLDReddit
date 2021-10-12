@@ -11,7 +11,9 @@ function TopicList(props) {
   // Redux State/Action Management.
   const dispatch = useDispatch();
   const topicList = useSelector((state) => state.topicList[props.subreddit] || [])
+
   const totalTopicList = useSelector((state) => state.topicList)
+  
   useEffect(() =>  {
     dispatch(RedditAPI.getTopicList(props.subreddit));
   }, [dispatch, props.subreddit]);
@@ -20,7 +22,13 @@ function TopicList(props) {
   const list = [] 
   topicList.forEach((topic, index) => {
     // Mostrar 25 topicos.
-    if(index < 25) list.push(<Topic topicData={topic.data} key={index+1} dataKey={index+1} subreddit={props.subreddit}/>);
+    if(index < 25) list.push(<Topic 
+      topicData={topic.data} 
+      key={index+1} 
+      dataKey={index+1} 
+      subreddit={props.subreddit}
+      id={`${props.subreddit}-${index+1}`}
+    />);
   });
 
   return (
