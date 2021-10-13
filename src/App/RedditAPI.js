@@ -35,13 +35,20 @@ export const selectSubreddit = createAsyncThunk(
 )
 
 // Toggle preview image for a topic with property id=id Action
-export const previewImage = createAsyncThunk(
-  "selectedTopic/previewImage",
+export const preview = createAsyncThunk(
+  "previewImage/preview",
    async (id) => {
     return { id: id };
     }
 )
 
+// Toggle comments showing for a topic with property id=id Action
+export const toggle = createAsyncThunk(
+  "toggleComments/toggle",
+   async (id) => {
+    return { id: id };
+    }
+)
 
 
   /* 

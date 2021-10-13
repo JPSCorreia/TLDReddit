@@ -3,24 +3,19 @@ import textIcon from "../../Style/text-icon-2.png";
 import nsfwIcon from "../../Style/nsfw-icon-2.png";
 import { useSelector, useDispatch } from 'react-redux';
 import * as RedditAPI from '../RedditAPI';
-import { useEffect } from 'react';
 
 
 function ThumbnailContainer(props) {
 
   // Redux State/Action Management.
   const dispatch = useDispatch();
-  useEffect(() =>  {
-    dispatch(RedditAPI.previewImage(props.id));
-  }, [dispatch, props.id]); 
-  const previewImageShowing = useSelector((state) => state.selectedTopic[props.id]);
-
+  const previewImageShowing = useSelector((state) => state.previewImage[props.id]);
 
 
 // Event handler for toggling showing preview image.
   function togglePreview() {
-    console.log(`toggling image preview on topic ${props.id} to: ${previewImageShowing}`)
-    dispatch(RedditAPI.previewImage(props.id))
+    console.log(`Image preview on topic ${props.id} to: ${previewImageShowing? 'hide' :'show'}`)
+    dispatch(RedditAPI.preview(props.id))
     if (!previewImageShowing) {
       document.getElementById(`thumbnail-container-${props.id}`).classList.remove('preview-image-button-open');
       document.getElementById(`thumbnail-container-${props.id}`).classList.add('preview-image-button-close');
