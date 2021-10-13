@@ -21,7 +21,7 @@ function TopicList(props) {
   // Push different Topic components to a list.
   const list = [] 
   topicList.forEach((topic, index) => {
-    // Mostrar 25 topicos.
+    // Show 25 topics.
     if(index < 25) list.push(<Topic 
       topicData={topic.data} 
       key={index+1} 
