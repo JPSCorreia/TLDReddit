@@ -3,8 +3,10 @@ import SubredditBar from "./components/SubredditBar";
 import TopicList from "./components/TopicList";
 import { useSelector } from "react-redux";
 
+
 function App() {
 
+  
   const selectedSubreddit = useSelector(
     (state) => state.selectedSubreddit.value
   );
