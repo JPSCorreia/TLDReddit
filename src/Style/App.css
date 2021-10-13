@@ -223,7 +223,7 @@ img.thumbnail {
   list-style: none;
   padding: 3px 6px;
   position: relative;
-  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  /* transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1); */
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -239,9 +239,9 @@ img.thumbnail {
   background-repeat: no-repeat;
 }
 .preview-image-button:hover {
-  background-color: rgb(247, 248, 248);
+  background-color: rgb(217, 218, 218); 
   text-decoration: none;
-  transition-duration: 0.1s;
+  transition-duration: 0;
 }
 .preview-image-button:disabled {
   background-color: #FAFBFC;

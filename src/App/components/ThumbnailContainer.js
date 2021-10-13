@@ -67,25 +67,26 @@ function ThumbnailContainer(props) {
 
   return (
 <div className='thumbnail-container'>
-              {/* //Temporary, To do gallery specific.*/}
-            <div>{props.topicData.is_gallery? `TEMPORARY Gallery with ${props.topicData.gallery_data.items.length} items` : ''}</div>
-              {props.topicData.post_hint === 'image' && <div 
-              className='preview-image-button preview-image-button-open' 
-              id={`thumbnail-container-${props.id}`}
-              type='button' 
-              onClick={togglePreview}
-              >
-            </div>}
-              {thumbnailExists(
-                props.topicData.thumbnail,
-                props.topicData.media !== null &&
-                  props.topicData.media.reddit_video
-                  ? props.topicData.media.reddit_video.fallback_url
-                  : props.topicData.url,
-                props.topicData.id
-              )}
-</div>
-  );
+  {/* //Temporary, To do gallery specific.*/}
+  <div>
+    {props.topicData.is_gallery? `TEMPORARY Gallery with ${props.topicData.gallery_data.items.length} items` : ''}
+  </div>
+    {props.topicData.post_hint === 'image' && <div 
+      className='preview-image-button preview-image-button-open' 
+      id={`thumbnail-container-${props.id}`}
+      type='button' 
+      onClick={togglePreview}
+    >
+    </div>}
+  {thumbnailExists(
+    props.topicData.thumbnail,
+    props.topicData.media !== null &&
+      props.topicData.media.reddit_video
+        ? props.topicData.media.reddit_video.fallback_url
+        : props.topicData.url,
+      props.topicData.id
+    )}</div>
+);
 }
 
 export default ThumbnailContainer;

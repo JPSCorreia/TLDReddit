@@ -31,9 +31,18 @@ function Topic(props) {
             <div className='topic-name'>
               <b>{ReactHtmlParser(props.topicData.title)}</b>
           </div>
-          <ThumbnailContainer topicData={props.topicData} id={`${props.subreddit}-${props.dataKey}`} />
+          <ThumbnailContainer 
+            topicData={props.topicData} 
+            id={`${props.subreddit}-${props.dataKey}`} 
+          />
           </div>
-          { previewImageShowing && <ImagePreview src={props.topicData.url} id={`${props.subreddit}-${props.dataKey}`}/>}
+          { previewImageShowing && 
+            <ImagePreview 
+              src={props.topicData.url} 
+              id={`${props.subreddit}-${props.dataKey}`}
+              url={props.topicData.url}
+            />
+          }
           <TopicInfo 
             subName={props.topicData.subreddit}
             selftext={props.topicData.selftext}
