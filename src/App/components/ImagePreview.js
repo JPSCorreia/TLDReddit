@@ -3,13 +3,14 @@ import React from 'react'
 
 
 function ImagePreview(props) {
+  const thisImageId = `${props.subreddit}-${props.dataKey}`;
   return (
 
     <div className='preview-image'>
-      <a href={props.url} target='_blank' rel='noreferrer'>
+      <a href={props.topicData.url} target='_blank' rel='noreferrer'>
       <img
-        alt={`${props.id}-preview`}
-        src={props.src}
+        alt={`${thisImageId}-preview`}
+        src={props.topicData.url}
       ></img>
       </a>
     </div>

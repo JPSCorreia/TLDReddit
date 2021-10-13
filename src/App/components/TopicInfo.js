@@ -7,17 +7,18 @@ function TopicInfo(props) {
 
   // Redux State/Action Management.
   const dispatch = useDispatch();
-  const toggleComments = useSelector((state) => state.toggleComments[props.id])
+  const thisTopicInfoId = `${props.subreddit}-${props.dataKey}`;
+  const toggleComments = useSelector((state) => state.toggleComments[thisTopicInfoId])
 
   
   // Event handler for toggling comments button and changing color of button.
   function handleToggleComments () {
-    dispatch(RedditAPI.toggle(props.id))
+    dispatch(RedditAPI.toggle(thisTopicInfoId))
     if (!toggleComments) {
-      document.getElementById(`show-or-hide-comments-${props.id}`).style.color =
+      document.getElementById(`show-or-hide-comments-${thisTopicInfoId}`).style.color =
         "blue";
     } else {
-      document.getElementById(`show-or-hide-comments-${props.id}`).style.color =
+      document.getElementById(`show-or-hide-comments-${thisTopicInfoId}`).style.color =
         "black";
     }
   }
@@ -28,24 +29,24 @@ function TopicInfo(props) {
         <p>
           <b>Submitted:</b>{" "}
           <Moment unix fromNow>
-            {props.created_utc}
+            {props.topicData.created_utc}
           </Moment>{" "}
-          by <span className="author-head">{props.author}</span> to{" "}
+          by <span className="author-head">{props.topicData.author}</span> to{" "}
           <a
-            href={`https://www.reddit.com/r/${props.subName}`}
+            href={`https://www.reddit.com/r/${props.topicData.subreddit}`}
             target="_blank"
             rel="noreferrer"
           >
-            r/{props.subName}
+            r/{props.topicData.subreddit}
           </a>
         </p>
         <button
           type="button"
-          id={`show-or-hide-comments-${props.id}`}
+          id={`show-or-hide-comments-${thisTopicInfoId}`}
           className="show-or-hide-comments"
           onClick={handleToggleComments}
         >
-          {props.numComments} Comments
+          {props.topicData.num_comments} Comments
         </button>
       </div>
   );

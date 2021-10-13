@@ -2,10 +2,12 @@ import React from 'react'
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 
+
 function Comment(props) {
+
   return (
     <div
-      className={`comment ${props.colorType}`}
+      className={`comment`}
       id={`comment-${props.topicId}-${props.dataKey}`}
     >
       <div className="author-info">

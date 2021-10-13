@@ -9,25 +9,26 @@ function ThumbnailContainer(props) {
 
   // Redux State/Action Management.
   const dispatch = useDispatch();
-  const previewImageShowing = useSelector((state) => state.previewImage[props.id]);
-
+  const thisThumbnailId = `${props.subreddit}-${props.dataKey}`;
+  const previewImageShowing = useSelector((state) => state.previewImage[thisThumbnailId]);
+  
 
 // Event handler for toggling showing preview image.
   function togglePreview() {
-    console.log(`Image preview on topic ${props.id} to: ${previewImageShowing? 'hide' :'show'}`)
-    dispatch(RedditAPI.preview(props.id))
+    console.log(`Image preview on topic ${thisThumbnailId} to: ${previewImageShowing? 'hide' :'show'}`)
+    dispatch(RedditAPI.preview(thisThumbnailId))
     if (!previewImageShowing) {
-      document.getElementById(`thumbnail-container-${props.id}`).classList.remove('preview-image-button-open');
-      document.getElementById(`thumbnail-container-${props.id}`).classList.add('preview-image-button-close');
+      document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.remove('preview-image-button-open');
+      document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.add('preview-image-button-close');
     } else {
-      document.getElementById(`thumbnail-container-${props.id}`).classList.remove('preview-image-button-close');
-      document.getElementById(`thumbnail-container-${props.id}`).classList.add('preview-image-button-open');
+      document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.remove('preview-image-button-close');
+      document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.add('preview-image-button-open');
     }
   }
 
 
-    // Function that searchs for thumbnail, it adds a text thumbnail or nsfw thumbnail for posts of those types.
-    const thumbnailExists = (thumbnail, url, id) => {
+  // Function that searchs for thumbnail, it adds a text thumbnail or nsfw thumbnail for posts of those types.
+  const thumbnailExists = (thumbnail, url, id) => {
       //console.log(`thumbnail is ${thumbnail} with id ${id}`)
       if (["default", "self", ""].includes(thumbnail)) {
         return (
@@ -62,7 +63,7 @@ function ThumbnailContainer(props) {
           </a>
         );
       }
-    };
+  };
 
 
   return (
@@ -73,7 +74,7 @@ function ThumbnailContainer(props) {
   </div>
     {props.topicData.post_hint === 'image' && <div 
       className='preview-image-button preview-image-button-open' 
-      id={`thumbnail-container-${props.id}`}
+      id={`thumbnail-container-${thisThumbnailId}`}
       type='button' 
       onClick={togglePreview}
     >

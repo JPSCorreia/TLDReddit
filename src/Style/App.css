@@ -230,7 +230,7 @@ img.thumbnail {
   vertical-align: middle;
   white-space: nowrap;
   word-wrap: break-word;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
   margin-right: 0.5rem;
   width: 0.5rem;
   height: 0.85rem;
@@ -339,7 +339,7 @@ img.thumbnail {
   margin: 0.2rem;
   padding-left: 0.3rem;
   border-radius: 5px;
-  width: 105%;
+  width: 100%;
 }
 .author-in-comments {
   color: rgb(232, 18, 240);
@@ -372,7 +372,7 @@ img.thumbnail {
   padding-left: 0.3rem;
   border-radius: 5px;
   word-wrap: break-word;
-  width: 105%;
+  width: 100%;
 }
 .author-info {
   padding-bottom: 0rem;

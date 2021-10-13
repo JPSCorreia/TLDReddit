@@ -5,19 +5,20 @@ import * as RedditAPI from '../RedditAPI';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+
 function CommentList(props) {
 
-
   // Redux State/Action Management.
+  const thisCommentListId = `${props.subreddit}-${props.dataKey}`;
   const dispatch = useDispatch();
   const commentList = useSelector(
-    (state) => state.commentList[props.url] || []
+    (state) => state.commentList[props.topicData.permalink] || []
   );
   useEffect(() => {
-    dispatch(RedditAPI.getCommentList(props.url));
-  }, [dispatch, props.url]);
-  const toggleComments = useSelector((state) => state.toggleComments[props.id] || false)
-
+    dispatch(RedditAPI.getCommentList(props.topicData.permalink));
+  }, [dispatch, props.topicData.permalink]);
+  const toggleComments = useSelector((state) => state.toggleComments[thisCommentListId] || false)
+  
 
   // Populate list array with with <Comment /> components using commentList state data.
   const list = [];
@@ -27,25 +28,22 @@ function CommentList(props) {
       <Comment
         commentData={comment.data}
         key={comment.data.id}
-        dataKey={index + 1}
-        topicId={props.id}
-        colorType={index % 2 === 0 ? "comment-grey" : "comment-white"}
+        dataKey={index}
+        topicId={`${props.subreddit}-${props.dataKey}`}
       />
     );
   });
 
       // Add Thread self text if it has any.
       const selftext = [];
-      if (props.selftext) {
+      if (props.topicData.selftext) {
         selftext.push(
           <CommentHead
-            commentAuthor={props.author}
-            points={props.points}
+            topicData={props.topicData}
+            subreddit={props.subreddit}
             dataKey="0"
             key="0"
-            commentBody={props.selftext}
-            created_utc={props.created_utc}
-            topicId={props.id}
+            topicId={`${props.subreddit}-${props.dataKey}`}
           />
         );
       }
@@ -53,8 +51,8 @@ function CommentList(props) {
 
   return (
     <div className="comment-list">
-      <div className="comments" id={`comments-${props.id}`}>
-        {toggleComments && props.selftext ? selftext : ""}
+      <div className="comments comment-list" id={`comments-${thisCommentListId}`}>
+        {toggleComments && props.topicData.selftext ? selftext : ""}
         {toggleComments ? list : ""}
         {toggleComments
           ? console.log(`Opening comments from ${props.title}`)

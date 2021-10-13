@@ -25,7 +25,7 @@ function TopicList(props) {
     if(index < 25) list.push(<Topic 
       topicData={topic.data} 
       key={index+1} 
-      dataKey={index+1} 
+      dataKey={index+1} // Topic number for Identification use.
       subreddit={props.subreddit}
       id={`${props.subreddit}-${index+1}`}
     />);
