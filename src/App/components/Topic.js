@@ -5,14 +5,29 @@ import ReactHtmlParser from "react-html-parser";
 import ThumbnailContainer from './ThumbnailContainer';
 import TopicInfo from './TopicInfo';
 import ImagePreview from './ImagePreview';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import * as RedditAPI from '../RedditAPI';
 
 
 function Topic(props) {
 
   // Redux State/Action Management. 
   const previewImageShowing = useSelector((state) => state.previewImage[props.id]);
+  const dispatch = useDispatch();
+  const thisTopicInfoId = `${props.subreddit}-${props.dataKey}`;
+  const toggleComments = useSelector((state) => state.toggleComments[thisTopicInfoId])
 
+  // Event handler for toggling comments button and changing color of button. REPEAT of TopicInfo.js function.
+  function handleToggleComments () {
+    dispatch(RedditAPI.toggle(thisTopicInfoId))
+    if (!toggleComments) {
+      document.getElementById(`show-or-hide-comments-${thisTopicInfoId}`).style.color =
+        "blue";
+    } else {
+      document.getElementById(`show-or-hide-comments-${thisTopicInfoId}`).style.color =
+        "black";
+    }
+  }
 
   return (
     <div className='whole-topic-container'>
@@ -29,10 +44,22 @@ function Topic(props) {
           id={`${props.subreddit}-${props.dataKey}`}
         >
 
+
+
           <div className='topic-and-thumbnail'>
-            <div className='topic-name'>
-              <b>{ReactHtmlParser(props.topicData.title)}</b>
-          </div>
+
+            {(props.topicData.selftext) 
+              ? <div className='topic-name' onClick={handleToggleComments}>
+                    {ReactHtmlParser(props.topicData.title)}
+                </div>
+              : <div  className='topic-name'>
+                  <a href={props.topicData.url} target='_blank' rel='noreferrer'>
+                    {ReactHtmlParser(props.topicData.title)}
+                  </a>
+                </div>
+            }
+
+
 
           <ThumbnailContainer 
             topicData={props.topicData} 

@@ -57,7 +57,7 @@ p {
     linear-gradient(
       to right, 
       rgba(0, 0, 0, 0), 
-      red,
+      #74020c,
       rgba(0, 0, 0, 0)
     ) 1 0 0 0;
   justify-content: center;
@@ -69,9 +69,9 @@ p {
   align-items: center;
   flex: 1;
 } 
- .topic-container:hover {
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,0,0,0.03) 50%, rgba(255,255,255,0) 100%);
- }
+ /* .topic-container:hover {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,0,10,0.02) 50%, rgba(255,255,255,0) 100%);
+ } */
 .whole-topic-container {
   display: flex;
   justify-content: flex-start
@@ -90,7 +90,7 @@ p {
   display: inline-block;
   font-size: 1rem;
   border: 0;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   background-color: rgba(0,0,0, 0);
   font-family: 'Noto Sans', sans-serif;
   padding: 0;
@@ -114,7 +114,7 @@ p {
     linear-gradient(
       to right, 
       rgba(0, 0, 0, 0), 
-      red,
+      #ae000c,
       rgba(0, 0, 0, 0)
     ) 0 0 1 0;
   color: red;
@@ -178,11 +178,9 @@ p {
 .topic-name {
   padding-left: 0.7rem;
   align-self: center;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-align: left;
-}
-.topic-name:hover {
-  cursor: pointer;
+  transition-duration: 0.2s;
 }
 .thumbnail-container {
   width: 150px;
@@ -194,16 +192,27 @@ p {
   margin-top: 0.5rem;
 }
 img.thumbnail {
-
-
   max-width: 70px;
   max-height: 70px;
   align-self: flex-end;
   width: 70px;
   height:70px;
  }
+.topic-name a {
+  text-decoration: none;
+  color: black;
+  transition-duration: 0.2s;
+}
 
-
+.topic-name a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #6b6b6b !important ;
+}
+.topic-name:hover {
+  cursor: pointer;
+  color: #6b6b6b !important ;
+}
 
 
 
@@ -316,7 +325,7 @@ img.thumbnail {
 .show-or-hide-comments {
   cursor: pointer;
   border: 0;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   background-color: rgba(0,0,0, 0);
   font-family: 'Noto Sans', sans-serif;
   font-size: 0.6rem;
@@ -403,9 +412,12 @@ img.thumbnail {
   background-color: rgb(247, 248, 248);
 }
 
+/* CSS rule for markdown-to-jsx */
+/*
 .comment-body {
     margin: 0.2rem;
-}
+} 
+*/
 
 
 

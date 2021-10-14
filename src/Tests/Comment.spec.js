@@ -1,9 +1,10 @@
-import Adapter from 'enzyme-adapter-react-16';
+import Enzyme from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { shallow, configure } from 'enzyme';
-// import { mount } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 import Comment from '../App/components/Comment';
-configure({adapter: new Adapter()});
+Enzyme.configure({ adapter: new Adapter() });
 
 
 // Function to create test properties, spread props in the end allows changing of attributes.
@@ -24,7 +25,7 @@ const createTestProps = (props) => {
 describe('Comment Component Testing:', () => {
 
 
-  it('Should render with FAKE test data', () => {
+  it('Should render with passed props data.', () => {
 
     const props = createTestProps();
     const component = shallow(<Comment {...props} />);
@@ -33,7 +34,7 @@ describe('Comment Component Testing:', () => {
   });
 
 
-  it('Should render even with UNDEFINED test data', () => {
+  it('Should render even with UNDEFINED passed props data.', () => {
 
     const props = createTestProps({
       commentData: {
@@ -52,15 +53,23 @@ describe('Comment Component Testing:', () => {
   });
 
 
-  it('Should render div element with the expected id attribute(passed as props)', () => {
+  it('Should render div element with the expected id attribute.', () => {
 
     const props = createTestProps();
     const component = shallow(<Comment {...props} />);
-  
-    // find the path element using a css selector
+    // find the div element using a css selector
     const divHeader = component.find('div.comment');
   
     expect(divHeader.props()).toHaveProperty('id', 'comment-r/worldnews-1-2');
+
+  });
+
+  it('Props passing successfully.', () => {
+
+    const props = createTestProps();
+    const component = mount(<Comment {...props} />);
+  
+    expect(component.props()).toEqual(props);
 
   });
 

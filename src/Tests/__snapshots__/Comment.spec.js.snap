@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Comment Component Testing: Should render even with UNDEFINED test data 1`] = `
+exports[`Comment Component Testing: Should render even with UNDEFINED passed props data. 1`] = `
 <div
   className="comment"
   id="comment-undefined-undefined"
@@ -57,7 +57,7 @@ exports[`Comment Component Testing: Should render even with UNDEFINED test data 
 </div>
 `;
 
-exports[`Comment Component Testing: Should render with FAKE test data 1`] = `
+exports[`Comment Component Testing: Should render with passed props data. 1`] = `
 <div
   className="comment"
   id="comment-r/worldnews-1-2"
