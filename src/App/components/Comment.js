@@ -1,5 +1,5 @@
 import React from 'react'
-// import ReactMarkdown from "react-markdown";
+import Markdown from "markdown-to-jsx";
 import Moment from "react-moment";
 
 
@@ -22,11 +22,13 @@ function Comment(props) {
         </div>
       </div>
       <div className="comment-body">
-        {/* <ReactMarkdown>{props.commentData.body}</ReactMarkdown> */}
-        {props.commentData.body}
+      <Markdown>{props.commentData.body}</Markdown>
       </div>
     </div>
   );
 }
 
 export default Comment;
+
+
+

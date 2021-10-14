@@ -390,6 +390,7 @@ img.thumbnail {
 .comment-body {
   padding-bottom: 0.2rem;
   padding-top: 0.05rem;
+  text-align: left;
 }
 .comments {
   display: flex;
@@ -402,6 +403,9 @@ img.thumbnail {
   background-color: rgb(247, 248, 248);
 }
 
+.comment-body {
+    margin: 0.2rem;
+}
 
 
 

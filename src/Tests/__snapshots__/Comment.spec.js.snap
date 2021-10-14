@@ -51,7 +51,9 @@ exports[`Comment Component Testing: Should render even with UNDEFINED test data 
   </div>
   <div
     className="comment-body"
-  />
+  >
+    <Te />
+  </div>
 </div>
 `;
 
@@ -112,7 +114,9 @@ exports[`Comment Component Testing: Should render with FAKE test data 1`] = `
   <div
     className="comment-body"
   >
-    this is a test for comment's body
+    <Te>
+      this is a test for comment's body
+    </Te>
   </div>
 </div>
 `;

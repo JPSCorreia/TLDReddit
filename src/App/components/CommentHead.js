@@ -1,12 +1,12 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
+import Markdown from "markdown-to-jsx";
 
 
 function CommentHead(props) {
 
   return (
     <div className="comment-head" id={`comment-${props.topicId}-${props.dataKey}`}>
-      <div className='comment-body'><ReactMarkdown>{props.topicData.selftext}</ReactMarkdown></div>
+      <div className='comment-body'><Markdown>{props.topicData.selftext}</Markdown></div>
     </div>
   );
 }
