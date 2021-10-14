@@ -58,7 +58,7 @@ The following people contributed to this project:
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/JPSCorreia">
         <img src="https://avatars3.githubusercontent.com/u/80404631" width="100px;" alt="JPSCorreia profile picture"/><br>
         <sub>
           <b>JPSCorreia</b>
@@ -66,7 +66,7 @@ The following people contributed to this project:
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/ikoji">
         <img src="https://avatars.githubusercontent.com/u/9896751" width="100px;" alt="ikoji profile picture"/><br>
         <sub>
           <b>ikoji</b>

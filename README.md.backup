@@ -1,7 +1,7 @@
 ![image](https://github.com/JPSCorreia/TLDReddit/blob/main/public/TLDReddit-logo.png?raw=true)
 #### TLDReddit is an alternative way to browse [reddit](https://www.reddit.com/), built for educational purposes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), uses [Redux](https://redux.js.org/) /[ Redux toolkit](https://redux-toolkit.js.org/) for managing states and [Jest](https://jestjs.io/) / [Enzyme](https://enzymejs.github.io/enzyme/) for testing
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), uses [Redux](https://redux.js.org/) /[ Redux toolkit](https://redux-toolkit.js.org/) for managing states and [Jest](https://jestjs.io/) / [Enzyme](https://enzymejs.github.io/enzyme/) for testing.
 <br/>
 
 ## ☕ Usage
@@ -58,7 +58,7 @@ The following people contributed to this project:
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/JPSCorreia">
         <img src="https://avatars3.githubusercontent.com/u/80404631" width="100px;" alt="JPSCorreia profile picture"/><br>
         <sub>
           <b>JPSCorreia</b>
@@ -66,7 +66,7 @@ The following people contributed to this project:
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/ikoji">
         <img src="https://avatars.githubusercontent.com/u/9896751" width="100px;" alt="ikoji profile picture"/><br>
         <sub>
           <b>ikoji</b>
