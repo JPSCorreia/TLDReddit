@@ -13,10 +13,10 @@ function TopicList(props) {
   const totalTopicList = useSelector((state) => state.topicList)
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value);
   const topicList = useSelector((state) => state.topicList[selectedSubreddit] || [])
-  
   useEffect(() =>  {
     dispatch(RedditAPI.getTopicList(selectedSubreddit));
   }, [dispatch, selectedSubreddit]);
+
 
   // Push different Topic components to a list.
   const list = [] 
@@ -31,6 +31,7 @@ function TopicList(props) {
     />);
   });
 
+  
   return (
     <div subreddit={selectedSubreddit} className='subreddit'>
       <h2 className='subreddit-name'>

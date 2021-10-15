@@ -1,6 +1,7 @@
 import React from 'react'
-import textIcon from "../../Style/text-icon-2.png";
-import nsfwIcon from "../../Style/nsfw-icon-2.png";
+import textIcon from "../../Style/text-icon-larger.png";
+import nsfwIcon from "../../Style/nsfw-icon-larger.png";
+import spoilerIcon from "../../Style/spoiler-alert.png";
 import { useSelector, useDispatch } from 'react-redux';
 import * as RedditAPI from '../RedditAPI';
 
@@ -50,6 +51,16 @@ function ThumbnailContainer(props) {
             className='thumbnail'
           ></img>
         );
+      } else if (["spoiler"].includes(thumbnail)) {
+        return (
+          <img
+            alt='thumbnail'
+            id={`thumbnail-${id}`}
+            title='spoiler-icon'
+            src={spoilerIcon}
+            className='thumbnail'
+          ></img>
+        );
       } else {
         return (
           <a href={url} target='_blank' rel='noreferrer'>
@@ -66,13 +77,17 @@ function ThumbnailContainer(props) {
   };
 
 
+  // Get URL extension
+  const extension = props.topicData.url.split('.').pop()
+
+  
   return (
 <div className='thumbnail-container'>
   {/* //Temporary, To do gallery specific.*/}
   <div>
     {props.topicData.is_gallery? `TEMPORARY Gallery with ${props.topicData.gallery_data.items.length} items` : ''}
   </div>
-    {props.topicData.post_hint === 'image' && <div 
+    {(props.topicData.post_hint === 'image' || extension === 'gifv') && <div 
       className='preview-image-button preview-image-button-open' 
       id={`thumbnail-container-${thisThumbnailId}`}
       type='button' 

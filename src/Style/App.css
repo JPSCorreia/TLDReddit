@@ -220,10 +220,10 @@ img.thumbnail {
 .preview-image-button {
   appearance: none;
   align-self: flex-end;
-  background-color: #FAFBFC;
-  border: rgb(220, 220, 220, 0.5) 1px solid;
+  background-color: rgba(0,0,0, 0);
+  /* border: rgb(220, 220, 220, 0) 1px solid; */
   border-radius: 2px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  /* box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset; */
   color: #24292E;
   cursor: pointer;
   display: inline-block;
@@ -241,8 +241,8 @@ img.thumbnail {
   word-wrap: break-word;
   margin-bottom: 0.4rem;
   margin-right: 0.5rem;
-  width: 0.5rem;
-  height: 0.85rem;
+  width: 0.60rem;
+  height: 0.90rem;
   background-size: 200%;
   background-image: url(resize.png);
   background-repeat: no-repeat;
