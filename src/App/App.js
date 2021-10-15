@@ -7,9 +7,7 @@ import { useSelector } from "react-redux";
 function App() {
 
   
-  const selectedSubreddit = useSelector(
-    (state) => state.selectedSubreddit.value
-  );
+  const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value);
   console.log(`Loading Subreddit: ${selectedSubreddit}`);
 
   return (
@@ -17,7 +15,7 @@ function App() {
       <div className="logo" alt="logo"></div>
       <SubredditBar />
       <div className="main-body">
-      <TopicList subreddit={selectedSubreddit} />
+      <TopicList />
       </div>
       <br />
     </div>

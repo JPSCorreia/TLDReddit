@@ -2,10 +2,11 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import * as RedditAPI from '../RedditAPI';
-let currentSub = 'subreddit-button-all';
+import exampleSubreddits from '../exampleSubreddits'
 
 
 function SubredditBar(props) {
+
 
   // Redux State/Action Management.
   const dispatch = useDispatch();
@@ -13,58 +14,62 @@ function SubredditBar(props) {
   useEffect(() =>  {
     dispatch(RedditAPI.selectSubreddit(selectedSubreddit))
   },[dispatch,selectedSubreddit])
+  let currentSub = `subreddit-button-${selectedSubreddit.substr(2)}`;
 
 
   // Change subreddit and current subreddit/new subreddit button style on button click.
   function handleSubredditChange (event) {
-    document.getElementById(currentSub).classList.remove('subreddit-button-selected');
-    document.getElementById(event.target.id).classList.add('subreddit-button-selected');
-    console.log(currentSub)
-    console.log(event.target.id)
+    if (exampleSubreddits.includes(selectedSubreddit.substr(2))) {
+      document.getElementById(currentSub).classList.remove('subreddit-button-selected');
+    }
+    if (exampleSubreddits.includes(event.target.innerText)) {
+      document.getElementById(event.target.id).classList.add('subreddit-button-selected');
+    }
+    // console.log(`SubredditBar's handleSubredditChange event.target.id is: ${event.target.id}`)
     dispatch(RedditAPI.selectSubreddit(`r/${event.target.innerText}`))
     currentSub = event.target.id;
   }
-
-  // List of subreddits chosen.
-  const subredditBarList = [];
-  const exampleSubreddits = [
-    'Astronomy',
-    'Formula1',
-    'Futurology',
-    'Gifs',
-    'PCGaming',
-    'Pics',
-    'ProgrammerHumor',
-    'Portugal',
-    'Space',
-    'Science',
-    'Technology',
-    'WorldNews'
-  ]
-
   
+
   // Push chosen subreddits to a list.
+  const subredditBarList = [];
   exampleSubreddits.forEach((subreddit, index) => {
     const id = `subreddit-button-${subreddit}`
-    subredditBarList.push(
-      <span className='separator' key={index+100} >-</span>
-    )
-    subredditBarList.push(
-      <button 
-        type="button" 
-        className='subreddit-button' 
-        id={id} 
-        onClick={handleSubredditChange}
-        key={index}
-      >
-        {subreddit}
-      </button>
-    )
+    if (index > 0) {
+      subredditBarList.push(
+        <span className='separator' key={index+100} >-</span>
+      )
+    }
+    if (index > 0) {
+      subredditBarList.push(
+        <button 
+          type="button" 
+          className='subreddit-button' 
+          id={id} 
+          onClick={handleSubredditChange}
+          key={index}
+        >
+          {subreddit}
+        </button>
+      )
+    } else {
+      subredditBarList.push(
+        <button 
+          type="button" 
+          className='subreddit-button subreddit-button-selected' 
+          id={id} 
+          onClick={handleSubredditChange}
+          key={index}
+        >
+          {subreddit}
+        </button>
+      )
+    }
   })
+
 
   return (
     <div className='subreddit-bar'>
-      <button type="button" className='subreddit-button subreddit-button-selected' id='subreddit-button-all' onClick={handleSubredditChange}>All</button>
       {subredditBarList}
     </div>
   )
