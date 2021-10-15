@@ -80,14 +80,14 @@ function ThumbnailContainer(props) {
   // Get URL extension
   const extension = props.topicData.url.split('.').pop()
 
-  
+
   return (
 <div className='thumbnail-container'>
   {/* //Temporary, To do gallery specific.*/}
   <div>
     {props.topicData.is_gallery? `TEMPORARY Gallery with ${props.topicData.gallery_data.items.length} items` : ''}
   </div>
-    {(props.topicData.post_hint === 'image' || extension === 'gifv') && <div 
+    {(props.topicData.post_hint === 'image' || extension === 'gifv' || extension === 'gif' ) && <div 
       className='preview-image-button preview-image-button-open' 
       id={`thumbnail-container-${thisThumbnailId}`}
       type='button' 
