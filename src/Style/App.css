@@ -247,11 +247,11 @@ img.thumbnail {
   background-image: url(resize.png);
   background-repeat: no-repeat;
 }
-.preview-image-button:hover {
+/* .preview-image-button:hover {
   background-color: rgb(217, 218, 218); 
   text-decoration: none;
   transition-duration: 0;
-}
+} */
 .preview-image-button:disabled {
   background-color: #FAFBFC;
   border-color: rgba(27, 31, 35, 0.15);
@@ -274,15 +274,20 @@ img.thumbnail {
 }
 
 .preview-image-button-open {
-
-  background-position: 0% 50%;
+  background-position: 0% 0%;
   opacity: 0.8;
 }
+.preview-image-button-open:hover {
+  background-image: url(resize-hover.png);
+}
+
 .preview-image-button-close {
-  background-position: 100% 50%;
+  background-position: 100% 0%;
   opacity: 0.8;
 }
-
+.preview-image-button-close:hover {
+  background-image: url(resize-hover.png);
+}
 
 
 /* Preview Image */
@@ -312,7 +317,7 @@ img.thumbnail {
   justify-content: space-between;
   padding-left: 0.5rem;
   padding-right: 0.15rem;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   align-content: center;
   align-self: center;
  }
@@ -341,7 +346,7 @@ img.thumbnail {
   transition-duration: 0.2s;
   background-color: rgba(0,0,0, 0);
   font-family: 'Noto Sans', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   align-self: center;
   justify-self: right;
   margin-right: 0.3rem;
@@ -391,7 +396,7 @@ cursor: pointer;
   text-align: left;
   margin: 0.2rem;
   margin-left: 0;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
 }
 .comment p {
   margin-left: 0;
@@ -416,7 +421,7 @@ cursor: pointer;
   align-self: center;
 }
 .comment-created-when {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   align-self: center;
 }
 .comment-body {
@@ -428,12 +433,45 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-left: 0.5rem;
-  font-size: 0.8rem;
+  margin-left: 1rem;
+  font-size: 0.9rem;
 }
 .comment:nth-child(odd) {
   background-color: rgb(247, 248, 248);
 }
+
+.comment-list {
+  margin-top: 0.25rem;
+}
+
+
+
+
+/* video and Gifs preview */
+
+.preview-image video {
+  width: 100%;
+}
+
+
+.video-preview {
+  margin: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* CSS rule for markdown-to-jsx */
 /*
@@ -451,6 +489,15 @@ cursor: pointer;
   width: 18%;
   align-self: flex-end;
 } */
+
+
+
+
+
+
+
+
+
 
 
 

@@ -5,7 +5,6 @@ import spoilerIcon from "../../Style/spoiler-alert.png";
 import { useSelector, useDispatch } from 'react-redux';
 import * as RedditAPI from '../RedditAPI';
 
-
 function ThumbnailContainer(props) {
 
   // Redux State/Action Management.
@@ -77,17 +76,13 @@ function ThumbnailContainer(props) {
   };
 
 
-  // Get URL extension
-  const extension = props.topicData.url.split('.').pop()
-
-
   return (
 <div className='thumbnail-container'>
   {/* //Temporary, To do gallery specific.*/}
   <div>
     {props.topicData.is_gallery? `TEMPORARY Gallery with ${props.topicData.gallery_data.items.length} items` : ''}
   </div>
-    {(props.topicData.post_hint === 'image' || extension === 'gifv' || extension === 'gif' ) && <div 
+    {(['image', 'hosted:video', 'rich:video'].includes(props.topicData.post_hint) || props.topicData.domain === "gfycat.com" || props.topicData.domain === "i.imgur.com") && <div 
       className='preview-image-button preview-image-button-open' 
       id={`thumbnail-container-${thisThumbnailId}`}
       type='button' 
