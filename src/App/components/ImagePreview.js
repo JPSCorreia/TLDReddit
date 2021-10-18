@@ -40,6 +40,17 @@ function ImagePreview(props) {
           </video>
       )}
 
+      {/* v.redd.it rules */}
+      { props.topicData.domain === 'v.redd.it' && (
+         <video preload="auto" autoplay="autoplay" loop="loop" className="video-preview">
+          <source
+            alt={`${thisImageId}-preview`}
+            src={props.topicData.secure_media.reddit_video.fallback_url}
+          >
+          </source>
+        </video>
+      )}
+
       {/* Normal Gifs that are not video but img tags. */}
       { extension !== ".gifv" && props.topicData.post_hint === 'image' && (
         <img

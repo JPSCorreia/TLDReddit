@@ -15,7 +15,6 @@
 }
 .logo {
   justify-content: center;
-
   cursor: pointer;
   width: 370px;
   margin: auto;
@@ -25,8 +24,7 @@
   background-size: 50%;
   background-image: url(tldreddit-sprites.png);
   background-repeat: no-repeat;
-  background-position: 50% 0%;
-  
+  background-position: 50% 0%;  
 }
 p {
   margin: 0.2rem;
@@ -36,8 +34,6 @@ p {
  li {
   text-align: left;
  }
-
-
 
 
 
@@ -76,8 +72,6 @@ p {
   display: flex;
   justify-content: flex-start
 }
-
-
 
 
 
@@ -120,8 +114,6 @@ p {
   color: red;
   transition-duration: 0s;
 }
-
-
 
 
 
@@ -168,8 +160,6 @@ p {
 
 
 
-
-
 /* Topic title and thumbnail container */
 .topic-and-thumbnail {
   display: flex;
@@ -203,7 +193,6 @@ img.thumbnail {
   color: black;
   transition-duration: 0.2s;
 }
-
 .topic-name a:hover {
   text-decoration: none;
   cursor: pointer;
@@ -247,6 +236,7 @@ img.thumbnail {
   background-image: url(resize.png);
   background-repeat: no-repeat;
 }
+
 /* .preview-image-button:hover {
   background-color: rgb(217, 218, 218); 
   text-decoration: none;
@@ -272,42 +262,40 @@ img.thumbnail {
 .preview-image-button:-webkit-details-marker {
   display: none;
 }
-
 .preview-image-button-open {
   background-position: 0% 0%;
-  opacity: 0.8;
 }
 .preview-image-button-open:hover {
   background-image: url(resize-hover.png);
 }
-
 .preview-image-button-close {
   background-position: 100% 0%;
-  opacity: 0.8;
 }
 .preview-image-button-close:hover {
   background-image: url(resize-hover.png);
 }
 
 
-/* Preview Image */
 
+/* Preview Image */
 .preview-image {
   width: 50%;
   margin: left;
   padding-left: 0.7rem;
 }
-
 .preview-image img {
   width: 100%;
 }
 
 
 
-
-
-
-
+/* Video and Gifs preview */
+.preview-image video {
+  width: 100%;
+}
+.video-preview {
+  margin: left;
+}
 
 
 
@@ -331,14 +319,6 @@ img.thumbnail {
 
 
 
-
-
-
-
-
-
-
-
 /* Show or hide comments button */
 .show-or-hide-comments {
   cursor: pointer;
@@ -357,8 +337,6 @@ img.thumbnail {
 .show-or-hide-comments:active {
   transform: translateY(3px);
 }
-
-
 
 
 
@@ -385,7 +363,6 @@ img.thumbnail {
 .author-head:hover {
 cursor: pointer;
 }
-
 
 
 
@@ -446,20 +423,14 @@ cursor: pointer;
 
 
 
-
-/* video and Gifs preview */
-
-.preview-image video {
-  width: 100%;
+/* Page Changer Rules */
+.page-changer {
+  display: flex;
+  margin: 1rem;
+  margin-left: 4rem;
+  cursor: pointer;
+  color: blue;
 }
-
-
-.video-preview {
-  margin: left;
-}
-
-
-
 
 
 
@@ -480,19 +451,11 @@ cursor: pointer;
 } 
 */
 
-
-
-
-
 /* .resize-image-button {
   height: 30%;
   width: 18%;
   align-self: flex-end;
 } */
-
-
-
-
 
 
 
@@ -512,13 +475,11 @@ cursor: pointer;
     margin: auto;
     font-size: 0.6rem;
   }
-
   .arrows-container {
     align-items: center;
     margin-bottom: 0.5rem;
     max-width: 8%;
   }
-
   .arrow {
     background-size: 1500%;
     max-width: 1rem;
@@ -526,64 +487,40 @@ cursor: pointer;
     margin-top: 0.8rem; 
     justify-content: center;   
   }
-
-
   .main-body {
     width: 100%;
   }
-
   .topic-container {
     max-width: 95%
   }
-
   .subreddit-name {
     font-size: 1.25rem;
     padding-left: 2.5rem;
   }
-
   .topic-name {
     font-size: 0.8rem;
   }
-
   .thumbnail-container {
     max-width: 25%;
   }
-
   .topic-info {
     font-size: 0.6rem;
   }
-
   .show-or-hide-comments {
     font-size: 0.6rem;
   }
-
   .subreddit-button {
     font-size: 0.8rem;
   }
-
   .comment {
     width: 106%;
   }
-
-
   .comments {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     margin-left: 0.5rem
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -602,16 +539,6 @@ cursor: pointer;
   */
 
 
-
-
-
-
-
-
-
-
-
-  
 }
 
 

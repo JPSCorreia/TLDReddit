@@ -4,13 +4,46 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const getTopicList = createAsyncThunk(
   "topicList/getTopicList",
   async (url) => {
-    return await fetch(`https://www.reddit.com/${url}.json`)
+      return await fetch(`https://www.reddit.com/${url}.json`)
       .then((data) => data.json())
       .then((jsonData) => {
-        return { data: jsonData.data.children , key: url };
+        return { data: jsonData.data.children , key: url, before: jsonData.data.before, after: jsonData.data.after };
+      });
+ 
+
+  }
+);
+
+// Get after topic list from url Action
+export const getTopicListAfter = createAsyncThunk(
+  "topicList/getTopicListAfter",
+  async (url) => {
+      console.log(url)
+      return await fetch(url)
+      .then((data) => data.json())
+      .then((jsonData) => {
+        return { data: jsonData.data.children , key: url, before: jsonData.data.before, after: jsonData.data.after };
       });
   }
 );
+
+// Get before topic list from url Action
+export const getTopicListBefore = createAsyncThunk(
+  "topicList/getTopicListBefore",
+  async (url) => {
+      console.log(url)
+      return await fetch(url)
+      .then((data) => data.json())
+      .then((jsonData) => {
+        return { data: jsonData.data.children , key: url, before: jsonData.data.before, after: jsonData.data.after };
+      });
+  }
+);
+
+
+
+
+
 
 // Get comment list from url Action
 export const getCommentList = createAsyncThunk(
