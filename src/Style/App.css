@@ -121,12 +121,10 @@ p {
 .arrow {
   max-width: 1.5rem;
   height: 1.5rem;
-  margin-top: 0.8rem; 
   justify-content: center;
   cursor: pointer;
   width: 100%;
-  background-image: url(tldreddit-sprites.png);
-  background-repeat: no-repeat;
+  font-size: 2rem;
 }
 .arrow:active {
   transform: translateY(3px);
@@ -137,25 +135,31 @@ p {
   flex: 1;
   align-items: center;
   margin-bottom: 0.7rem;
+  margin-top: 0.7rem; 
   max-width: 5%;
 }
 .topic-score {
-  margin-top: 0.8rem; 
-  padding-right: 0.2rem;
-  min-width: 3rem;
-  font-size: 0.7rem
+  margin-top: 1.25rem; 
+  padding-left: 0.2rem;
+  font-size: 0.8rem
 }
 .up-arrow {
-    background-position: 2.3% 70%;
+    transition-duration: 0.2s;
+}
+.up-arrow:hover {
+  color: #6b6b6b
 }
 .down-arrow {
-    background-position: 2.3% 90%;
+  transition-duration: 0.2s;
+}
+.down-arrow:hover {
+  color: #6b6b6b
 }
 .up-arrow-upvoted {
-  background-position: 10.1% 70%;
+  color: #ff4500;
 }
 .down-arrow-downvoted {
-  background-position: 10.1% 90%;
+  color:rgb(51, 102, 153)
 }
 
 
@@ -426,19 +430,47 @@ cursor: pointer;
 /* Page Changer Rules */
 .page-changer {
   display: flex;
-  margin: 1rem;
-  margin-left: 4rem;
-  cursor: pointer;
-  color: blue;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: black;
+  justify-content: center;
+  align-items: center;
 }
-
-
-
-
-
-
-
-
+.page-arrow-and-name {
+  display: flex;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.page-arrow-and-name:active {
+  transform: translateY(3px);
+}
+.page-arrow-and-name:hover {
+  color: #bb0010;
+}
+.page-arrow-and-name-unavailable {
+  display: flex;
+  transition-duration: 0.2s;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: #929292;
+}
+.page-counter {
+  font-size: 1.15rem;
+}
+.page-arrow {
+  font-size: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 0.4rem;
+}
 
 
 

@@ -4,6 +4,7 @@ import * as RedditAPI from '../RedditAPI';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { LoopCircleLoading } from 'react-loadingg';
+import PageChanger from './PageChanger';
 
 
 function TopicList(props) {
@@ -33,15 +34,7 @@ function TopicList(props) {
     />);
   });
 
-  console.log(`after page id: ${topicList.after}`)
-  console.log(`before page id: ${topicList.before}`)
 
-  function handleSubredditAfter (event) {
-    const nextPage = `https://www.reddit.com/${selectedSubreddit}.json?count=25&after=${topicList.after}`
-    dispatch(RedditAPI.getTopicListAfter(nextPage));
-    console.log(topicList)
-  
-  }
 
   return (
     <div subreddit={selectedSubreddit} className='subreddit'>
@@ -53,21 +46,11 @@ function TopicList(props) {
       <LoopCircleLoading
         color='red'
       />)
-     :  
-     <div 
-     className='page-changer' 
-     type='button' 
-     onClick={handleSubredditAfter}
-     >
-       next page
-     </div>
-       }
-      {totalTopicList.isLoading? (
-      <LoopCircleLoading
-        color='red'
-      />)
        : list }
-
+      {totalTopicList.isLoading?
+      '' : <PageChanger /> 
+      }
+    
     </div>
   )
 }

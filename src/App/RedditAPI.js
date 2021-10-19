@@ -7,7 +7,7 @@ export const getTopicList = createAsyncThunk(
       return await fetch(`https://www.reddit.com/${url}.json`)
       .then((data) => data.json())
       .then((jsonData) => {
-        return { data: jsonData.data.children , key: url, before: jsonData.data.before, after: jsonData.data.after };
+        return { data: jsonData.data.children , key: url, before: jsonData.data.before, after: jsonData.data.after, indexPageNumber: 1, beforeCounter: 26, afterCounter: 0 };
       });
  
 
@@ -18,11 +18,10 @@ export const getTopicList = createAsyncThunk(
 export const getTopicListAfter = createAsyncThunk(
   "topicList/getTopicListAfter",
   async (url) => {
-      console.log(url)
-      return await fetch(url)
+      return await fetch(url[0])
       .then((data) => data.json())
       .then((jsonData) => {
-        return { data: jsonData.data.children , key: url, before: jsonData.data.before, after: jsonData.data.after };
+        return { data: jsonData.data.children , key: url[1], before: jsonData.data.before, after: jsonData.data.after, indexPageNumber: url[2], beforeCounter: url[3], afterCounter: url[4] };
       });
   }
 );
@@ -32,10 +31,10 @@ export const getTopicListBefore = createAsyncThunk(
   "topicList/getTopicListBefore",
   async (url) => {
       console.log(url)
-      return await fetch(url)
+      return await fetch(url[0])
       .then((data) => data.json())
       .then((jsonData) => {
-        return { data: jsonData.data.children , key: url, before: jsonData.data.before, after: jsonData.data.after };
+        return { data: jsonData.data.children , key: url[1], before: jsonData.data.before, after: jsonData.data.after, indexPageNumber: url[2], beforeCounter: url[3], afterCounter: url[4] };
       });
   }
 );

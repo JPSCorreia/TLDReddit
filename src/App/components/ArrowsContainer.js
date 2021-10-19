@@ -126,7 +126,7 @@ function ArrowsContainer(props) {
           onClick={toggleUpArrow}
           id={`up-arrow-${props.topicData.subreddit}-${props.dataKey}`}
           topicid={`${props.topicData.subreddit}-${props.dataKey}`}
-        ></div>
+        >⇧</div>
         <div
           className='topic-score'
           id={`topic-score-${props.topicData.subreddit}-${props.dataKey}`}
@@ -140,7 +140,7 @@ function ArrowsContainer(props) {
           onClick={toggleDownArrow}
           id={`down-arrow-${props.topicData.subreddit}-${props.dataKey}`}
           topicid={`${props.topicData.subreddit}-${props.dataKey}`}
-        ></div>
+        >⇩</div>
       </div>
   );
 }
