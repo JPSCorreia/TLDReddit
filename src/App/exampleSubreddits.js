@@ -1,7 +1,7 @@
 
 // List of subreddits chosen.
 const exampleSubreddits = [
-  'all',
+  'redditdev',
   'Astronomy',
   'formula1',
   'Futurology',
@@ -14,7 +14,8 @@ const exampleSubreddits = [
   'science',
   'technology',
   'worldnews',
-  'leagueoflegends'
+  'leagueoflegends',
+  'all'
 ]
 
 export default exampleSubreddits;

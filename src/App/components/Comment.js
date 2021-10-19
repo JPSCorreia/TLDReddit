@@ -1,4 +1,5 @@
 import React from 'react'
+import reactDom from 'react-dom';
 //import Markdown from "markdown-to-jsx";
 import ReactMarkdown from 'react-markdown'
 import Moment from "react-moment";
@@ -6,13 +7,26 @@ import Moment from "react-moment";
 
 function Comment(props) {
 
+  const commentDepth = {
+    width: `${100 - props.depth*1}%`
+  };
+
+  console.log(props.topicAuthor)
+  console.log(props.commentData.author)
+
   return (
     <div
       className={`comment`}
       id={`comment-${props.topicId}-${props.dataKey}`}
+      data-depth={props.depth}
+      style={commentDepth}
     >
       <div className="author-info">
-        <div className="author">{props.commentData.author}</div>
+        <div 
+          className={`author ${(props.topicAuthor === props.commentData.author)? 'author-darkblue': ''}`}
+        >
+          {props.commentData.author}
+        </div>
         <span className="separator"> &nbsp; </span>
         <div className="points">{props.commentData.ups} points</div>
         <span className="separator"> &nbsp; </span>
@@ -25,6 +39,13 @@ function Comment(props) {
       <div className="comment-body">
       <ReactMarkdown>{props.commentData.body}</ReactMarkdown>
       </div>
+      {/* {
+      (props.commentData.replies)? 
+        <Comment />
+      
+        : 
+          ''
+      } */}
     </div>
   );
 }

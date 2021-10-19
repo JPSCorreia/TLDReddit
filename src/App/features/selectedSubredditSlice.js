@@ -5,7 +5,7 @@ import * as RedditAPI from '../RedditAPI';
 export const selectedSubredditSlice = createSlice({
   name: 'selectedSubreddit',
   initialState: {
-    value: 'r/all'
+    value: 'r/redditdev'
   },
   reducers: {},
   extraReducers: {

@@ -35,7 +35,7 @@ function TopicInfo(props) {
     dispatch(RedditAPI.toggle(thisTopicInfoId))
     if (!toggleComments) {
       document.getElementById(`show-or-hide-comments-${thisTopicInfoId}`).style.color =
-        "blue";
+        "#369";
     } else {
       document.getElementById(`show-or-hide-comments-${thisTopicInfoId}`).style.color =
         "black";

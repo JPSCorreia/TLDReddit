@@ -336,7 +336,7 @@ img.thumbnail {
   margin-right: 0.3rem;
 }
 .show-or-hide-comments:hover {
-  color: blue !important;
+  color: #6b6b6b !important;
 }
 .show-or-hide-comments:active {
   transform: translateY(3px);
@@ -347,11 +347,12 @@ img.thumbnail {
  /* Comment head rules */
  .comment-head {
   background-color: rgba (255, 255, 255, 0);
-  margin: 1px;
-  margin: 0.2rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
   padding-left: 0.3rem;
   border-radius: 5px;
-  width: 100%;
+  width: 95%;
+  align-self: center;
 }
 .author-in-comments {
   color: rgb(232, 18, 240);
@@ -378,18 +379,32 @@ cursor: pointer;
   margin: 0.2rem;
   margin-left: 0;
   font-size: 0.7rem;
+  padding: 0 2px 0 2px;
+}
+.author-darkblue {
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  margin: 0.2rem;
+  margin-left: 0;
+  font-size: 0.7rem;
+  background-color: #0055df;
+  border-radius: 3px;
+  padding: 0 2px 0 2px;
 }
 .comment p {
   margin-left: 0;
 }
 .comment {
   border: rgb(220, 220, 220) 1px solid;
-  margin: 1px;
-  margin: 0.2rem;
-  padding-left: 0.3rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
   border-radius: 5px;
   word-wrap: break-word;
-  width: 100%;
+  width: 95%;
+  align-self: right;
+  padding: 0 0.4rem 0 0.4rem ;
+
 }
 .author-info {
   padding-bottom: 0rem;
@@ -414,8 +429,8 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-left: 1rem;
   font-size: 0.9rem;
+
 }
 .comment:nth-child(odd) {
   background-color: rgb(247, 248, 248);

@@ -22,17 +22,48 @@ function CommentList(props) {
 
   // Populate list array with with <Comment /> components using commentList state data.
   const list = [];
-  commentList.slice(0, 25).forEach((comment, index) => {
-    // Provisorio só 25 comments a mostrar)
-    list.push(
-      <Comment
-        commentData={comment.data}
-        key={comment.data.id}
-        dataKey={index}
-        topicId={`${props.subreddit}-${props.dataKey}`}
-      />
-    );
+  commentList.forEach((comment, index) => { // tier 1 replies
+    if (comment.data.body) { // fix for some empty comments that were appearing, probably hidden comments (downvoted).
+      list.push(
+        <Comment
+          commentData={comment.data}
+          key={comment.data.id}
+          dataKey={index}
+          topicId={`${props.subreddit}-${props.dataKey}`}
+          depth={0}
+        />
+      );
+    // If there are any replies then call function to show replies.
+    if (comment.data.replies) showReplies(comment, 1)
+    }
   });
+
+  // Show replies and if those comments have replies then call this function again.
+  function showReplies (commentParameter, depth) {
+  
+      commentParameter.data.replies.data.children.forEach((comment, index) => {
+        if (comment.data.body) {
+          list.push(
+            <Comment
+              commentData={comment.data}
+              topicAuthor={props.topicData.author}
+              key={comment.data.id}
+              dataKey={index}
+              topicId={`${props.subreddit}-${props.dataKey}`}
+              depth={depth}
+            />
+          );
+
+          
+          if (comment.data.replies) {
+            depth++
+            showReplies(comment, depth)
+          }
+          
+        }
+      })
+      
+  }
 
       // Add Thread self text if it has any.
       const selftext = [];
@@ -47,7 +78,7 @@ function CommentList(props) {
           />
         );
       }
-
+console.log(list.length)
 
   return (
     <div className="comment-list">
