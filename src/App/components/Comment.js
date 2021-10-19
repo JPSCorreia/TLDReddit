@@ -1,5 +1,4 @@
 import React from 'react'
-import reactDom from 'react-dom';
 //import Markdown from "markdown-to-jsx";
 import ReactMarkdown from 'react-markdown'
 import Moment from "react-moment";
@@ -11,8 +10,6 @@ function Comment(props) {
     width: `${100 - props.depth*1}%`
   };
 
-  console.log(props.topicAuthor)
-  console.log(props.commentData.author)
 
   return (
     <div
