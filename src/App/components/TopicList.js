@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { LoopCircleLoading } from 'react-loadingg';
 import PageChanger from './PageChanger';
-
+import SideBar from "./SideBar";
 
 function TopicList(props) {
 
@@ -38,15 +38,24 @@ function TopicList(props) {
 
   return (
     <div subreddit={selectedSubreddit} className='subreddit'>
-
-      <h2 className='subreddit-name'>
-        <div className='subreddit-name-border'>{selectedSubreddit}</div>
-      </h2>     
+        <div className='subreddit-name-border'>
+          <h2 className='subreddit-name'>
+            {selectedSubreddit}
+          </h2> 
+        </div>
+      <div className='main-subreddit-body'> 
+      <div className='all-topics'>
       {totalTopicList.isLoading? (
       <LoopCircleLoading
         color='red'
       />)
        : list }
+       </div>
+       {totalTopicList.isLoading?
+      '' : <SideBar /> 
+      }
+       
+       </div>
       {totalTopicList.isLoading?
       '' : <PageChanger /> 
       }

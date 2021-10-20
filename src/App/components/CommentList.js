@@ -18,7 +18,7 @@ function CommentList(props) {
     dispatch(RedditAPI.getCommentList(props.topicData.permalink));
   }, [dispatch, props.topicData.permalink]);
   const toggleComments = useSelector((state) => state.toggleComments[thisCommentListId] || false)
-  
+
 
   // Populate list array with with <Comment /> components using commentList state data.
   let idIndex = 0;
@@ -37,10 +37,9 @@ function CommentList(props) {
       );
     idIndex++;
     // If there are any replies then call function to show replies.
-    if (comment.data.replies) showReplies(comment, 1, index, idIndex)
+    if (comment.data.replies) showReplies(comment, 1, idIndex)
     }
   });
-
 
 
   // Show replies and if those comments have replies then call this function again.
@@ -59,31 +58,29 @@ function CommentList(props) {
               idIndex={idIndex}
             />
           );
-          idIndex++;
+          idIndex++; 
           if (comment.data.replies) {
-            showReplies(comment, depth, idIndex)
-          }
-          
-
+            showReplies(comment, depth)
+          }        
         }
       })
       
   }
 
-      // Add Thread self text if it has any.
-      const selftext = [];
-      if (props.topicData.selftext) {
-        selftext.push(
-          <CommentHead
-            topicData={props.topicData}
-            subreddit={props.subreddit}
-            dataKey="0"
-            key="0"
-            topicId={`${props.subreddit}-${props.dataKey}`}
-          />
-        );
-      }
-console.log(list.length)
+
+  // Add Thread self text if it has any.
+  const selftext = [];
+  if (props.topicData.selftext) {
+    selftext.push(
+      <CommentHead
+        topicData={props.topicData}
+        subreddit={props.subreddit}
+        dataKey="0"
+        key="0"
+        topicId={`${props.subreddit}-${props.dataKey}`}
+      />
+    );
+  }
 
   return (
     <div className="comment-list">

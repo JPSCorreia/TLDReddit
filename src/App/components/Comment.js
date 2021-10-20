@@ -7,7 +7,7 @@ import Moment from "react-moment";
 function Comment(props) {
 
   const commentDepth = {
-    width: `${100 - props.depth*1}%`
+    width: `${100 - props.depth*1.25}%`
   };
 
 
@@ -19,15 +19,16 @@ function Comment(props) {
       style={commentDepth}
     >
       <div className="author-info">
+        {/* Show Comment number */}
+        {/* <div className="comment-number">
+          #{props.idIndex+1}
+        </div> */}
         <div 
           className={`author ${(props.topicAuthor === props.commentData.author)? 'author-darkblue': ''}`}
         >
           {props.commentData.author}
         </div>
-        <span className="separator"> &nbsp; </span>
         <div className="points">{props.commentData.ups} points</div>
-        <span className="separator"> &nbsp; </span>
-        <span className="separator"> &nbsp; </span>
         <div className="comment-created-when">
           <Moment unix fromNow>
             {props.commentData.created_utc}
@@ -37,13 +38,6 @@ function Comment(props) {
       <div className="comment-body">
       <ReactMarkdown>{props.commentData.body}</ReactMarkdown>
       </div>
-      {/* {
-      (props.commentData.replies)? 
-        <Comment />
-      
-        : 
-          ''
-      } */}
     </div>
   );
 }

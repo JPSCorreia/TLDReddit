@@ -1,4 +1,7 @@
 /* App-wide rules */
+* {
+  box-sizing: border-box;
+}
 #root {
   background-color: white;
   margin: auto;
@@ -11,8 +14,8 @@
   word-break:break-word;
 }
 .main-body {
-  width: 60%;
-  margin: auto
+  width: 100%;
+  margin: auto;
 }
 .logo {
   justify-content: center;
@@ -21,7 +24,6 @@
   margin: auto;
   margin-top: 0.5rem;
   height: 2.6rem;
-
   background-size: 50%;
   background-image: url(tldreddit-sprites.png);
   background-repeat: no-repeat;
@@ -31,23 +33,43 @@ p {
   margin: 0.2rem;
   text-align: left;
  }
-
  li {
   text-align: left;
  }
-
  code {
   word-break:break-all;
  }
+ time {
+  color: #888;
+}
+
 
 
 /* General subreddit page rules*/
-.subreddit-name {
+.main-subreddit-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.subreddit-name-border {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+h2.subreddit-name {
   padding-top: 1.5rem;
-  padding-left: 4rem;
-  text-align: left;
+  justify-self: center;
   margin: 0;
   margin-bottom: 1rem;
+  margin-left: 3rem;
+  width: 85%;
+  justify-content: center;
+  text-align: left;
+}
+.all-topics {
+  width: 70%;
 }
 .topic {
   padding: 0.25rem 0;
@@ -391,7 +413,7 @@ cursor: pointer;
   color: white;
   text-align: left;
   margin: 0.2rem;
-  margin-left: 0;
+  margin-left: 1px;
   font-size: 0.7rem;
   background-color: #0055df;
   border-radius: 3px;
@@ -420,11 +442,14 @@ cursor: pointer;
   font-size: 0.7rem;
   font-weight: bold;
   align-self: center;
+  padding: 0 2px 0 2px;
   
 }
 .comment-created-when {
   font-size: 0.7rem;
   align-self: center;
+  margin: 0.2rem;
+  padding: 0 2px 0 2px;
 }
 .comment-body {
   padding-bottom: 0.2rem;
@@ -439,12 +464,28 @@ cursor: pointer;
 
 }
 .comment:nth-child(odd) {
-  background-color: rgb(247, 248, 248);
+  /* background-color: rgb(247, 248, 248); */
+  background-color: rgb(242, 243, 243);
 }
-
 .comment-list {
   margin-top: 0.25rem;
 }
+.comment-number {
+  font-weight: bold;
+  color: #888;
+  text-align: left;
+  margin: 0.2rem;
+  margin-left: 0;
+  font-size: 0.7rem;
+  padding: 0
+}
+
+
+
+
+
+
+
 
 
 
@@ -494,9 +535,81 @@ cursor: pointer;
 }
 
 
-time {
-  color: #888;
+
+
+/* Side Bar */
+.side-bar {
+  /* border: 1px red solid; */
+  width:15%;
+  display:flex;
+  flex-direction: column;
+  margin-left: 2rem;
 }
+
+
+
+
+/* Search Bar and Form*/
+.search-bar {
+  margin: 0;
+  display: flex;
+  width: 100%;
+}
+.search-form {
+  width: 100%;
+}
+.search-form input[type=text] {
+  padding: 5px;
+  font-size: 0.8rem;
+  border: rgb(220, 220, 220) 1px solid;
+  border-radius: 1px;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+.search-form button {
+  float: left;
+  width: 20%;
+  max-width: 35px;
+  padding: 5px;
+  background: #bb0010;
+  font-size: 0.8rem;
+  color: white;
+  border: 1px solid grey;
+  border-radius: 1px;
+  cursor: pointer;
+}
+.search-form button:hover {
+  background: #6b6b6b;
+}
+/* Clear floats */
+.search-form::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+/* Subreddit Sidebar Info */
+.side-info {
+  margin-top: 1rem;
+  text-align: left;
+  /* border: 1px green solid; */
+}
+.subreddit-sidebar-info {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+.sidebar-subreddit-name {
+  font-weight: bold;
+}
+
+
+
+
+
+
 
 
 /* CSS rule for markdown-to-jsx */
@@ -578,7 +691,17 @@ time {
   }
 
 
+  .side-bar {
+    display: none;
+  }
 
+  .main-subreddit-body {
+    width: 100%;
+  }
+
+  .all-topics {
+    width: 100%;
+  }
   /* 
   Tried to change loading component properties, not working.
   .loop-loading {
