@@ -75,3 +75,7 @@ The following people contributed to this project:
     </td>
   </tr>
 </table>
+
+## 📝 License
+
+This project is under MIT License. Check file [LICENSE](LICENSE) for more details.
