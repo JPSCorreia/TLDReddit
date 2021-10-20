@@ -8,6 +8,7 @@
   width: 100%;
   margin: auto;
   font-family: 'Noto Sans', sans-serif;
+  word-break:break-word;
 }
 .main-body {
   width: 60%;
@@ -35,6 +36,9 @@ p {
   text-align: left;
  }
 
+ code {
+  word-break:break-all;
+ }
 
 
 /* General subreddit page rules*/
@@ -353,6 +357,7 @@ img.thumbnail {
   border-radius: 5px;
   width: 95%;
   align-self: center;
+  
 }
 .author-in-comments {
   color: rgb(232, 18, 240);
@@ -400,7 +405,7 @@ cursor: pointer;
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
   border-radius: 5px;
-  word-wrap: break-word;
+  word-break:break-all;
   width: 95%;
   align-self: right;
   padding: 0 0.4rem 0 0.4rem ;
@@ -412,9 +417,10 @@ cursor: pointer;
   
 }
 .points {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: bold;
   align-self: center;
+  
 }
 .comment-created-when {
   font-size: 0.7rem;
@@ -488,7 +494,9 @@ cursor: pointer;
 }
 
 
-
+time {
+  color: #888;
+}
 
 
 /* CSS rule for markdown-to-jsx */

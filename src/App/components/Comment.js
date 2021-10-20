@@ -14,8 +14,8 @@ function Comment(props) {
   return (
     <div
       className={`comment`}
-      id={`comment-${props.topicId}-${props.dataKey}`}
-      data-depth={props.depth}
+      id={`comment-${props.topicId}-${props.idIndex}`}
+      comment-depth={props.depth}
       style={commentDepth}
     >
       <div className="author-info">
@@ -26,6 +26,7 @@ function Comment(props) {
         </div>
         <span className="separator"> &nbsp; </span>
         <div className="points">{props.commentData.ups} points</div>
+        <span className="separator"> &nbsp; </span>
         <span className="separator"> &nbsp; </span>
         <div className="comment-created-when">
           <Moment unix fromNow>

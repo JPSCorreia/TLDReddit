@@ -21,6 +21,7 @@ function CommentList(props) {
   
 
   // Populate list array with with <Comment /> components using commentList state data.
+  let idIndex = 0;
   const list = [];
   commentList.forEach((comment, index) => { // tier 1 replies
     if (comment.data.body) { // fix for some empty comments that were appearing, probably hidden comments (downvoted).
@@ -31,12 +32,16 @@ function CommentList(props) {
           dataKey={index}
           topicId={`${props.subreddit}-${props.dataKey}`}
           depth={0}
+          idIndex={idIndex}
         />
       );
+    idIndex++;
     // If there are any replies then call function to show replies.
-    if (comment.data.replies) showReplies(comment, 1)
+    if (comment.data.replies) showReplies(comment, 1, index, idIndex)
     }
   });
+
+
 
   // Show replies and if those comments have replies then call this function again.
   function showReplies (commentParameter, depth) {
@@ -50,16 +55,16 @@ function CommentList(props) {
               key={comment.data.id}
               dataKey={index}
               topicId={`${props.subreddit}-${props.dataKey}`}
-              depth={depth}
+              depth={comment.data.depth}
+              idIndex={idIndex}
             />
           );
-
-          
+          idIndex++;
           if (comment.data.replies) {
-            depth++
-            showReplies(comment, depth)
+            showReplies(comment, depth, idIndex)
           }
           
+
         }
       })
       
