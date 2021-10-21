@@ -82,6 +82,15 @@ export const toggle = createAsyncThunk(
     }
 )
 
+// Select subreddit sub Action
+export const setSearchItem = createAsyncThunk(
+  "searchItem/setSearchItem",
+  async (searchItem) => {
+    return searchItem;
+  }
+)
+
+
 
   /* 
     REDDIT API INFO

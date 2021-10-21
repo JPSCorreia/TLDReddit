@@ -5,6 +5,7 @@ import SideInfo from './SideInfo';
 
 function SideBar(props) {
 
+
   return (
     <div
       className='side-bar'

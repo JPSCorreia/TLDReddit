@@ -14,6 +14,7 @@ function TopicList(props) {
   const totalTopicList = useSelector((state) => state.topicList) // just to check if all threads are loaded.
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value);
   const topicList = useSelector((state) => state.topicList[selectedSubreddit] || [])
+  const searchItem = useSelector((state) => state.searchItem.value);
 
 
   useEffect(() =>  {
@@ -22,7 +23,7 @@ function TopicList(props) {
 
   
   // Push different Topic components to a list.
-  const list = [] 
+  let list = [] 
   topicList.forEach((topic, index) => {
     // Show 25 topics.
     if(index < 25) list.push(<Topic 
@@ -33,6 +34,16 @@ function TopicList(props) {
       id={`${selectedSubreddit}-${index+1}`}
     />);
   });
+
+  // Filter array of topic components according to title, username or selftext when user types in search bar.
+  if (searchItem) {
+    const filteredList = list.filter( element => {
+      // console.log(element.props.topicData.title)
+      return (element.props.topicData.title.toLowerCase().includes(searchItem.toLowerCase()) || element.props.topicData.author.toLowerCase().includes(searchItem.toLowerCase()) || element.props.topicData.selftext.toLowerCase().includes(searchItem.toLowerCase()))
+    })
+    list = filteredList;
+    console.log(list)
+  }
 
 
 
@@ -52,7 +63,7 @@ function TopicList(props) {
        : list }
        </div>
        {totalTopicList.isLoading?
-      '' : <SideBar /> 
+      '' : <SideBar  /> 
       }
        
        </div>

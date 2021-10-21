@@ -89,6 +89,7 @@ h2.subreddit-name {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
   flex: 1;
 } 
  /* .topic-container:hover {
@@ -543,7 +544,7 @@ cursor: pointer;
   width:15%;
   display:flex;
   flex-direction: column;
-  margin-left: 2rem;
+  margin-left: 3rem;
 }
 
 
@@ -588,6 +589,14 @@ cursor: pointer;
   clear: both;
   display: table;
 }
+.search-icon {
+  padding-right: 0.5rem;
+  margin-top: 0.25rem;
+}
+input:focus {
+    outline: none;
+}
+
 
 
 
@@ -659,7 +668,7 @@ cursor: pointer;
     width: 100%;
   }
   .topic-container {
-    max-width: 95%
+    max-width: 95%;
   }
   .subreddit-name {
     font-size: 1.25rem;
