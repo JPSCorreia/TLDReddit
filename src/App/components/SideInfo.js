@@ -1,10 +1,20 @@
 import React from 'react'
-import { useSelector } from "react-redux";
-
+import * as RedditAPI from '../RedditAPI';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+// import ReactHtmlParser from "react-html-parser";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 function SideInfo(props) {
 
+  // Redux State/Action Management.
+  const dispatch = useDispatch();
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value);
+  useEffect(() =>  {
+    dispatch(RedditAPI.getAbout(selectedSubreddit));
+}, [dispatch, selectedSubreddit]);
+  const about = useSelector((state) => state.about[selectedSubreddit] || [])
 
 
   return (
@@ -12,11 +22,15 @@ function SideInfo(props) {
       className='side-info'
     >
       <div className='sidebar-subreddit-name'>
-        {selectedSubreddit.substr(2)}
+        {about.display_name}
+      </div>
+      <div className='sidebar-subreddit-public-description'>
+        {/* {about.public_description} */}
       </div>
       <div className='subreddit-sidebar-info'>
-        Subreddit Information:
-        Blablabla Blablablablablal albaldalsdas ldasld aslda lda asldasl dasdla sdlasdla d
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        {about.description}
+        </ReactMarkdown>
       </div>
     </div>
   );

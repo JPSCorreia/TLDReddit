@@ -5,6 +5,7 @@ import selectedSubredditReducer from './selectedSubredditSlice';
 import previewImageReducer from './previewImageSlice';
 import toggleCommentsReducer from './toggleCommentsSlice';
 import searchItemReducer from './searchItemSlice';
+import aboutReducer from './aboutSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     previewImage: previewImageReducer,
     toggleComments: toggleCommentsReducer,
     searchItem: searchItemReducer,
+    about: aboutReducer,
   },
   // Remove SerializableStateInvariantMiddleware warning.
   middleware: getDefaultMiddleware => getDefaultMiddleware({

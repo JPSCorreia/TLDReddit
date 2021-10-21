@@ -14,6 +14,18 @@ export const getTopicList = createAsyncThunk(
   }
 );
 
+// Get About from subreddit, ie: https://www.reddit.com/r/formula1/about.json
+export const getAbout = createAsyncThunk(
+  "about/getAbout",
+  async (url) => {
+      return await fetch(`https://www.reddit.com/${url}/about.json`)
+      .then((data) => data.json())
+      .then((jsonData) => {
+        return { data: jsonData.data, key: url };
+      });
+  }
+);
+
 // Get after topic list from url Action
 export const getTopicListAfter = createAsyncThunk(
   "topicList/getTopicListAfter",
