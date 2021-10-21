@@ -37,6 +37,7 @@ function TopicList(props) {
 
   // Filter array of topic components according to title, username or selftext when user types in search bar.
   if (searchItem) {
+   
     const filteredList = list.filter( element => {
       // console.log(element.props.topicData.title)
       return (element.props.topicData.title.toLowerCase().includes(searchItem.toLowerCase()) || element.props.topicData.author.toLowerCase().includes(searchItem.toLowerCase()) || element.props.topicData.selftext.toLowerCase().includes(searchItem.toLowerCase()))
@@ -61,6 +62,11 @@ function TopicList(props) {
         color='red'
       />)
        : list }
+      {list.length === 0?
+        <p className='no-results-found'>Your search - <b>{searchItem}</b> - did not match any documents.</p> 
+      : 
+        ''
+      }
        </div>
        {totalTopicList.isLoading?
       '' : <SideBar  /> 

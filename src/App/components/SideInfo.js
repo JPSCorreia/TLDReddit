@@ -2,7 +2,6 @@ import React from 'react'
 import * as RedditAPI from '../RedditAPI';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import ReactHtmlParser from "react-html-parser";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -23,6 +22,12 @@ function SideInfo(props) {
     >
       <div className='sidebar-subreddit-name'>
         {about.display_name}
+      </div>
+      <div className='sidebar-subreddit-subscribers'>
+        {about.subscribers} subscribers
+      </div>
+      <div className='sidebar-subreddit-accounts-active'>
+        {about.accounts_active} users here now
       </div>
       <div className='sidebar-subreddit-public-description'>
         {/* {about.public_description} */}

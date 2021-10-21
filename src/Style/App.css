@@ -42,7 +42,20 @@ p {
  time {
   color: #888;
 }
-
+a {
+  color: #0079d3;
+  font-weight: bold;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+a:hover {
+  color: #6b6b6b
+}
+pre {
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+}
 
 
 /* General subreddit page rules*/
@@ -89,7 +102,7 @@ h2.subreddit-name {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
+  max-width: 95%;
   flex: 1;
 } 
  /* .topic-container:hover {
@@ -97,7 +110,8 @@ h2.subreddit-name {
  } */
 .whole-topic-container {
   display: flex;
-  justify-content: flex-start
+  justify-content: flex-start;
+  width: 100%;
 }
 
 
@@ -261,8 +275,8 @@ img.thumbnail {
   word-wrap: break-word;
   margin-bottom: 0.4rem;
   margin-right: 0.5rem;
-  width: 0.5rem;
-  height: 0.85rem;
+  width: 1.25rem;
+  height: 1.25rem;
   background-size: 200%;
   background-image: url(resize.png);
   background-repeat: no-repeat;
@@ -378,7 +392,7 @@ img.thumbnail {
   margin-bottom: 0.2rem;
   padding-left: 0.3rem;
   border-radius: 5px;
-  width: 95%;
+  width: 98.5%;
   align-self: center;
   
 }
@@ -432,7 +446,7 @@ cursor: pointer;
   width: 95%;
   align-self: right;
   padding: 0 0.4rem 0 0.4rem ;
-
+  margin-right: 0.3rem;
 }
 .author-info {
   padding-bottom: 0rem;
@@ -601,7 +615,16 @@ cursor: pointer;
 input:focus {
     outline: none;
 }
+.no-results-found {
+  margin-top: 5rem;
+  font-weight: normal;
+  text-align: center;
+}
 
+#search-input span{
+  background-color:#FF9;
+  color:#555;
+}
 
 
 
@@ -617,9 +640,22 @@ input:focus {
 }
 .sidebar-subreddit-name {
   font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: 3.2px;
 }
-
-
+.sidebar-subreddit-subscribers {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #369;
+  font-weight: bold;
+  margin-left: 3.2px;
+}
+.sidebar-subreddit-accounts-active {
+  font-size: 0.8rem;
+  color: green;
+  font-weight: bold;
+  margin-left: 3.2px;
+}
 
 
 

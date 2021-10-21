@@ -7,7 +7,7 @@ import Moment from "react-moment";
 function Comment(props) {
 
   const commentDepth = {
-    width: `${100 - props.depth*1.25}%`
+    width: `${99 - props.depth*1.25}%`
   };
 
 
