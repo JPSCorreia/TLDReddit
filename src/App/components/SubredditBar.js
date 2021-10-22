@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import * as RedditAPI from '../RedditAPI';
 import exampleSubreddits from '../exampleSubreddits'
-
+import { NavLink } from "react-router-dom";
+import { ROUTES } from '../routes';
 
 function SubredditBar(props) {
 
@@ -14,22 +15,7 @@ function SubredditBar(props) {
   useEffect(() =>  {
     dispatch(RedditAPI.selectSubreddit(selectedSubreddit))
   },[dispatch,selectedSubreddit])
-  let currentSub = `subreddit-button-${selectedSubreddit.substr(2)}`;
 
-
-  // Change subreddit and current subreddit/new subreddit button style on button click.
-  function handleSubredditChange (event) {
-    if (exampleSubreddits.includes(selectedSubreddit.substr(2))) {
-      document.getElementById(currentSub).classList.remove('subreddit-button-selected');
-    }
-    if (exampleSubreddits.includes(event.target.innerText)) {
-      document.getElementById(event.target.id).classList.add('subreddit-button-selected');
-    }
-    // console.log(`SubredditBar's handleSubredditChange event.target.id is: ${event.target.id}`)
-    dispatch(RedditAPI.selectSubreddit(`r/${event.target.innerText}`))
-    currentSub = event.target.id;
-  }
-  
 
   // Push chosen subreddits to a list.
   const subredditBarList = [];
@@ -40,31 +26,17 @@ function SubredditBar(props) {
         <span className='separator' key={index+100} >-</span>
       )
     }
-    if (index > 0) {
-      subredditBarList.push(
-        <button 
-          type="button" 
-          className='subreddit-button' 
-          id={id} 
-          onClick={handleSubredditChange}
-          key={index}
-        >
-          {subreddit}
-        </button>
-      )
-    } else {
-      subredditBarList.push(
-        <button 
-          type="button" 
-          className='subreddit-button subreddit-button-selected' 
-          id={id} 
-          onClick={handleSubredditChange}
-          key={index}
-        >
-          {subreddit}
-        </button>
-      )
-    }
+    subredditBarList.push(
+      <NavLink
+        to={ROUTES[subreddit.toUpperCase()]}
+        className='subreddit-button' 
+        id={id} 
+        key={index}
+      >
+        {subreddit}
+      </NavLink>
+    )
+
   })
 
 
@@ -76,3 +48,59 @@ function SubredditBar(props) {
 }
 
 export default SubredditBar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // let currentSub = `subreddit-button-${selectedSubreddit.substr(2)}`;
+
+
+  // Change subreddit and current subreddit/new subreddit button style on button click.
+  // function handleSubredditChange (event) {
+  //  if (exampleSubreddits.includes(selectedSubreddit.substr(2))) {
+  //    document.getElementById(currentSub).classList.remove('subreddit-button-selected');
+  //  }
+  //  if (exampleSubreddits.includes(event.target.innerText)) {
+  //   document.getElementById(event.target.id).classList.add('subreddit-button-selected');
+  //  }
+  //  dispatch(RedditAPI.selectSubreddit(`r/${event.target.innerText}`))
+  //  currentSub = event.target.id;
+  // }
+
+
+
+
+    // if (index > 0) {
+    //   subredditBarList.push(
+    //     <button 
+    //       type="button" 
+    //       className='subreddit-button' 
+    //       id={id} 
+    //       onClick={handleSubredditChange}
+    //       key={index}
+    //     >
+    //       {subreddit}
+    //     </button>
+    //   )
+    // } else {
+    //   subredditBarList.push(
+    //     <button 
+    //       type="button" 
+    //       className='subreddit-button subreddit-button-selected' 
+    //       id={id} 
+    //       onClick={handleSubredditChange}
+    //       key={index}
+    //     >
+    //       {subreddit}
+    //     </button>
+    //   )
+    // }

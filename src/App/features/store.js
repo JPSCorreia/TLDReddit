@@ -6,6 +6,7 @@ import previewImageReducer from './previewImageSlice';
 import toggleCommentsReducer from './toggleCommentsSlice';
 import searchItemReducer from './searchItemSlice';
 import aboutReducer from './aboutSlice';
+import routesReducer from './routesSlice';
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     toggleComments: toggleCommentsReducer,
     searchItem: searchItemReducer,
     about: aboutReducer,
+    routes: routesReducer,
   },
   // Remove SerializableStateInvariantMiddleware warning.
   middleware: getDefaultMiddleware => getDefaultMiddleware({

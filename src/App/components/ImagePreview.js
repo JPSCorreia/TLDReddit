@@ -16,7 +16,7 @@ function ImagePreview(props) {
 
       {/* In URLs with gifv extension try to substitute for webm or mp4.*/}
       { extension === ".gifv" && (
-        <video preload="auto" autoplay="autoplay" loop="loop" className="video-preview">
+        <video preload="auto" autoPlay loop="loop" className="video-preview">
           <source src={`${imageWithoutExtension}.webm`} type="video/webm"></source>
           <source src={`${imageWithoutExtension}.mp4`} type="video/mp4"></source>
         </video>)
@@ -24,7 +24,7 @@ function ImagePreview(props) {
 
       {/* Gfycat.com rules for gifs (get case sensitive URL from thumbnail info, hack the string and try different extensions).  */}
       { props.topicData.domain === 'gfycat.com' && (
-         <video preload="auto" autoplay="autoplay" loop="loop" className="video-preview">
+         <video preload="auto" autoPlay loop="loop" className="video-preview">
           <source
             alt={`${thisImageId}-preview`}
             src={`https://giant.gfycat.com/${path.basename(props.topicData.media.oembed.thumbnail_url.split("-size_restricted").shift())}.webm`}
@@ -42,7 +42,7 @@ function ImagePreview(props) {
 
       {/* v.redd.it rules */}
       { props.topicData.domain === 'v.redd.it' && (
-         <video preload="auto" autoplay="autoplay" loop="loop" className="video-preview">
+         <video preload="auto" autoPlay loop="loop" className="video-preview">
           <source
             alt={`${thisImageId}-preview`}
             src={props.topicData.secure_media.reddit_video.fallback_url}

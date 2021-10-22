@@ -18,10 +18,17 @@ function TopicList(props) {
 
 
   useEffect(() =>  {
+    dispatch(RedditAPI.selectSubreddit(props.selectedRoute))
+}, [dispatch, props.selectedRoute]);
+  
+
+
+  useEffect(() =>  {
       dispatch(RedditAPI.getTopicList(selectedSubreddit));
   }, [dispatch, selectedSubreddit]);
 
   
+
   // Push different Topic components to a list.
   let list = [] 
   topicList.forEach((topic, index) => {
@@ -43,7 +50,6 @@ function TopicList(props) {
       return (element.props.topicData.title.toLowerCase().includes(searchItem.toLowerCase()) || element.props.topicData.author.toLowerCase().includes(searchItem.toLowerCase()) || element.props.topicData.selftext.toLowerCase().includes(searchItem.toLowerCase()))
     })
     list = filteredList;
-    console.log(list)
   }
 
 
@@ -62,14 +68,14 @@ function TopicList(props) {
         color='red'
       />)
        : list }
-      {list.length === 0?
+      {list.length === 0 && searchItem.length > 0?
         <p className='no-results-found'>Your search - <b>{searchItem}</b> - did not match any documents.</p> 
       : 
         ''
       }
        </div>
        {totalTopicList.isLoading?
-      '' : <SideBar  /> 
+      '' : <SideBar  />
       }
        
        </div>

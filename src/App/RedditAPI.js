@@ -102,6 +102,13 @@ export const setSearchItem = createAsyncThunk(
   }
 )
 
+// Add route to routes Action
+export const addRoute = createAsyncThunk(
+  "routes/addRoute",
+  async (route) => {
+    return route;
+  }
+)
 
 
   /* 

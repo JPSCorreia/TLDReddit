@@ -45,7 +45,6 @@ function Topic(props) {
         >
 
 
-
           <div className='topic-and-thumbnail'>
 
             {(props.topicData.selftext) 
@@ -53,7 +52,14 @@ function Topic(props) {
                     {ReactHtmlParser(props.topicData.title)}
                 </div>
               : <div  className='topic-name'>
-                  <a href={props.topicData.url} target='_blank' rel='noreferrer'>
+                  <a 
+                    // Check if topic is a video and redirect to video URL (avoids linking directly to reddit)
+                    href={     props.topicData.media && props.topicData.media.reddit_video 
+                      ? props.topicData.media.reddit_video.fallback_url
+                      : props.topicData.url} 
+                    target='_blank' 
+                    rel='noreferrer'
+                  >
                     {ReactHtmlParser(props.topicData.title)}
                   </a>
                 </div>

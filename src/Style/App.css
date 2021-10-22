@@ -128,6 +128,8 @@ h2.subreddit-name {
   transition-duration: 0.2s;
   background-color: rgba(0,0,0, 0);
   font-family: 'Noto Sans', sans-serif;
+  font-weight:100;
+  font-size: 1.15rem;
   padding: 0;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -512,6 +514,7 @@ cursor: pointer;
   color: black;
   justify-content: center;
   align-items: center;
+  width: 77.5%;
 }
 .page-arrow-and-name {
   display: flex;
