@@ -2,13 +2,12 @@ import React from 'react'
 import * as RedditAPI from '../RedditAPI';
 import { useSelector, useDispatch } from 'react-redux';
 
+
 function SearchBar(props) {
 
   // Redux State/Action Management.
   const searchItem = useSelector((state) => state.searchItem.value);
   const dispatch = useDispatch();
-
-
 
   const handleKeyPress = (event) => {
       if (event.key === "Enter") {

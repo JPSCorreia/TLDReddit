@@ -2,9 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import * as RedditAPI from '../RedditAPI';
-import { exampleSubreddits } from '../routes'
 import { NavLink } from "react-router-dom";
-import { ROUTES } from '../routes';
 
 function SubredditBar(props) {
 
@@ -12,6 +10,7 @@ function SubredditBar(props) {
   // Redux State/Action Management.
   const dispatch = useDispatch();
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value)
+  const routes = useSelector((state) => state.routes.data);
   useEffect(() =>  {
     dispatch(RedditAPI.selectSubreddit(selectedSubreddit))
   },[dispatch,selectedSubreddit])
@@ -19,8 +18,8 @@ function SubredditBar(props) {
 
   // Push chosen subreddits to a list.
   const subredditBarList = [];
-  exampleSubreddits.forEach((subreddit, index) => {
-    const id = `subreddit-button-${subreddit}`
+  routes.forEach((subreddit, index) => {
+    const id = `subreddit-button-${subreddit.substr(3)}`
     if (index > 0) {
       subredditBarList.push(
         <span className='separator' key={index+100} >-</span>
@@ -28,17 +27,15 @@ function SubredditBar(props) {
     }
     subredditBarList.push(
       <NavLink
-        to={ROUTES[subreddit.toUpperCase()]}
+        to={subreddit.substr(3)}
         className='subreddit-button' 
         id={id} 
         key={index}
       >
-        {subreddit}
+        {subreddit.substr(3)}
       </NavLink>
     )
-
   })
-
 
   return (
     <div className='subreddit-bar'>

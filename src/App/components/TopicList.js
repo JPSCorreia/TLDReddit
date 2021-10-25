@@ -7,6 +7,7 @@ import { LoopCircleLoading } from 'react-loadingg';
 import PageChanger from './PageChanger';
 import SideBar from "./SideBar";
 
+
 function TopicList(props) {
 
   // Redux State/Action Management.

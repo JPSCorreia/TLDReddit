@@ -3,6 +3,7 @@ import SearchBar from './SearchBar';
 import SideInfo from './SideInfo';
 import { useSelector } from 'react-redux';
 
+
 function SideBar(props) {
 
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value);
