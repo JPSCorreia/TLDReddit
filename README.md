@@ -1,6 +1,8 @@
 ![image](https://github.com/JPSCorreia/TLDReddit/blob/main/public/TLDReddit-logo.png?raw=true)
 #### TLDReddit is an alternative way to browse [reddit](https://www.reddit.com/), built for educational purposes.
 
+Deployed at https://serene-sinoussi-2933f8.netlify.app .
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), uses [Redux](https://redux.js.org/) /[ Redux toolkit](https://redux-toolkit.js.org/) for managing states and [Jest](https://jestjs.io/) / [Enzyme](https://enzymejs.github.io/enzyme/) for testing.
 <br/>
 
