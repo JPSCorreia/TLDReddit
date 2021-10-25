@@ -1,5 +1,6 @@
 import React from 'react'
 import path from "path";
+import YoutubeEmbed from "./YoutubeEmbed";
 
 
 function ImagePreview(props) {
@@ -58,10 +59,14 @@ function ImagePreview(props) {
           src={props.topicData.url}
         />)
       }
-
+      {/* youtube embed */}
+      { props.topicData.secure_media.type === 'youtube.com' &&
+      <YoutubeEmbed url={props.topicData.url} />
+      }
       </a>
     </div>
   );
 }
 
 export default ImagePreview;
+

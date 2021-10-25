@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Moment from "react-moment";
 import { NavLink } from "react-router-dom";
 import routeList from '../App';
-// import exampleSubreddits from '../exampleSubreddits'
+// import { exampleSubreddits } from '../routes'
 // import TopicList from "./TopicList";
 
 

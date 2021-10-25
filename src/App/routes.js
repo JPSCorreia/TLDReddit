@@ -1,4 +1,22 @@
-import exampleSubreddits from './exampleSubreddits'
+
+// List of subreddits chosen.
+export const exampleSubreddits = [
+  'redditdev',
+  'Astronomy',
+  'formula1',
+  'Futurology',
+  'gifs',
+  'pcgaming',
+  'pics',
+  'ProgrammerHumor',
+  'portugal',
+  'space',
+  'science',
+  'technology',
+  'worldnews',
+  'leagueoflegends',
+  'all'
+]
 
 // Get 2 arrays, one to use as keys and another as values for the ROUTES object.
 const exampleSubredditsURLs = exampleSubreddits.map( element => `/r/${element}`)

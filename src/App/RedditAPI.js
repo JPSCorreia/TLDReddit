@@ -60,7 +60,7 @@ export const getTopicListBefore = createAsyncThunk(
 export const getCommentList = createAsyncThunk(
   "commentList/getCommentList",
   async (url) => {
-    return await fetch(`https://www.reddit.com/${url}.json`)
+    return await fetch(`https://www.reddit.com/${url.slice(-1) === '/'? url.slice(0, -1) : url}.json`) // remove '/' at end of the url in urls that have it.
       .then((data) => data.json())
       .then((jsonData) => {
         // jsonData[0] is the post

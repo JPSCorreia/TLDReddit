@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import * as RedditAPI from '../RedditAPI';
-import exampleSubreddits from '../exampleSubreddits'
+import { exampleSubreddits } from '../routes'
 import { NavLink } from "react-router-dom";
 import { ROUTES } from '../routes';
 
