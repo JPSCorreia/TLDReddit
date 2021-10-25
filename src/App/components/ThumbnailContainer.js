@@ -31,16 +31,17 @@ function ThumbnailContainer(props) {
   // Function that searchs for thumbnail, it adds a text thumbnail or nsfw thumbnail for posts of those types.
   const thumbnailExists = (thumbnail, url, id) => {
       //console.log(`thumbnail is ${thumbnail} with id ${id}`)
-      if (["default", "self", ""].includes(thumbnail)) {
+      if (["default", "self", ""].includes(thumbnail) && (props.topicData.domain === "i.imgur.com" || props.topicData.domain === "giant.gfycat.com")) {
         return (
           <img
             alt='thumbnail'
             id={`thumbnail-${id}`}
-            title='text-icon'
-            src={textIcon}
+            title='spoiler-icon'
+            src={spoilerIcon}
             className='thumbnail thumbnail-substitute'
           ></img>
-        );
+        )
+
       } else if (["nsfw"].includes(thumbnail)) {
         return (
           <img
@@ -58,6 +59,16 @@ function ThumbnailContainer(props) {
             id={`thumbnail-${id}`}
             title='spoiler-icon'
             src={spoilerIcon}
+            className='thumbnail thumbnail-substitute'
+          ></img>
+        );
+      } else if (["default", "self", ""].includes(thumbnail)) {
+        return (
+          <img
+            alt='thumbnail'
+            id={`thumbnail-${id}`}
+            title='text-icon'
+            src={textIcon}
             className='thumbnail thumbnail-substitute'
           ></img>
         );
@@ -81,10 +92,10 @@ function ThumbnailContainer(props) {
 <div className='thumbnail-container'>
   {/* //Temporary, To do gallery specific.*/}
   <div>
-    {props.topicData.is_gallery? `TEMPORARY Gallery with ${props.topicData.gallery_data.items.length} items` : ''}
+    {props.topicData.is_gallery? `TEMP ${props.topicData.gallery_data.items.length} items` : ''}
   </div>
     {/* Check to see if its image or video/gif */}
-    {(['image', 'hosted:video', 'rich:video'].includes(props.topicData.post_hint) || props.topicData.domain === "gfycat.com" || props.topicData.domain === "i.imgur.com") && <div 
+    {(['image', 'hosted:video', 'rich:video'].includes(props.topicData.post_hint) || props.topicData.domain.includes("gfycat.com") || props.topicData.domain.includes("imgur.com")) && <div 
       className='preview-image-button preview-image-button-open' 
       id={`thumbnail-container-${thisThumbnailId}`}
       type='button' 

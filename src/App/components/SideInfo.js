@@ -15,8 +15,11 @@ function SideInfo(props) {
 }, [dispatch, selectedSubreddit]);
   const about = useSelector((state) => state.about[selectedSubreddit] || [])
 
+  // to do: fix loading multiple times.
+  // console.log('side info loading multiple times test')
 
   return (
+
     <div
       className='side-info'
     >

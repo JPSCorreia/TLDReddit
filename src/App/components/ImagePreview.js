@@ -9,14 +9,22 @@ function ImagePreview(props) {
   const extension = path.extname(props.topicData.url);
   const imageWithoutExtension = extension ? props.topicData.url.split(extension).shift() : props.topicData.url
   const thisImageId = `${props.subreddit}-${props.dataKey}`;
-
+  
   return (
-
+    
     <div className='preview-image'>
-      <a href={props.topicData.url} target='_blank' rel='noreferrer'>
+      <a href={props.topicData.domain === 'v.redd.it'? props.topicData.secure_media.reddit_video.fallback_url : props.topicData.url} target='_blank' rel='noreferrer' className='preview-image-link'>
 
       {/* In URLs with gifv extension try to substitute for webm or mp4.*/}
       { extension === ".gifv" && (
+        <video preload="auto" autoPlay loop="loop" className="video-preview">
+          <source src={`${imageWithoutExtension}.webm`} type="video/webm"></source>
+          <source src={`${imageWithoutExtension}.mp4`} type="video/mp4"></source>
+        </video>)
+      }
+
+      {/* URLs with webm or mp4 extension.*/}
+      { (extension === ".mp4" || extension === ".webm") && (
         <video preload="auto" autoPlay loop="loop" className="video-preview">
           <source src={`${imageWithoutExtension}.webm`} type="video/webm"></source>
           <source src={`${imageWithoutExtension}.mp4`} type="video/mp4"></source>
@@ -59,10 +67,12 @@ function ImagePreview(props) {
           src={props.topicData.url}
         />)
       }
+
       {/* youtube embed */}
       { props.topicData.secure_media && props.topicData.secure_media.type === 'youtube.com' &&
       <YoutubeEmbed url={props.topicData.url} />
       }
+
       </a>
     </div>
   );

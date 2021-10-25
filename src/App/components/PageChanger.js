@@ -29,6 +29,9 @@ function PageChanger(props) {
 
   }
 
+  // to do: fix loading multiple times.
+  // console.log('page changer loading multiple times test')
+
   return (
     <div className="page-changer">
       {/* Check to see if user is in first page or not and apply class accordingly */}

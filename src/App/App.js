@@ -21,7 +21,7 @@ function App() {
   // console.log(routes)
  
   useEffect(() => {
-    // putting line 28-35 here breaks about info for localhost:3000/
+    // putting line 31-37 here breaks about info for localhost:3000/
     // putting outside pushes the routes to the array every single time the dom refreshes
     // need to fix.
 
@@ -48,11 +48,11 @@ function App() {
   // }
   routeList.push(urlRoute)
 
-  console.log(routes.REDDITDEV)
-
-
-    
+  // to do: fix push adding same routes.
   console.log(routeList)
+
+
+      
   return (
     <div className="App">
       <NavLink
