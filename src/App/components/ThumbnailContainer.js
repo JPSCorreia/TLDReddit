@@ -38,7 +38,7 @@ function ThumbnailContainer(props) {
             id={`thumbnail-${id}`}
             title='text-icon'
             src={textIcon}
-            className='thumbnail'
+            className='thumbnail thumbnail-substitute'
           ></img>
         );
       } else if (["nsfw"].includes(thumbnail)) {
@@ -48,7 +48,7 @@ function ThumbnailContainer(props) {
             id={`thumbnail-${id}`}
             title='nsfw-icon'
             src={nsfwIcon}
-            className='thumbnail'
+            className='thumbnail thumbnail-substitute'
           ></img>
         );
       } else if (["spoiler"].includes(thumbnail)) {
@@ -58,7 +58,7 @@ function ThumbnailContainer(props) {
             id={`thumbnail-${id}`}
             title='spoiler-icon'
             src={spoilerIcon}
-            className='thumbnail'
+            className='thumbnail thumbnail-substitute'
           ></img>
         );
       } else {

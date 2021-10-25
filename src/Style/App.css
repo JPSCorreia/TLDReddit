@@ -222,7 +222,7 @@ h2.subreddit-name {
 }
 .thumbnail-container {
   width: 150px;
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -231,11 +231,14 @@ h2.subreddit-name {
 }
 img.thumbnail {
   max-width: 70px;
-  max-height: 70px;
-  align-self: flex-end;
+  max-height: 52px;
+  align-self: center;
   width: 70px;
   height:70px;
  }
+.thumbnail-substitute {
+  max-height: 62px !important;
+}
 .topic-name a {
   text-decoration: none;
   color: black;
@@ -330,6 +333,7 @@ img.thumbnail {
   width: 50%;
   margin: left;
   padding-left: 0.7rem;
+  margin-bottom: 1rem;
 }
 .preview-image img {
   width: 100%;

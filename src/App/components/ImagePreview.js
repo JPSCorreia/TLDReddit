@@ -60,7 +60,7 @@ function ImagePreview(props) {
         />)
       }
       {/* youtube embed */}
-      { props.topicData.secure_media.type === 'youtube.com' &&
+      { props.topicData.secure_media && props.topicData.secure_media.type === 'youtube.com' &&
       <YoutubeEmbed url={props.topicData.url} />
       }
       </a>
