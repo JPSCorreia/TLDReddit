@@ -97,11 +97,20 @@ export const setSearchItem = createAsyncThunk(
   }
 )
 
-// Add route to routes Action
+// Add route to routes ( string with subreddit name for the route )
 export const addRoute = createAsyncThunk(
   "routes/addRoute",
   async (route) => {
-    console.log(route)
+    
+    return route;
+  }
+)
+
+// Add route to routeList ( JSX for the route )
+export const addToRouteList = createAsyncThunk(
+  "routeList/addToRouteList",
+  async (route) => {
+    
     return route;
   }
 )

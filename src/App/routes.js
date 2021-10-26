@@ -1,3 +1,5 @@
+import TopicList from "./components/TopicList";
+import { Route} from "react-router-dom";
 
 // List of subreddits chosen.
 export const exampleSubreddits = [
@@ -21,11 +23,17 @@ export const exampleSubreddits = [
   'worldnews'
 ]
 
-// Get 2 arrays, one to use as keys and another as values for the ROUTES object.
+// exports initialState for routes (subreddits as strings to use in subreddit bar)
 export const exampleSubredditsURLs = exampleSubreddits.map( element => `/r/${element}`)
-// export const exampleSubredditsUpperCase = exampleSubreddits.map( element => element.toUpperCase())
 
-// Use both arrays as keys/values to get a ROUTES object.
-// eslint-disable-next-line no-sequences
-// export const ROUTES = exampleSubredditsUpperCase.reduce( (acc, curr, index) => (acc[curr]=exampleSubredditsURLs[index], acc),{});
-
+// exports initialState for routeList (subreddit routes for react router)
+export const exampleRouteList = [];
+exampleSubredditsURLs.forEach(element => {
+  if (exampleRouteList.length < exampleSubredditsURLs.length) {
+    exampleRouteList.push(
+      <Route path={element} key={element}>
+        <TopicList selectedRoute={element.substr(1)} />
+      </Route>
+    )
+  }
+});

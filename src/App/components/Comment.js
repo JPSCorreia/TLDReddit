@@ -10,7 +10,6 @@ function Comment(props) {
     width: `${99.5 - props.depth*1.25}%`
   };
 
-
   return (
     <div
       className={`comment`}

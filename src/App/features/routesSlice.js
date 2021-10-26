@@ -10,11 +10,10 @@ export const routesSlice = createSlice({
   reducers: {},
   extraReducers: {
 
-    // Reducers for getting threads from Reddit API.
+    // Reducers for adding route(string) to routes state.
     [RedditAPI.addRoute.pending]: (state, action) => {
     },
     [RedditAPI.addRoute.fulfilled]: (state, action) => {
-      console.log(`Route added: ${action.payload}`)
       return {
         data: [
           ...state.data,

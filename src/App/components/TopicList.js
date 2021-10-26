@@ -17,18 +17,15 @@ function TopicList(props) {
   const topicList = useSelector((state) => state.topicList[selectedSubreddit] || [])
   const searchItem = useSelector((state) => state.searchItem.value);
 
-
+  // Change subreddit when route is accessed (passed as prop)
   useEffect(() =>  {
     dispatch(RedditAPI.selectSubreddit(props.selectedRoute))
 }, [dispatch, props.selectedRoute]);
-  
 
-
+  // Get subreddit data when subreddit changes.
   useEffect(() =>  {
       dispatch(RedditAPI.getTopicList(selectedSubreddit));
   }, [dispatch, selectedSubreddit]);
-
-  
 
   // Push different Topic components to a list.
   let list = [] 
@@ -45,9 +42,7 @@ function TopicList(props) {
 
   // Filter array of topic components according to title, username or selftext when user types in search bar.
   if (searchItem) {
-   
     const filteredList = list.filter( element => {
-      // console.log(element.props.topicData.title)
       return (element.props.topicData.title.toLowerCase().includes(searchItem.toLowerCase()) || element.props.topicData.author.toLowerCase().includes(searchItem.toLowerCase()) || element.props.topicData.selftext.toLowerCase().includes(searchItem.toLowerCase()))
     })
     list = filteredList;

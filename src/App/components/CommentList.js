@@ -19,7 +19,7 @@ function CommentList(props) {
   }, [dispatch, props.topicData.permalink]);
   const toggleComments = useSelector((state) => state.toggleComments[thisCommentListId] || false)
 
-
+  //todo: Change comment display logic so reply comments are rendered inside the Comment component.
   // Populate list array with with <Comment /> components using commentList state data.
   let idIndex = 0;
   const list = [];

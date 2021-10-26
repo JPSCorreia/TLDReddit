@@ -20,14 +20,15 @@
 .logo {
   justify-content: center;
   cursor: pointer;
-  width: 370px;
+  width: 220px;
   margin: auto;
   margin-top: 0.5rem;
   height: 2.6rem;
-  background-size: 50%;
+  background-size: 100%;
   background-image: url(tldreddit-sprites.png);
   background-repeat: no-repeat;
-  background-position: 50% 0%;  
+  background-position: 0% 0%;  
+  font-size: 0;
 }
 p {
   margin: 0.2rem;
@@ -40,7 +41,7 @@ p {
   word-break:break-all;
  }
  time {
-  color: #888;
+  color: rgb(110, 110, 110);
 }
 a {
   color: #0079d3;
@@ -227,14 +228,14 @@ h2.subreddit-name {
   align-items: center;
   justify-content: flex-end;
   margin-right: 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 img.thumbnail {
   max-width: 70px;
   max-height: 52px;
   align-self: center;
   width: 70px;
-  height:70px;
+  height: 62px;
  }
 .thumbnail-substitute {
   max-height: 62px !important;
@@ -358,6 +359,8 @@ img.thumbnail {
  }
 .topic-info-subreddit {
   transition-duration: 0.2s;
+  color: black;
+  font-weight: 100;
 }
 .topic-info-subreddit:hover {
   cursor: pointer;
@@ -489,7 +492,7 @@ cursor: pointer;
 }
 .comment-number {
   font-weight: bold;
-  color: #888;
+  color: rgb(110, 110, 110);
   text-align: left;
   margin: 0.2rem;
   margin-left: 0;
@@ -534,7 +537,7 @@ cursor: pointer;
   align-items: center;
   margin-left: 1rem;
   margin-right: 1rem;
-  color: #929292;
+  color: rgb(110, 110, 110);
 }
 .page-counter {
   font-size: 1.15rem;
@@ -667,8 +670,8 @@ input:focus {
 .video-responsive iframe {
   left: 0;
   top: 0;
-  height: 100%;
-  width: 100%;
+  height: 50%;
+  width: 50%;
   position: absolute;
 }
 

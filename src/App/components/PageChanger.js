@@ -29,7 +29,7 @@ function PageChanger(props) {
 
   }
 
-  // to do: fix loading multiple times.
+  //todo: Fix loading multiple times (might be due to parent components loading multiple times)
   // console.log('page changer loading multiple times test')
 
   return (

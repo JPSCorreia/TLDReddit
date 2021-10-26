@@ -1,6 +1,6 @@
 import React from 'react'
 import path from "path";
-import YoutubeEmbed from "./YoutubeEmbed";
+import ReactPlayer from "react-player";
 
 
 function ImagePreview(props) {
@@ -69,10 +69,41 @@ function ImagePreview(props) {
       }
 
       {/* youtube embed */}
-      { props.topicData.secure_media && props.topicData.secure_media.type === 'youtube.com' &&
-      <YoutubeEmbed url={props.topicData.url} />
+      { props.topicData.media && props.topicData.media.type.includes('youtube.com') &&
+      // <YoutubeEmbed url={props.topicData.url} />
+        <ReactPlayer
+          playing
+          url={props.topicData.url}
+          controls={true}
+          volume={1}
+          muted={true} // autoplay must be muted by default since chrome 66.
+          autoPlay={true}
+        />
+      }
+  
+      {/* streamable embed */}
+      { props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('streamable.com') &&
+        <ReactPlayer
+          playing
+          url={props.topicData.url}
+          controls={true}
+          volume={1}
+          muted={true} // autoplay must be muted by default since chrome 66.
+          autoPlay={true}
+        />
       }
 
+      {/* streamable embed */}
+      { props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('twitch.tv') &&
+        <ReactPlayer
+          playing
+          url={props.topicData.url}
+          controls={true}
+          volume={1}
+          muted={true} // autoplay must be muted by default since chrome 66.
+          autoPlay={true}
+        />
+      }
       </a>
     </div>
   );

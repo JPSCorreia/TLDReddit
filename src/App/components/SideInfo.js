@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+
 function SideInfo(props) {
 
   // Redux State/Action Management.
@@ -15,7 +16,7 @@ function SideInfo(props) {
 }, [dispatch, selectedSubreddit]);
   const about = useSelector((state) => state.about[selectedSubreddit] || [])
 
-  // to do: fix loading multiple times.
+  //todo: Fix loading multiple times (might be due to parent components loading multiple times)
   // console.log('side info loading multiple times test')
 
   return (

@@ -4,33 +4,20 @@ import TopicList from "./components/TopicList";
 import { useSelector, useDispatch } from 'react-redux';
 import { Switch, Route, NavLink } from "react-router-dom";
 import { Redirect } from "react-router-dom";
-import { useEffect } from "react";
-export const routeList = [] 
-
+import * as RedditAPI from './RedditAPI';
+const found = [];
 
 function App() {
 
   // Redux State/Action Management.
-  const dispatch = useDispatch();
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value);
   const routes = useSelector((state) => state.routes.data);
-  useEffect(() => {
-  }, [dispatch])
-  console.log(`Loading Subreddit: ${selectedSubreddit}`);
- 
-  // Create route list to render from subreddit list in routes.js for the subreddit bar.
-  routes.forEach(element => {
-    if (routeList.length < routes.length) {
-    routeList.push(
-      <Route path={element} key={element}>
-        <TopicList selectedRoute={element.substr(1)} />
-      </Route>
-    )
-    }
-  });
+  const routeList = useSelector((state) => state.routeList.data);
+  const dispatch = useDispatch();
+  if (selectedSubreddit) console.log(`Loading Subreddit: ${selectedSubreddit}`);
+
 
   // Adds route for URL typed only if it doesn't exist already
-  const found = [];
   const urlRoute = <Route 
       path={window.location.pathname} 
       key={window.location.pathname}
@@ -42,21 +29,28 @@ function App() {
       found.push('')
     };
   })
-  if (found.length < 1) routeList.push(urlRoute)
+  if (found.length < 1) dispatch(RedditAPI.addToRouteList(urlRoute))
+  // todo: fix loading two times on startup, three after loading subreddit and adding twice to routeList.
+  console.log(routeList)
 
-      
   return (
     <div className="App">
-      <NavLink
+
+        <div className="logo" alt="logo">
+        <NavLink
         to={'/'}
+        className='subreddit-logo' 
+        id='subreddit-logo-button'
       >
-        <div className="logo" alt="logo"></div>
-      </NavLink>
+        Go to main page
+        </NavLink>
+        </div>
+      
       <SubredditBar />
       <div className="main-body">
         <Switch>
           <Route exact path="/">
-            <Redirect to={routes[0]} />
+            <Redirect to={routes[0]} /> 
           </Route>
           { routeList }
         </Switch>
