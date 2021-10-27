@@ -1,6 +1,10 @@
 import React from 'react'
 import path from "path";
 import ReactPlayer from "react-player";
+// import { TwitterTweetEmbed } from 'react-twitter-embed';
+// import Iframe from 'react-iframe'
+import ReactHtmlParser from "react-html-parser";
+import he from 'he';
 
 
 function ImagePreview(props) {
@@ -9,11 +13,35 @@ function ImagePreview(props) {
   const extension = path.extname(props.topicData.url);
   const imageWithoutExtension = extension ? props.topicData.url.split(extension).shift() : props.topicData.url
   const thisImageId = `${props.subreddit}-${props.dataKey}`;
-  
+
+
+  // Get image gallery data.
+  const galleryIds = [];
+  const galleryImages = []
+  const galleryImgs = [];
+  if (props.topicData.gallery_data) {
+    props.topicData.gallery_data.items.forEach( (element,index) => {
+      
+      // Array of IDs for each image.
+      galleryIds.push(element.media_id)
+
+      // Array of URLs for each image.
+      galleryImages.push(he.decode(props.topicData.media_metadata[element.media_id].s.u))
+
+      // Array of <img> elements for each image.
+      galleryImgs.push(
+        <img
+          alt={`${thisImageId}-${index}-preview`}
+          key={index}
+          src={galleryImages[index]}
+        />
+      ) 
+    })
+  }
+
   return (
     
     <div className='preview-image'>
-      <a href={props.topicData.domain === 'v.redd.it'? props.topicData.secure_media.reddit_video.fallback_url : props.topicData.url} target='_blank' rel='noreferrer' className='preview-image-link'>
 
       {/* In URLs with gifv extension try to substitute for webm or mp4.*/}
       { extension === ".gifv" && (
@@ -50,17 +78,45 @@ function ImagePreview(props) {
       )}
 
       {/* v.redd.it rules */}
+      {/* //todo: make audio play and synch with video */}
       { props.topicData.domain === 'v.redd.it' && (
-         <video preload="auto" autoPlay loop="loop" className="video-preview">
-          <source
-            alt={`${thisImageId}-preview`}
-            src={props.topicData.secure_media.reddit_video.fallback_url}
+        <div>
+          <audio 
+            id={`${thisImageId}-audio-media`} 
+            data-mediagroup={`${thisImageId}-media`} 
+            type="audio/mp4"
           >
-          </source>
-        </video>
+            <source 
+              src={`${props.topicData.url}/DASH_audio.mp4`} 
+              playsInline>
+            </source>
+          </audio>
+          <video 
+            playsInline 
+            controls 
+            autoPlay 
+            muted 
+            // onClick={document.getElementById('audio-media-1').play()} 
+            data-mediagroup={`${thisImageId}-media`}
+          >
+            <source 
+              src={props.topicData.secure_media.reddit_video.fallback_url}
+              alt={`${thisImageId}-preview`}
+            >
+            </source>
+          </video>
+        </div>
+      
+        // <video preload="auto" autoPlay loop="loop" className="video-preview" controls>
+        //   <source
+        //     alt={`${thisImageId}-preview`}
+        //     src={props.topicData.secure_media.reddit_video.fallback_url}
+        //   >
+        //   </source>
+        // </video>
       )}
 
-      {/* Normal Gifs that are not video but img tags. */}
+      {/* Normal Gifs / images that are not video but img tags. */}
       { extension !== ".gifv" && props.topicData.post_hint === 'image' && (
         <img
           alt={`${thisImageId}-preview`}
@@ -69,8 +125,7 @@ function ImagePreview(props) {
       }
 
       {/* youtube embed */}
-      { props.topicData.media && props.topicData.media.type.includes('youtube.com') &&
-      // <YoutubeEmbed url={props.topicData.url} />
+      { props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('youtube.com') &&
         <ReactPlayer
           playing
           url={props.topicData.url}
@@ -93,7 +148,7 @@ function ImagePreview(props) {
         />
       }
 
-      {/* streamable embed */}
+      {/* twitch.tv embed */}
       { props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('twitch.tv') &&
         <ReactPlayer
           playing
@@ -104,10 +159,49 @@ function ImagePreview(props) {
           autoPlay={true}
         />
       }
-      </a>
+
+      {/* Imgur without extension */}
+      { extension === "" && props.topicData.domain.includes('imgur.com') && !props.topicData.secure_media && (
+        <img
+          alt={`${thisImageId}-preview`}
+          src={`${props.topicData.url}.jpg`}
+        />)
+      }
+
+      {/* Reddit Gallery, maybe working? */}
+      { props.topicData.gallery_data && ( 
+          <div className='image-preview-gallery'>
+            {galleryImgs}
+          </div>
+          )
+        }
+
+      {/* Other domain galleries */}
+      { extension === "" && props.topicData.media_embed &&  props.topicData.media_embed.content && ( 
+        ReactHtmlParser(he.decode(props.topicData.media_embed.content))
+      )}
+
+      {/* use Iframes when no extension, last recourse, doesn't work well with most websites since they don't permit x-frame-options from other domains */}
+      {/* { extension === "" && props.topicData.media && ( 
+        <Iframe 
+          url={props.topicData.url}
+          alt={`${thisImageId}-preview`}
+          width="250px"
+          height="250px"
+          className="iframe-imgur"
+          display="initial"
+          position="relative"
+        />)
+      } */}
+
     </div>
   );
 }
 
 export default ImagePreview;
+
+
+
+
+
 

@@ -19,7 +19,8 @@ export const exampleSubreddits = [
   'space',
   'science',
   'technology',
-  'Whatcouldgowrong',
+  'Twitch',
+  'Twitter',
   'worldnews'
 ]
 

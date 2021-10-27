@@ -5,7 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Switch, Route, NavLink } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import * as RedditAPI from './RedditAPI';
+
 const found = [];
+
+
 
 function App() {
 
@@ -30,8 +33,10 @@ function App() {
     };
   })
   if (found.length < 1) dispatch(RedditAPI.addToRouteList(urlRoute))
-  // todo: fix loading two times on startup, three after loading subreddit and adding twice to routeList.
-  console.log(routeList)
+  
+  // todo: fix loading two times on startup, three after loading subreddit and adding URL route twice to routeList.
+  // console.log(routeList)
+
 
   return (
     <div className="App">

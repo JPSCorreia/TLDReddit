@@ -78,7 +78,6 @@ function ThumbnailContainer(props) {
         );
       } else {
         return (
-          <a href={url} target='_blank' rel='noreferrer'>
             <img
               alt='thumbnail'
               id={`thumbnail-${id}`}
@@ -86,7 +85,6 @@ function ThumbnailContainer(props) {
               src={thumbnail}
               className='thumbnail'
             ></img>
-          </a>
         );
       }
   };
@@ -97,11 +95,11 @@ function ThumbnailContainer(props) {
   {/*
   //todo: Temporary, have to implement gallery feature.
   */}
-  <div>
+  {/* <div>
     {props.topicData.is_gallery? `TEMP ${props.topicData.gallery_data.items.length} items` : ''}
-  </div>
+  </div> */}
     {/* Check to see if its image or video/gif */}
-    {(['image', 'hosted:video', 'rich:video'].includes(props.topicData.post_hint) || props.topicData.domain.includes("gfycat.com") || props.topicData.domain.includes("twitch.tv") || props.topicData.domain.includes("imgur.com")) && <div 
+    {(['image', 'hosted:video', 'rich:video'].includes(props.topicData.post_hint) || props.topicData.is_gallery || props.topicData.domain.includes("gfycat.com") || props.topicData.domain.includes("twitch.tv") || props.topicData.domain.includes("imgur.com")) && <div 
       className='preview-image-button preview-image-button-open' 
       id={`thumbnail-container-${thisThumbnailId}`}
       type='button' 

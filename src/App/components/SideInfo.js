@@ -28,10 +28,10 @@ function SideInfo(props) {
         {about.display_name}
       </div>
       <div className='sidebar-subreddit-subscribers'>
-        {about.subscribers} subscribers
+        {parseInt(about.subscribers).toLocaleString()} subscribers
       </div>
       <div className='sidebar-subreddit-accounts-active'>
-        {about.accounts_active} users here now
+        {parseInt(about.accounts_active).toLocaleString()} users here now
       </div>
       <div className='sidebar-subreddit-public-description'>
         {/* {about.public_description} */}

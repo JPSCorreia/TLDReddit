@@ -47,16 +47,18 @@ function Topic(props) {
 
           <div className='topic-and-thumbnail'>
 
-            {(props.topicData.selftext) 
+            {(props.topicData.selftext || props.topicData.is_gallery) 
               ? <div className='topic-name' onClick={handleToggleComments}>
                     {ReactHtmlParser(props.topicData.title)}
                 </div>
               : <div  className='topic-name'>
                   <a 
                     // Check if topic is a video and redirect to video URL (avoids linking directly to reddit)
-                    href={     props.topicData.media && props.topicData.media.reddit_video 
+                    href={ 
+                      (props.topicData.media && props.topicData.media.reddit_video 
                       ? props.topicData.media.reddit_video.fallback_url
-                      : props.topicData.url} 
+                      : props.topicData.url)
+                    } 
                     target='_blank' 
                     rel='noreferrer'
                   >
