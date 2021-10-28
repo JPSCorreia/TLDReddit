@@ -16,6 +16,8 @@
 .main-body {
   width: 100%;
   margin: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 .logo {
   justify-content: center;
@@ -220,10 +222,10 @@ h2.subreddit-name {
 .topic-name {
   padding-left: 0.7rem;
   align-self: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: left;
-  font-weight: bold;
   transition-duration: 0.2s;
+  color: #0079d3;
 }
 .thumbnail-container {
   width: 150px;
@@ -246,7 +248,8 @@ img.thumbnail {
 }
 .topic-name a {
   text-decoration: none;
-  color: black;
+  font-weight: 400;
+  color: #0079d3;
   transition-duration: 0.2s;
 }
 .topic-name a:hover {
@@ -397,12 +400,15 @@ img.thumbnail {
  /* Comment head rules */
  .comment-head {
   background-color: rgba (255, 255, 255, 0);
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+  margin-right: 0.3rem;
   padding-left: 0.3rem;
   border-radius: 5px;
+  border: 1px solid #369;
   width: 99.5%;
   align-self: center;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem ;
   
 }
 .author-in-comments {
@@ -449,12 +455,13 @@ cursor: pointer;
 .comment {
   border: rgb(220, 220, 220) 1px solid;
   margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
   border-radius: 5px;
-  word-break:break-all;
-  width: 95%;
+  word-break:break-word;
+  width: 99.5%;
   align-self: right;
-  padding: 0 0.4rem 0 0.4rem ;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem ;
+  margin-left: 0.5rem;
   margin-right: 0.3rem;
 }
 .author-info {
@@ -487,10 +494,11 @@ cursor: pointer;
   font-size: 0.9rem;
 
 }
-.comment:nth-child(odd) {
-  /* background-color: rgb(247, 248, 248); */
+/* .comment:nth-child(odd) {
+  background-color: rgb(247, 248, 248); 
   background-color: rgb(242, 243, 243);
-}
+} */
+
 .comment-list {
   margin-top: 0.25rem;
 }
@@ -503,7 +511,6 @@ cursor: pointer;
   font-size: 0.7rem;
   padding: 0
 }
-
 
 
 
