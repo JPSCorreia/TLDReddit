@@ -20,7 +20,7 @@ function CommentList(props) {
   const toggleComments = useSelector((state) => state.toggleComments[thisCommentListId] || false)
 
 
-  //todo: Change comment display logic so reply comments are rendered inside the Comment component.
+ 
   // Populate list array with with <Comment /> components using commentList state data.
   let idIndex = 0;
   const list = [];
@@ -38,37 +38,10 @@ function CommentList(props) {
         />
       );
     idIndex++;
-    // If there are any replies then call function to show replies.
-    // if (comment.data.replies) showReplies(comment, 1, idIndex)
     }
   });
 
 
-  // Show replies and if those comments have replies then call this function again.
-  
-  function showReplies (commentParameter, depth) {
-  
-      commentParameter.data.replies.data.children.forEach((comment, index) => {
-        if (comment.data.body) {
-          list.push(
-            <Comment
-              commentData={comment.data}
-              topicAuthor={props.topicData.author}
-              key={comment.data.id}
-              dataKey={index}
-              topicId={`${props.subreddit}-${props.dataKey}`}
-              depth={comment.data.depth}
-              idIndex={idIndex}
-            />
-          );
-          idIndex++; 
-          if (comment.data.replies) {
-            showReplies(comment, depth)
-          }        
-        }
-      })
-      
-  }
 
 
   // Add Thread self text if it has any.

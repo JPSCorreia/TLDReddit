@@ -2,7 +2,7 @@ import "../Style/App.css";
 import SubredditBar from "./components/SubredditBar";
 import TopicList from "./components/TopicList";
 import { useSelector, useDispatch } from 'react-redux';
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import * as RedditAPI from './RedditAPI';
 
@@ -40,17 +40,6 @@ function App() {
 
   return (
     <div className="App">
-
-        <div className="logo" alt="logo">
-        <NavLink
-        to={'/'}
-        className='subreddit-logo' 
-        id='subreddit-logo-button'
-      >
-        Go to main page
-        </NavLink>
-        </div>
-      
       <SubredditBar />
       <div className="main-body">
         <Switch>

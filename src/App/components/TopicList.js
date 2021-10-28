@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { LoopCircleLoading } from 'react-loadingg';
 import PageChanger from './PageChanger';
 import SideBar from "./SideBar";
-
+import redditGuy from '../../Style/reddit_guy.png'
 
 function TopicList(props) {
 
@@ -16,6 +16,7 @@ function TopicList(props) {
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value);
   const topicList = useSelector((state) => state.topicList[selectedSubreddit] || [])
   const searchItem = useSelector((state) => state.searchItem.value);
+  const about = useSelector((state) => state.about[selectedSubreddit] || [])
 
   // Change subreddit when route is accessed (passed as prop)
   useEffect(() =>  {
@@ -48,14 +49,34 @@ function TopicList(props) {
     list = filteredList;
   }
 
-
+  console.log(about)
 
   return (
     <div subreddit={selectedSubreddit} className='subreddit'>
         <div className='subreddit-name-border'>
-          <h2 className='subreddit-name'>
-            {selectedSubreddit}
-          </h2> 
+          <div className='subreddit-name'>
+            { about.icon_img?
+            <img
+              alt="sub icon"
+              className='subreddit-icon'
+              src={about.icon_img}
+            >
+            </img>
+            :
+            <img
+            alt="sub icon"
+            className='subreddit-icon'
+            src={redditGuy}
+          >
+          </img>
+            }
+            <h2>
+              {selectedSubreddit}
+            </h2> 
+          </div>
+          <div className='subreddit-name-sidebar'>
+            teste
+          </div>
         </div>
       <div className='main-subreddit-body'> 
       <div className='all-topics'>

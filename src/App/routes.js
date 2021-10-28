@@ -9,7 +9,6 @@ export const exampleSubreddits = [
   'Futurology',
   'Games',
   'gifs',
-  'leagueoflegends',
   'movies',
   'pcgaming',
   'pics',
@@ -20,7 +19,6 @@ export const exampleSubreddits = [
   'science',
   'technology',
   'Twitch',
-  'Twitter',
   'worldnews'
 ]
 

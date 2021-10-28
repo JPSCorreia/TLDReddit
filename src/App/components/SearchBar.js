@@ -25,7 +25,7 @@ function SearchBar(props) {
         <div className='search-bar'>
           <i className="fa fa-search search-icon"></i>
           <form 
-            className="search-form"
+            className="input-form"
             action="" 
           >
             <input 

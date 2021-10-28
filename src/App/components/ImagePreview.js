@@ -42,25 +42,25 @@ function ImagePreview(props) {
   return (
     
     <div className='preview-image'>
-
-      {/* In URLs with gifv extension try to substitute for webm or mp4.*/}
-      { extension === ".gifv" && (
+      {
+      // In URLs with gifv extension try to substitute for webm or mp4.
+      ( extension === ".gifv" && (
         <video preload="auto" autoPlay loop="loop" className="video-preview">
           <source src={`${imageWithoutExtension}.webm`} type="video/webm"></source>
           <source src={`${imageWithoutExtension}.mp4`} type="video/mp4"></source>
         </video>)
-      }
+      ) ||
 
-      {/* URLs with webm or mp4 extension.*/}
-      { (extension === ".mp4" || extension === ".webm") && (
+      // URLs with webm or mp4 extension.
+      ( (extension === ".mp4" || extension === ".webm") && (
         <video preload="auto" autoPlay loop="loop" className="video-preview">
           <source src={`${imageWithoutExtension}.webm`} type="video/webm"></source>
           <source src={`${imageWithoutExtension}.mp4`} type="video/mp4"></source>
         </video>)
-      }
+      ) ||
 
-      {/* Gfycat.com rules for gifs (get case sensitive URL from thumbnail info, hack the string and try different extensions).  */}
-      { props.topicData.domain === 'gfycat.com' && (
+      // Gfycat.com rules for gifs (get case sensitive URL from thumbnail info, hack the string and try different extensions).
+      ( props.topicData.domain === 'gfycat.com' && (
          <video preload="auto" autoPlay loop="loop" className="video-preview">
           <source
             alt={`${thisImageId}-preview`}
@@ -75,11 +75,11 @@ function ImagePreview(props) {
           >
           </source>
           </video>
-      )}
+      )) ||
 
-      {/* v.redd.it rules */}
-      {/* //todo: make audio play and synch with video */}
-      { props.topicData.domain === 'v.redd.it' && (
+      // v.redd.it rules 
+      //todo: make audio play and synch with video
+      ( props.topicData.domain === 'v.redd.it' && (
         <div>
           <audio 
             id={`${thisImageId}-audio-media`} 
@@ -114,18 +114,18 @@ function ImagePreview(props) {
         //   >
         //   </source>
         // </video>
-      )}
+      )) ||
 
-      {/* Normal Gifs / images that are not video but img tags. */}
-      { extension !== ".gifv" && props.topicData.post_hint === 'image' && (
+      // Normal Gifs / images that are not video but img tags.
+      ( extension !== ".gifv" && props.topicData.post_hint === 'image' && (
         <img
           alt={`${thisImageId}-preview`}
           src={props.topicData.url}
         />)
-      }
+      ) ||
 
-      {/* youtube embed */}
-      { props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('youtube.com') &&
+      // Youtube embed.
+      ( props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('youtube.com') &&
         <ReactPlayer
           playing
           url={props.topicData.url}
@@ -134,10 +134,10 @@ function ImagePreview(props) {
           muted={true} // autoplay must be muted by default since chrome 66.
           autoPlay={true}
         />
-      }
+      ) ||
   
-      {/* streamable embed */}
-      { props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('streamable.com') &&
+      // Streamable embed.
+      ( props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('streamable.com') &&
         <ReactPlayer
           playing
           url={props.topicData.url}
@@ -146,10 +146,10 @@ function ImagePreview(props) {
           muted={true} // autoplay must be muted by default since chrome 66.
           autoPlay={true}
         />
-      }
+      ) ||
 
-      {/* twitch.tv embed */}
-      { props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('twitch.tv') &&
+      // Twitch.tv embed.
+      ( props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('twitch.tv') &&
         <ReactPlayer
           playing
           url={props.topicData.url}
@@ -158,42 +158,30 @@ function ImagePreview(props) {
           muted={true} // autoplay must be muted by default since chrome 66.
           autoPlay={true}
         />
-      }
+      ) ||
 
-      {/* Imgur without extension */}
-      { extension === "" && props.topicData.domain.includes('imgur.com') && !props.topicData.secure_media && (
+      // Imgur without extension.
+      ( extension === "" && props.topicData.domain.includes('imgur.com') && !props.topicData.secure_media && (
         <img
           alt={`${thisImageId}-preview`}
           src={`${props.topicData.url}.jpg`}
         />)
-      }
+      ) ||
 
-      {/* Reddit Gallery, maybe working? */}
-      { props.topicData.gallery_data && ( 
+      // Reddit Gallery, maybe working?
+      ( props.topicData.gallery_data && ( 
           <div className='image-preview-gallery'>
             {galleryImgs}
           </div>
           )
-        }
+      ) ||
 
-      {/* Other domain galleries */}
-      { extension === "" && props.topicData.media_embed &&  props.topicData.media_embed.content && ( 
+      // Other domain galleries.
+      ( extension === "" && props.topicData.media_embed &&  props.topicData.media_embed.content && ( 
         ReactHtmlParser(he.decode(props.topicData.media_embed.content))
-      )}
+      )) || ''
 
-      {/* use Iframes when no extension, last recourse, doesn't work well with most websites since they don't permit x-frame-options from other domains */}
-      {/* { extension === "" && props.topicData.media && ( 
-        <Iframe 
-          url={props.topicData.url}
-          alt={`${thisImageId}-preview`}
-          width="250px"
-          height="250px"
-          className="iframe-imgur"
-          display="initial"
-          position="relative"
-        />)
-      } */}
-
+      }
     </div>
   );
 }
@@ -204,4 +192,15 @@ export default ImagePreview;
 
 
 
-
+      // {/* use Iframes when no extension, last recourse, doesn't work well with most websites since they don't permit x-frame-options from other domains */}
+      // {/* { extension === "" && props.topicData.media && ( 
+      //   <Iframe 
+      //     url={props.topicData.url}
+      //     alt={`${thisImageId}-preview`}
+      //     width="250px"
+      //     height="250px"
+      //     className="iframe-imgur"
+      //     display="initial"
+      //     position="relative"
+      //   />)
+      // } */}
