@@ -7,6 +7,8 @@ import { LoopCircleLoading } from 'react-loadingg';
 import PageChanger from './PageChanger';
 import SideBar from "./SideBar";
 import redditGuy from '../../Style/reddit_guy.png'
+import { useParams } from "react-router-dom";
+
 
 function TopicList(props) {
 
@@ -17,11 +19,15 @@ function TopicList(props) {
   const topicList = useSelector((state) => state.topicList[selectedSubreddit] || [])
   const searchItem = useSelector((state) => state.searchItem.value);
   const about = useSelector((state) => state.about[selectedSubreddit] || [])
+  const { id }  = useParams();
+
+
+
 
   // Change subreddit when route is accessed (passed as prop)
   useEffect(() =>  {
-    dispatch(RedditAPI.selectSubreddit(props.selectedRoute))
-}, [dispatch, props.selectedRoute]);
+    dispatch(RedditAPI.selectSubreddit(`r/${id}`))
+}, [dispatch, id]);
 
   // Get subreddit data when subreddit changes.
   useEffect(() =>  {
@@ -49,8 +55,6 @@ function TopicList(props) {
     list = filteredList;
   }
 
-  console.log(about)
-
   return (
     <div subreddit={selectedSubreddit} className='subreddit'>
         <div className='subreddit-name-border'>
@@ -75,7 +79,6 @@ function TopicList(props) {
             </h2> 
           </div>
           <div className='subreddit-name-sidebar'>
-            teste
           </div>
         </div>
       <div className='main-subreddit-body'> 

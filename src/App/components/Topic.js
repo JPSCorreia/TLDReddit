@@ -47,11 +47,31 @@ function Topic(props) {
 
           <div className='topic-and-thumbnail'>
 
-            {(props.topicData.selftext || props.topicData.is_gallery) 
-              ? <div className='topic-name' onClick={handleToggleComments}>
+            {(props.topicData.selftext || props.topicData.is_gallery || props.topicData.domain === (`self.${props.topicData.subreddit}`)) 
+              
+              ? 
+              
+              <div className='topic-name' onClick={handleToggleComments}>
+                <span className={props.topicData.stickied? 'topic-name-link-sticky' : 'topic-name-link'}>
+                { props.topicData.link_flair_text?(
+                  <span className='topic-flair'>
+                    { props.topicData.link_flair_richtext && props.topicData.link_flair_richtext[1]? props.topicData.link_flair_richtext[1].t : props.topicData.link_flair_text }
+                  </span>)
+                  : ''
+                }
+                  
                     {ReactHtmlParser(props.topicData.title)}
-                </div>
-              : <div  className='topic-name'>
+                    <span className='topic-domain'>
+                    ({props.topicData.domain})
+                  </span>
+                  </span>
+
+              </div>
+              
+              : 
+              
+              <div  className='topic-name'>
+
                   <a 
                     // Check if topic is a video and redirect to video URL (avoids linking directly to reddit)
                     href={ 
@@ -61,9 +81,23 @@ function Topic(props) {
                     } 
                     target='_blank' 
                     rel='noreferrer'
+                    className={props.topicData.stickied? 'topic-name-link-sticky' : 'topic-name-link'}
                   >
+                    { props.topicData.link_flair_text?(
+                      <span className='topic-flair'>
+                        { props.topicData.link_flair_richtext && props.topicData.link_flair_richtext[1]? props.topicData.link_flair_richtext[1].t : props.topicData.link_flair_text }
+                      </span>)
+                    : ''
+                    }
                     {ReactHtmlParser(props.topicData.title)}
+                  <span className='topic-domain'>
+                    ({props.topicData.domain})
+                  </span>
                   </a>
+
+
+
+
                 </div>
             }
 

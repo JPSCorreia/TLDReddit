@@ -92,14 +92,9 @@ function ThumbnailContainer(props) {
 
   return (
 <div className='thumbnail-container'>
-  {/*
-  //todo: Temporary, have to implement gallery feature.
-  */}
-  {/* <div>
-    {props.topicData.is_gallery? `TEMP ${props.topicData.gallery_data.items.length} items` : ''}
-  </div> */}
+  
     {/* Check to see if its image or video/gif */}
-    {(['image', 'hosted:video', 'rich:video'].includes(props.topicData.post_hint) || props.topicData.is_gallery || props.topicData.domain.includes("gfycat.com") || props.topicData.domain.includes("twitch.tv") || props.topicData.domain.includes("imgur.com")) && <div 
+    {(['image', 'hosted:video', 'rich:video'].includes(props.topicData.post_hint) || props.topicData.is_gallery || props.topicData.domain.includes("gfycat.com") || props.topicData.domain.includes("twitch.tv") || props.topicData.domain.includes("imgur.com") || (props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('twitter.com')) ) && <div 
       className='preview-image-button preview-image-button-open' 
       id={`thumbnail-container-${thisThumbnailId}`}
       type='button' 

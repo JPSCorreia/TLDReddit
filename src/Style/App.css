@@ -19,10 +19,15 @@
   font-weight: 400;
   font-style: normal;
 }
-.logo {
+img.logo {
   /* justify-content: center; */
   cursor: pointer;
-  width: 95%;
+  width: 100%;
+  margin: auto;
+}
+.subreddit-logo {
+  display: flex;
+  cursor: pointer;
   margin: auto;
 }
 p {
@@ -70,7 +75,6 @@ pre {
 .subreddit-name {
   display: flex;
   flex-direction: row;
-  margin-top: 2.3rem;
   justify-content: flex-start;
   width: 75%;
   align-items: center;
@@ -126,14 +130,15 @@ width: 20%;
 .top-bar {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   text-align: left;
   width: 100%;
   padding-left: 0.8rem;
-  padding-top: 0.1rem;
-  position: fixed;
-  justify-content: flex-start;
-  
+  padding-top: 2px;
+  padding-bottom: 4px;
+  position: sticky;
+  top: 0;
+  align-items: center;
+
   background-color: rgba(230, 230, 230, 0.85);
   border-width: 2px;
   border-style: solid;
@@ -160,7 +165,6 @@ width: 20%;
 }
 .login-bar {
   margin: auto;
-  margin-bottom: 0.2rem;
   width: 20%;
   display: flex;
   margin-right: 0.5rem;
@@ -289,9 +293,31 @@ width: 20%;
   text-align: left;
   transition-duration: 0.2s;
   color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.topic-domain {
+  color: rgb(110, 110, 110);
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+  font-weight: 100;
+}
+.topic-flair {
+  color: #bb0010;
+  font-size: 0.7rem;
+  margin-right: 0.5rem;
+  border: 1px solid rgb(110, 110, 110);
+  border-radius: 4px;
+  padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+  /* background-color: lightgrey; */
+  font-weight: 100;
+  float: left;
+  margin-top: 2px;
+
 }
 .thumbnail-container {
-  width: 150px;
+  width: 120px;
   height: 60px;
   display: flex;
   align-items: center;
@@ -315,16 +341,31 @@ img.thumbnail {
   color: black;
   transition-duration: 0.2s;
 }
-.topic-name a:hover {
+.topic-name-link a:hover {
   text-decoration: none;
   cursor: pointer;
   color: #6b6b6b !important ;
 }
-.topic-name:hover {
+.topic-name-link:hover {
   cursor: pointer;
   color: #6b6b6b !important ;
 }
-
+.topic-name-link-sticky a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #6b6b6b !important ;
+}
+.topic-name-link-sticky:hover {
+  cursor: pointer;
+  color: #6b6b6b !important ;
+}
+.topic-name-link {
+  color: black;
+}
+.topic-name-link-sticky {
+  color: #228822;
+  font-weight: bold;
+}
 
 
  /* Preview image button */
@@ -399,7 +440,7 @@ img.thumbnail {
 
 
 
-/* Preview Image */
+/* Preview Image and Videos */
 .preview-image {
   width: 100%;
   padding-left: 0.7rem;
@@ -752,6 +793,9 @@ input:focus {
   position: absolute;
 }
 
+
+
+/* Twitter Embed */
 
 
 
