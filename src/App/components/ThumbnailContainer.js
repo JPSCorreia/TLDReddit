@@ -13,23 +13,43 @@ function ThumbnailContainer(props) {
   const dispatch = useDispatch();
   const thisThumbnailId = `${props.subreddit}-${props.dataKey}`;
   const previewImageShowing = useSelector((state) => state.previewImage[thisThumbnailId]);
+  const toggleComments = useSelector((state) => state.toggleComments[thisThumbnailId])
   
 
-// Event handler for toggling showing preview image.
+  // Detect type of media.
+  let media = '';
+  if (['image'].includes(props.topicData.post_hint) || props.topicData.domain.includes("imgur.com")) media = 'image';
+  if (props.topicData.is_gallery) media = 'gallery';
+  if (['hosted:video', 'rich:video'].includes(props.topicData.post_hint) || props.topicData.domain.includes("gfycat.com") || props.topicData.domain.includes("twitch.tv")) media = 'video';
+  if (props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('twitter.com')) media = 'tweet';
+  if (["default", "self", ""].includes(props.topicData.thumbnail)) media = 'text';
+
+
+  // Handle clicking toggle preview button.
   function togglePreview() {
-    console.log(`Image preview on topic ${thisThumbnailId} to: ${previewImageShowing? 'hide' :'show'}`)
-    dispatch(RedditAPI.preview(thisThumbnailId))
-    if (!previewImageShowing) {
-      document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.remove('preview-image-button-open');
-      document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.add('preview-image-button-close');
+    if (media === 'text') {
+      dispatch(RedditAPI.toggle(thisThumbnailId))
+      if (!toggleComments) {
+        document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.remove(`preview-${media}-button-open`);
+        document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.add(`preview-${media}-button-close`);
+      } else {
+        document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.remove(`preview-${media}-button-close`);
+        document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.add(`preview-${media}-button-open`);
+      }
     } else {
-      document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.remove('preview-image-button-close');
-      document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.add('preview-image-button-open');
+      console.log(`${media} preview on topic ${thisThumbnailId} to: ${previewImageShowing? 'hide' :'show'}`)
+      dispatch(RedditAPI.preview(thisThumbnailId))
+      if (!previewImageShowing) {
+        document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.remove(`preview-${media}-button-open`);
+        document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.add(`preview-${media}-button-close`);
+      } else {
+        document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.remove(`preview-${media}-button-close`);
+        document.getElementById(`thumbnail-container-${thisThumbnailId}`).classList.add(`preview-${media}-button-open`);
+      }
     }
   }
 
-
-  // Function that searchs for thumbnail, it adds a text thumbnail or nsfw thumbnail for posts of those types.
+  // Searchs for thumbnail and adds text thumbnail or nsfw thumbnail for posts of those types.
   //todo: Keep same thumbnail aspect ratio as reddit, get width and height from thumbnail_width and thumbnail_height.
   const thumbnailExists = (thumbnail, url, id) => {
       
@@ -91,25 +111,29 @@ function ThumbnailContainer(props) {
 
 
   return (
-<div className='thumbnail-container'>
-  
-    {/* Check to see if its image or video/gif */}
-    {(['image', 'hosted:video', 'rich:video'].includes(props.topicData.post_hint) || props.topicData.is_gallery || props.topicData.domain.includes("gfycat.com") || props.topicData.domain.includes("twitch.tv") || props.topicData.domain.includes("imgur.com") || (props.topicData.media && props.topicData.media.type && props.topicData.media.type.includes('twitter.com')) ) && <div 
-      className='preview-image-button preview-image-button-open' 
-      id={`thumbnail-container-${thisThumbnailId}`}
-      type='button' 
-      onClick={togglePreview}
-    >
-    </div>}
-  {thumbnailExists(
-    props.topicData.thumbnail,
-    props.topicData.media !== null &&
-      props.topicData.media.reddit_video
-        ? props.topicData.media.reddit_video.fallback_url
-        : props.topicData.url,
-      props.topicData.id
-    )}</div>
-);
+
+    <div className='thumbnail-container'>
+      { (media) &&
+        <div 
+          className={`preview-image-button preview-${media}-button-open`}
+          id={`thumbnail-container-${thisThumbnailId}`}
+          type='button' 
+          onClick={togglePreview}
+        >
+        </div>
+      }
+
+      {thumbnailExists(
+      props.topicData.thumbnail,
+      props.topicData.media !== null &&
+        props.topicData.media.reddit_video
+          ? props.topicData.media.reddit_video.fallback_url
+          : props.topicData.url,
+        props.topicData.id
+      )}
+
+    </div>
+  );
 }
 
 export default ThumbnailContainer;

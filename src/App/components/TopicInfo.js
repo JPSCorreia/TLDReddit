@@ -1,6 +1,6 @@
 import React from 'react'
 import * as RedditAPI from '../RedditAPI';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Moment from "react-moment";
 import { Route, NavLink } from "react-router-dom";
 import TopicList from "./TopicList";
@@ -10,7 +10,7 @@ function TopicInfo(props) {
   // Redux State/Action Management.
   const dispatch = useDispatch();
   const thisTopicInfoId = `${props.subreddit}-${props.dataKey}`;
-  const toggleComments = useSelector((state) => state.toggleComments[thisTopicInfoId])
+
 
   // Handle change subreddit on button click.
   function handleSubredditChange (event) {
@@ -29,13 +29,6 @@ function TopicInfo(props) {
   // Event handler for toggling comments button and changing color of button.
   function handleToggleComments () {
     dispatch(RedditAPI.toggle(thisTopicInfoId))
-    if (!toggleComments) {
-      document.getElementById(`show-or-hide-comments-${thisTopicInfoId}`).style.color =
-        "#369";
-    } else {
-      document.getElementById(`show-or-hide-comments-${thisTopicInfoId}`).style.color =
-        "black";
-    }
   }
   
 

@@ -88,6 +88,9 @@ function TopicList(props) {
         color='red'
       />)
        : list }
+             {totalTopicList.isLoading?
+      '' : <PageChanger /> 
+      }
       {list.length === 0 && searchItem.length > 0?
         <p className='no-results-found'>Your search - <b>{searchItem}</b> - did not match any documents.</p> 
       : 
@@ -99,9 +102,7 @@ function TopicList(props) {
       }
        
        </div>
-      {totalTopicList.isLoading?
-      '' : <PageChanger /> 
-      }
+
     
     </div>
   )
