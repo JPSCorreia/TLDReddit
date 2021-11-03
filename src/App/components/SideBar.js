@@ -12,10 +12,12 @@ function SideBar(props) {
     <div
       className='side-bar'
     >
-    <SearchBar />
-    { selectedSubreddit !== 'r/all'?
-    <SideInfo /> : ''
-    }
+      <SearchBar />
+      { selectedSubreddit !== 'r/all'?
+        <SideInfo /> 
+      : 
+        ''
+      }
     </div>
   );
 }

@@ -82,28 +82,36 @@ function TopicList(props) {
           </div>
         </div>
       <div className='main-subreddit-body'> 
-      <div className='all-topics'>
-      {totalTopicList.isLoading? (
-      <LoopCircleLoading
-        color='red'
-      />)
-       : list }
-             {totalTopicList.isLoading?
-      '' : <PageChanger /> 
-      }
-      {list.length === 0 && searchItem.length > 0?
-        <p className='no-results-found'>Your search - <b>{searchItem}</b> - did not match any documents.</p> 
-      : 
-        ''
-      }
-       </div>
-       {totalTopicList.isLoading?
-      '' : <SideBar  />
-      }
-       
-       </div>
-
-    
+        <div className='all-topics'>
+          {totalTopicList.isLoading? (
+            <LoopCircleLoading
+              color='red'
+            />
+          )
+          : 
+            list 
+          }
+          {totalTopicList.isLoading?
+            '' 
+          : 
+            <PageChanger /> 
+          }
+          {list.length === 0 && searchItem.length > 0?
+            <p 
+              className='no-results-found'
+            >
+              Your search - <b>{searchItem}</b> - did not match any documents.
+            </p> 
+          : 
+            ''
+          }
+        </div>
+        {totalTopicList.isLoading?
+          '' 
+        : 
+          <SideBar  />
+        }
+      </div>
     </div>
   )
 }

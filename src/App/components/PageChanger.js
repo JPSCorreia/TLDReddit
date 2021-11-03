@@ -29,8 +29,8 @@ function PageChanger(props) {
 
   }
 
-  //todo: Fix loading multiple times (might be due to parent components loading multiple times)
-  // console.log('page changer loading multiple times test')
+  //todo: Fix loading multiple times (might be due to parent components loading multiple times), loads 28 times on r/all, 8-10 on r/astronmy, 3-4 minimum on rest
+  if (selectedSubreddit) console.log('page changer loading multiple times test')
 
   return (
     <div className="page-changer">

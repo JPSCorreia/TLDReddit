@@ -54,39 +54,39 @@ function SubredditBar(props) {
         >
         </img>  
       </NavLink>
-     <div className='subreddit-bar'>
-       {subredditBarList}
-     </div>
-     <div className='login-bar'>
-       <form 
-         className="input-form"
-         id="login-form"
-         action="" 
-       >
-         <img 
-           className="login-icon" 
-           alt="login icon"
-           src={userIcon}
-         >
-         </img> 
-         <input 
-           type="text" 
-           className='login-input'
-           placeholder="Username" 
-           name="search"
-         >
-         </input>
-         <img 
-           className="password-icon" 
-           alt="login icon"
-           src={passwordIcon}
-         >
-         </img> 
-         <input 
-           type="text" 
-           className='login-input'
-           placeholder="Password" 
-           name="search"
+      <div className='subreddit-bar'>
+        {subredditBarList}
+      </div>
+      <div className='login-bar'>
+        <form 
+          className="input-form"
+          id="login-form"
+          action="" 
+        >
+          <img 
+            className="login-icon" 
+            alt="login icon"
+            src={userIcon}
+          >
+          </img> 
+          <input 
+            type="text" 
+            className='login-input'
+            placeholder="Username" 
+            name="search"
+          >
+          </input>
+          <img 
+            className="password-icon" 
+            alt="login icon"
+            src={passwordIcon}
+          >
+          </img> 
+          <input 
+            type="text" 
+            className='login-input'
+            placeholder="Password" 
+            name="search"
           >
           </input>
         </form>

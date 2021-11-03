@@ -1,0 +1,1073 @@
+// Variables
+
+// Colors:
+$background-color: white;
+$text-color: black;
+$primary-blue: #369;
+$primary-red: #bb0010;
+$hover-grey: #6b6b6b;
+$link-blue: #0079d3;
+$downvote: rgb(51, 102, 153);
+$upvote: #ff4500;
+$sticky: #228822;
+$domain-grey: rgb(110, 110, 110);
+$border-grey: rgb(220, 220, 220);
+$transparent-grey: rgba(230, 230, 230, 0.85);
+$transparent-dark-red: rgba(172, 5, 5, 0);
+$fully-transparent: rgba(0,0,0,0);
+
+
+
+// General HTML elements
+* {
+  box-sizing: border-box; // borders stay inside parent elements.
+}
+#root {
+  background-color: $background-color;
+  color: $text-color;
+  margin: auto;
+}
+p {
+  margin: 0.2rem;
+  text-align: left;
+}
+a {
+  color: $link-blue;
+  font-weight: bold;
+  text-decoration: none;
+  transition-duration: 0.2s;
+
+  &:hover {
+    color: $hover-grey;
+  }
+
+}
+li {
+  text-align: left;
+}
+code {
+  word-break:break-all;
+}
+time {
+  color: $domain-grey;
+}
+pre {
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+}
+
+
+
+// Input form elements
+.input-form {
+  width: 100%;
+}
+.input-form input[type=text] {
+  padding: 5px;
+  font-size: 0.8rem;
+  border: $border-grey 1px solid;
+  border-radius: 1px;
+  float: left;
+  width: 70%;
+  background: #f1f1f1;
+  height: 25px;
+}
+.input-form button {
+  float: left;
+  width: 20%;
+  max-width: 35px;
+  padding: 5px;
+  background: $primary-red;
+  font-size: 0.8rem;
+  color: $background-color;
+  border: 1px solid grey;
+  border-radius: 1px;
+  cursor: pointer;
+
+  &:hover {
+    background: $hover-grey;
+  }
+  
+}
+// Clear floats 
+.input-form::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.search-icon {
+  padding-right: 0.5rem;
+  margin-top: 0.25rem;
+}
+input:focus {
+    outline: none;
+}
+
+
+
+// App-wide rules
+.App {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  font-family: 'Noto Sans', sans-serif;
+  word-break: break-word;
+  background: $background-color;
+  color: $text-color;
+
+  .main-body {
+    width: 100%;
+    margin: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+}
+
+
+
+// Subreddit Bar rules 
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  width: 100%;
+  padding-left: 0.8rem;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  background-color: $transparent-grey;
+  border-width: 2px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to right, 
+      $fully-transparent, 
+      $primary-red,
+      $transparent-dark-red
+    ) 0 0 1 0;
+
+    img.logo {
+      cursor: pointer;
+      width: 100%;
+      margin: auto;
+    }
+    .subreddit-logo {
+      display: flex;
+      cursor: pointer;
+      margin: auto;
+    }
+    .subreddit-bar {
+      margin: auto;
+      width: 90%;
+
+      .subreddit-button {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 1rem;
+        border: 0;
+        transition-duration: 0.2s;
+        background-color: $fully-transparent;
+        font-family: 'Noto Sans', sans-serif;
+        font-weight:100;
+        font-size: 0.95rem;
+        padding: 0;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        color: $text-color;
+
+        &:hover {
+          color: $hover-grey !important ;
+        }
+
+      }
+
+      .subreddit-button:active {
+        transform: translateY(3px);
+      }
+      .subreddit-button-selected {
+        border-width: 1px;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-style: solid;
+        border-image: 
+          linear-gradient(
+            to right, 
+            $fully-transparent, 
+            $primary-red,
+            $fully-transparent
+          ) 0 0 1 0;
+        color: $primary-red;
+        transition-duration: 0s;
+      }
+
+    }
+
+}
+
+
+
+// Login / Password bar
+.login-bar {
+  margin: auto;
+  width: 20%;
+  display: flex;
+  margin-right: 0.5rem;
+
+  .login-icon {
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+    margin-top: 0.2rem;
+    opacity: 0.8;
+    width: 20px;
+    height: 20px;
+    vertical-align: center;
+  }
+  .password-icon {
+    margin-right: 0.25rem;
+    margin-top: 0.2rem;
+    opacity: 0.8;
+    width: 20px;
+    height: 20px;
+  }
+  #login-form {
+    display: flex;
+  }
+  .login-input {
+    margin-right: 0.25rem;
+    margin-bottom: 0.1rem;
+    background: #f5f5f5 !important;
+  }
+
+}
+
+
+
+// Subreddit name
+.subreddit-name-border {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+
+  .subreddit-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 75%;
+    align-items: center;
+    margin-right: 48px;
+
+    h2 {
+      font-size: 1.25rem;
+      display: flex;
+      flex-direction: row;
+      margin-left: 0.65rem;
+      width:100%;
+    }
+    .subreddit-icon {
+      display: inline-block;
+      height: auto;
+      display: block;
+      width: 48px;
+      height: 48px;
+      justify-content: center;
+    }
+
+  }
+  .subreddit-name-sidebar {
+    width: 20%;
+  }
+
+}
+
+
+
+// TopicList general subreddit page rules
+.main-subreddit-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+
+  .all-topics {
+    width: 75%;
+
+    .no-results-found {
+      margin-top: 5rem;
+      font-weight: normal;
+      text-align: center;
+    }
+
+  }
+
+}
+
+
+
+// Topic containers
+.whole-topic-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+
+  .topic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 95%;
+    flex: 1;
+
+    .topic {
+      padding: 0.25rem 0;
+      border-width: 2px;
+      border-style: solid;
+      border-image: 
+        linear-gradient(
+          to right, 
+          $fully-transparent, 
+          $primary-red,
+          $transparent-dark-red
+        ) 1 0 0 0;
+      justify-content: center;
+      width: 100%;
+    }
+
+  } 
+
+}
+
+
+
+// Upvote and Downvote arrows for topics
+.arrows-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  margin-top: 0.7rem; 
+  max-width: 3%;
+
+  .arrow {
+    max-width: 1.55rem;
+    height: 2.1rem;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.6rem;
+
+    &:active {
+      transform: translateY(3px);
+    }
+
+  }
+  .up-arrow {
+    transition-duration: 0.2s;  
+
+    &:hover {
+      color: $hover-grey
+    }
+
+  }
+  .down-arrow {
+    transition-duration: 0.2s;
+
+    &:hover {
+      color: $hover-grey
+    }
+
+  }
+  .topic-score {
+    margin-top: 0rem; 
+    padding-left: 0.2rem;
+    font-size: 0.7rem
+  }
+  .up-arrow-upvoted {
+    color: $upvote;
+  }
+  .down-arrow-downvoted {
+    color: $downvote;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+// Topic topic-name and thumbnail container
+.topic-and-thumbnail {
+  display: flex;
+  justify-content: space-between;
+
+  .topic-name {
+    padding-left: 0.7rem;
+    align-self: center;
+    font-size: 1.1rem;
+    text-align: left;
+    transition-duration: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      font-weight: 400;
+      transition-duration: 0.2s;
+    }
+
+    .topic-flair {
+      color: $primary-red;
+      font-size: 0.7rem;
+      margin-right: 0.5rem;
+      border: 1px solid $domain-grey;
+      border-radius: 4px;
+      padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+      font-weight: 100;
+      float: left;
+      margin-top: 2px;
+    }
+    .topic-domain {
+      color: $domain-grey;
+      font-size: 0.7rem;
+      margin-left: 0.5rem;
+      font-weight: 100;
+    }
+
+  }
+
+
+
+
+
+  .topic-name-link {
+    color: $text-color;
+
+    &:hover {
+      cursor: pointer;
+      color: $hover-grey !important ;
+    }
+    a {
+
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+        color: $hover-grey !important ;
+      }
+
+    }
+
+  }
+
+  .topic-name-link-sticky {
+    color: $sticky !important;
+    font-weight: bold !important;
+
+    &:hover {
+      cursor: pointer;
+      color: $hover-grey !important ;
+    }
+
+    a {
+
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+        color: $hover-grey !important ;
+      }
+
+    }
+
+  }
+
+
+}
+
+
+
+// ThumbnailContainer rules
+.thumbnail-container {
+  width: 120px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 0.5rem;
+  margin-top: 0.75rem;
+
+  img.thumbnail {
+    max-width: 70px;
+    max-height: 52px;
+    align-self: center;
+    width: 70px;
+    height: 62px;
+  }
+  .thumbnail-substitute {
+    max-height: 62px !important;
+  }
+  // ThumbnailContainer Preview image/video button 
+  .preview-image-button {
+    align-self: flex-end;
+    cursor: pointer;
+    margin-bottom: 0.25rem;
+    margin-right: 0.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-size: 100%;
+  }
+  .preview-image-button-open {
+    background-position: 0% 0%;
+    background-image: url(image-icon-hover.svg);
+
+    &:hover {
+      background-position: 0% 0%;
+      background-image: url(image-icon.svg);
+    }
+
+  }
+
+  .preview-image-button-close {
+    background-position: 0% 0%;
+    background-image: url(thumbnail-sprites.png);
+
+    &:hover {
+      background-position: 0% 9.4%;
+      background-image: url(thumbnail-sprites.png);
+    }
+
+  }
+
+  .preview-video-button-open {
+    background-position: 0% 18.8%;
+    background-image: url(thumbnail-sprites.png);
+
+    &:hover {
+      background-position: 0% 28.2%;
+      background-image: url(thumbnail-sprites.png);
+    }
+
+  }
+
+  .preview-video-button-close {
+    background-position: 0% 0%;
+    background-image: url(thumbnail-sprites.png);
+
+    &:hover {
+      background-position: 0% 9.4%;
+      background-image: url(thumbnail-sprites.png);
+    }
+
+  }
+
+  .preview-gallery-button-open {
+    background-position: 0% 0%;
+    background-image: url(gallery-icon-hover.svg);
+
+    &:hover {
+      background-position: 0% 0%;
+      background-image: url(gallery-icon.svg);
+    }
+
+  }
+
+  .preview-gallery-button-close {
+    background-position: 0% 0%;
+    background-image: url(thumbnail-sprites.png);
+
+    &:hover {
+      background-position: 0% 9.4%;
+      background-image: url(thumbnail-sprites.png);
+    }
+
+  }
+
+  .preview-text-button-open {
+    background-position: 0% 37.6%;
+    background-image: url(thumbnail-sprites.png);
+
+    &:hover {
+      background-position: 0% 47%;
+      background-image: url(thumbnail-sprites.png);
+    }
+
+  }
+
+  .preview-text-button-close {
+    background-position: 0% 0%;
+    background-image: url(thumbnail-sprites.png);
+
+    &:hover {
+      background-position: 0% 9.4%;
+      background-image: url(thumbnail-sprites.png);
+    }
+
+  }
+
+  .preview-tweet-button-open {
+    background-position: 0% 37.6%;
+    background-image: url(thumbnail-sprites.png);
+
+    &:hover {
+      background-position: 0% 47%;
+      background-image: url(thumbnail-sprites.png);
+    }
+
+  }
+
+  .preview-tweet-button-close {
+    background-position: 0% 0%;
+    background-image: url(thumbnail-sprites.png);
+
+    &:hover {
+      background-position: 0% 9.4%;
+      background-image: url(thumbnail-sprites.png);
+    }
+
+  }
+
+}
+
+
+
+// PreviewImage container and image
+.preview-image {
+  width: 100%;
+  padding-left: 0.7rem;
+  margin-bottom: 1rem;
+  display: flex;
+
+  .preview-image img {
+    max-height: 60vh;
+    max-width: 60vw;
+  }
+  // Video and gifs preview
+  .preview-image video {
+    max-height: 40vh;
+  }
+
+}
+
+
+
+// TopicInfo rules
+.topic-info {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+  padding-right: 0.15rem;
+  font-size: 0.8rem;
+  align-content: center;
+  align-self: center;
+
+  .author-head {
+    font-weight: bold;
+    color: $primary-blue;
+  }
+  .author-head:hover {
+    cursor: pointer;
+  }
+  .topic-info-subreddit {
+    transition-duration: 0.2s;
+    color: $text-color;
+    font-weight: 100;
+  }
+  .topic-info-subreddit:hover {
+    cursor: pointer;
+    color: $hover-grey !important ;
+  }
+
+  // TopicInfo number of comments
+  .show-or-hide-comments {
+    cursor: pointer;
+    border: 0;
+    transition-duration: 0.2s;
+    background-color: $fully-transparent;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 0.8rem;
+    align-self: center;
+    justify-self: right;
+    margin-right: 0.75rem;
+    color: $text-color;
+
+    &:hover {
+      color: $hover-grey !important;
+    }
+
+    &:active {
+      transform: translateY(3px);
+    }
+
+  }
+
+}
+
+
+
+// CommentList and CommentHeadrules
+.comments {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.9rem;
+
+  .comment-head {
+    background-color: $fully-transparent;
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+    margin-right: 0.3rem;
+    padding-left: 0.3rem;
+    border-radius: 5px;
+    border: 1px solid $primary-blue;
+    width: 99.5%;
+    align-self: center;
+    padding: 0.05rem 0.5rem 0.05rem 0.5rem ;
+  }
+
+}
+.comment-list {
+  margin-top: 0.25rem;
+}
+.comment-number {
+  font-weight: bold;
+  color: $domain-grey;
+  text-align: left;
+  margin: 0.2rem;
+  margin-left: 0;
+  font-size: 0.7rem;
+  padding: 0
+}
+
+
+
+// Comment rules
+.comment {
+  border: $border-grey 1px solid;
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+  border-radius: 5px;
+  word-break:break-word;
+  width: 99.5%;
+  align-self: right;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem ;
+  margin-left: 0.5rem;
+  margin-right: 0.3rem;
+
+  p {
+    margin-left: 0.2rem;
+  }
+  .author-info {
+    padding-bottom: 0rem;
+    display: flex;  
+
+    .author {
+      font-weight: bold;
+      color: $primary-blue;
+      text-align: left;
+      margin: 0.2rem;
+      margin-left: 0;
+      font-size: 0.7rem;
+      padding: 0 2px 0 2px;
+    }
+    .author-darkblue {
+      font-weight: bold;
+      color: white;
+      text-align: left;
+      margin: 0.2rem;
+      margin-left: 1px;
+      font-size: 0.7rem;
+      background-color: #0055df;
+      border-radius: 3px;
+      padding: 0 2px 0 2px;
+    }
+    .points {
+      font-size: 0.7rem;
+      font-weight: bold;
+      align-self: center;
+      padding: 0 2px 0 2px;
+    }
+    .comment-created-when {
+      font-size: 0.7rem;
+      align-self: center;
+      margin: 0.2rem;
+      padding: 0 2px 0 2px;
+    }
+
+  }
+  .comment-body {
+    padding-bottom: 0.2rem;
+    padding-top: 0.05rem;
+    text-align: left;
+  }
+
+}
+
+
+
+// PageChanger Rules
+.page-changer {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: $text-color;
+  justify-content: center;
+  align-items: center;
+
+  .page-arrow-and-name {
+    display: flex;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .page-arrow-and-name-unavailable {
+    display: flex;
+    transition-duration: 0.2s;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: $domain-grey;
+  }
+  .page-arrow-and-name:active {
+    transform: translateY(3px);
+  }
+  .page-arrow-and-name:hover {
+    color: $primary-red;
+  }
+  .page-arrow {
+    font-size: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .page-counter {
+    font-size: 1.15rem;
+  }
+
+}
+
+
+
+// SideBar and SideInfo rules
+.side-bar {
+  width:20%;
+  display:flex;
+  flex-direction: column;
+  margin-left: 3rem;
+
+  // Search Bar and Form
+  .search-bar {
+    margin: 0;
+    display: flex;
+    width: 100%;
+
+    #search-input span{
+      background-color:#FF9;
+      color:#555;
+    }
+
+  }
+  .side-info {
+    margin-top: 1rem;
+    text-align: left;
+  
+    .sidebar-subreddit-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-left: 3.2px;
+    }
+    .sidebar-subreddit-subscribers {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: $primary-blue;
+      font-weight: bold;
+      margin-left: 3.2px;
+    }
+    .sidebar-subreddit-accounts-active {
+      font-size: 0.8rem;
+      color: $sticky;
+      font-weight: bold;
+      margin-left: 3.2px;
+    }
+    .sidebar-subreddit-public-description {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .subreddit-sidebar-info {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+  }
+
+}
+
+
+
+/* Gallery changer */
+.gallery-changer {
+  display: flex;
+  margin-bottom: 0;
+  color: $text-color;
+  align-items: center;
+  width: 100%;
+
+  .gallery-arrow-and-name {
+    display: flex;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-right: 1rem;
+  }
+  .gallery-arrow {
+    font-size: 1.25rem;
+    margin-right: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .gallery-counter {
+    font-size: 0.8rem;
+  }
+  .gallery-right-arrow-and-name {
+    margin-left: 1rem;
+  }
+  .gallery-right-arrow {
+    margin-left: 1rem;
+  }
+  .gallery-arrow-and-name:active {
+    transform: translateY(3px);
+  }
+  .gallery-arrow-and-name:hover {
+    color: $hover-grey;
+  }
+
+}
+
+
+
+/* Youtube Embed */
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+
+  iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+}
+
+
+
+
+
+
+
+// Tablets, Phones and other small screen devices
+@media only screen and (max-width: 900px) {
+  .App {
+    width: 98%;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    font-size: 0.6rem;
+  }
+  .arrows-container {
+    align-items: center;
+    margin-bottom: 0.5rem;
+    max-width: 8%;
+  }
+  .arrow {
+    background-size: 1500%;
+    max-width: 1rem;
+    height: 1rem;
+    margin-top: 0.8rem; 
+    justify-content: center;   
+  }
+  .main-body {
+    width: 100%;
+  }
+  .topic-container {
+    max-width: 95%;
+  }
+  .subreddit-name {
+    font-size: 1.25rem;
+    padding-left: 2.5rem;
+  }
+  .topic-name {
+    font-size: 0.8rem;
+  }
+  .thumbnail-container {
+    max-width: 25%;
+  }
+  .topic-info {
+    font-size: 0.6rem;
+  }
+  .show-or-hide-comments {
+    font-size: 0.6rem;
+  }
+  .subreddit-button {
+    font-size: 0.8rem;
+  }
+  .comment {
+    width: 106%;
+  }
+  .comments {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 0.5rem
+  }
+  .side-bar {
+    display: none;
+  }
+  .main-subreddit-body {
+    width: 100%;
+  }
+  .all-topics {
+    width: 100%;
+  }
+
+
+  /* 
+  Tried to change loading component properties, not working.
+  .loop-loading {
+    color: $upvote;
+    position:absolute;
+     top: 90%; 
+     left: 10%;  
+     margin: auto;
+     bottom: 0;
+     right: 0;
+    transform: "translate(-50%, -50%)" 
+  }
+  */
+
+
+}
+
+
+
+
+
+
+

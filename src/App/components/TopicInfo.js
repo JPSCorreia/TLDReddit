@@ -1,6 +1,6 @@
 import React from 'react'
 import * as RedditAPI from '../RedditAPI';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Moment from "react-moment";
 import { Route, NavLink } from "react-router-dom";
 import TopicList from "./TopicList";
@@ -10,7 +10,7 @@ function TopicInfo(props) {
   // Redux State/Action Management.
   const dispatch = useDispatch();
   const thisTopicInfoId = `${props.subreddit}-${props.dataKey}`;
-
+  const toggleComments = useSelector((state) => state.toggleComments[thisTopicInfoId])
 
   // Handle change subreddit on button click.
   function handleSubredditChange (event) {
@@ -27,8 +27,20 @@ function TopicInfo(props) {
   }
 
   // Event handler for toggling comments button and changing color of button.
-  function handleToggleComments () {
+  let media = '';
+  if (["default", "self", ""].includes(props.topicData.thumbnail)) media = 'text';
+  function handleToggleComments() {
+    
     dispatch(RedditAPI.toggle(thisTopicInfoId))
+    if (media === 'text') {
+      if (!toggleComments) {
+        document.getElementById(`thumbnail-container-${thisTopicInfoId}`).classList.remove(`preview-${media}-button-open`);
+        document.getElementById(`thumbnail-container-${thisTopicInfoId}`).classList.add(`preview-${media}-button-close`);
+      } else {
+        document.getElementById(`thumbnail-container-${thisTopicInfoId}`).classList.remove(`preview-${media}-button-close`);
+        document.getElementById(`thumbnail-container-${thisTopicInfoId}`).classList.add(`preview-${media}-button-open`);
+      }
+    }
   }
   
 

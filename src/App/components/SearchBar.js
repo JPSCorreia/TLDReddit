@@ -22,24 +22,24 @@ function SearchBar(props) {
 
 
   return (
-        <div className='search-bar'>
-          <i className="fa fa-search search-icon"></i>
-          <form 
-            className="input-form"
-            action="" 
-          >
-            <input 
-              type="text" 
-              id="search-input" 
-              placeholder="Search Subreddit..." 
-              name="search"
-              onChange={handleTextChange}
-              value={searchItem}
-              onKeyPress={handleKeyPress}
-            >
-            </input>
-        </form>
-        </div>
+    <div className='search-bar'>
+      <i className="fa fa-search search-icon"></i>
+      <form 
+        className="input-form"
+        action="" 
+      >
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search Subreddit..." 
+          name="search"
+          onChange={handleTextChange}
+          value={searchItem}
+          onKeyPress={handleKeyPress}
+        >
+        </input>
+      </form>
+    </div>
   );
 }
 

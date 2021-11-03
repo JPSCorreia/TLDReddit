@@ -67,7 +67,7 @@ function Gallery(props) {
   return (
     <div className='image-preview-gallery'>
       <div className='gallery-changer'>
-      <div className='gallery-arrow-and-name' onClick={previousImage}>
+        <div className='gallery-arrow-and-name' onClick={previousImage}>
           <div 
             className='gallery-arrow'
           >
@@ -77,27 +77,26 @@ function Gallery(props) {
             prev
           </div>
         </div>
-      <div className='gallery-counter'>
-      {`${count}/${galleryImages.length}`}
+        <div className='gallery-counter'>
+          {`${count}/${galleryImages.length}`}
+        </div>
+        <div className='gallery-arrow-and-name gallery-right-arrow-and-name' onClick={nextImage}>
+          <div>
+            next
+          </div>
+          <div 
+            className='gallery-arrow gallery-right-arrow ' 
+          >
+            →
+          </div>
+        </div>
       </div>
-      <div className='gallery-arrow-and-name gallery-right-arrow-and-name' onClick={nextImage}>
-        <div>
-          next
-        </div>
-        <div 
-          className='gallery-arrow gallery-right-arrow ' 
-        >
-          →
-        </div>
-      </div>
-        </div>
       <img
         alt={`${thisImageId}-preview`}
         src={galleryImages[0]}
         className='gallery-preview'
         id='gallery-preview'
       />
-      
     </div>
   );
 }
