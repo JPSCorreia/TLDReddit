@@ -11,11 +11,11 @@ function App() {
   // Redux State/Action Management.
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value);
   const routes = useSelector((state) => state.routes.data);
+  const theme = useSelector((state) => state.theme.value);
   if (selectedSubreddit) console.log(`Loading Subreddit: ${selectedSubreddit}`);
-  
 
   return (
-    <div className="App">
+    <div className={'App ' + ( theme? 'theme--dark' : 'theme--default')}>
       <SubredditBar />
       <div className="main-body">
         <Switch>
@@ -31,3 +31,13 @@ function App() {
 }
 
 export default App;
+
+/* 
+
+ function toggleUpArrow(event) {
+
+
+
+
+
+*/

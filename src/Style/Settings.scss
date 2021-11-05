@@ -1,0 +1,97 @@
+
+
+// Variables
+
+// Colors (light theme):
+$background-color--light: white;
+$text-color--light: black;
+$primary-blue--light: #369;
+$primary-red--light: #bb0010;
+$hover-grey--light: #6b6b6b;
+$link-blue--light: #0079d3;
+$downvote--light: rgb(51, 102, 153);
+$upvote--light: #ff4500;
+$sticky--light: #228822;
+$domain-grey--light: rgb(110, 110, 110);
+$border-grey--light: rgb(220, 220, 220);
+$transparent-grey--light: rgba(230, 230, 230, 0.85);
+$transparent-dark-red--light: rgba(172, 5, 5, 0);
+$fully-transparent--light: rgba(0,0,0,0);
+$background-brighter--light: rgb(247, 247, 248);
+$gradient-border--light: linear-gradient(
+  to right, 
+  rgba(0,0,0,0), 
+  #bb0010,
+  rgba(0, 0, 0, 0)
+) 0 0 1 0;
+$gradient-border-topic--light: linear-gradient(
+  to right, 
+  rgba(0,0,0,0), 
+  #bb0010,
+  rgba(0, 0, 0, 0)
+) 1 0 0 0;
+$thumbnail-border--light: 0px;
+$logo--light: url(../Images/TLDReddit-logo-smaller.png);
+$comment-head--light: #369;
+$reddit-guy--light: url(../Images/reddit_guy.png);
+
+
+// Colors (dark theme):
+$background-color--dark: rgb(50, 50, 50);
+$text-color--dark: rgba(255, 255, 255, 0.87);
+$primary-blue--dark: #66CCFF;
+$primary-red--dark: #ff4500;
+$hover-grey--dark: #6b6b6b;
+$link-blue--dark: #00C8FF;
+$downvote--dark: #66CCFF;
+$upvote--dark: #ff4500;
+$sticky--dark: #44FF44;
+$domain-grey--dark: rgb(170, 170, 170);
+$border-grey--dark: rgb(220, 220, 220);
+$transparent-grey--dark: rgba(70, 70, 70, 0.85);
+$transparent-dark-red--dark: rgba(2, 175, 5, 0);
+$fully-transparent--dark: rgba(0,0,0,0);
+$background-brighter--dark: rgb(65, 65, 65);
+$gradient-border--dark: linear-gradient(
+  to right, 
+  rgba(0,0,0,0), 
+  #ff4500,
+  rgba(0, 0, 0, 0)
+) 0 0 1 0;
+$gradient-border-topic--dark: linear-gradient(
+  to right, 
+  rgba(0,0,0,0), 
+  #ff4500,
+  rgba(0, 0, 0, 0)
+) 1 0 0 0;
+$thumbnail-border--dark: 1px solid rgba(255, 69, 0, 0.3);
+$logo--dark: url(../Images/TLDReddit-logo-smaller_inverted.png);
+$comment-head--dark: #ff4500;
+$reddit-guy--dark: url(../Images/reddit_guy_inverted.png);
+
+
+
+
+
+// Shortcuts
+$background-color: 'background-color';
+$text-color: 'text-color';
+$primary-blue: 'primary-blue';
+$primary-red: 'primary-red';
+$hover-grey: 'hover-grey';
+$link-blue: 'link-blue';
+$downvote: 'downvote';
+$upvote: 'upvote';
+$sticky: 'sticky';
+$domain-grey: 'domain-grey';
+$border-grey: 'border-grey';
+$transparent-grey: 'transparent-grey';
+$transparent-dark-red: 'transparent-dark-red';
+$fully-transparent: 'fully-transparent';
+$background-brighter: 'background-brighter';
+$gradient-border: 'gradient-border';
+$gradient-border-topic: 'gradient-border-topic';
+$thumbnail-border: 'thumbnail-border';
+$logo: 'logo';
+$comment-head: 'comment-head';
+$reddit-guy: 'reddit-guy'

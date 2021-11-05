@@ -7,6 +7,7 @@ import toggleCommentsReducer from './toggleCommentsSlice';
 import searchItemReducer from './searchItemSlice';
 import aboutReducer from './aboutSlice';
 import routesReducer from './routesSlice';
+import toggleThemeReducer from './toggleThemeSlice';
 
 const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
     searchItem: searchItemReducer,
     about: aboutReducer,
     routes: routesReducer,
+    theme: toggleThemeReducer,
   },
   // Remove SerializableStateInvariantMiddleware warning.
   middleware: getDefaultMiddleware => getDefaultMiddleware({

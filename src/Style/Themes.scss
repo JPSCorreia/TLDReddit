@@ -1,0 +1,71 @@
+
+
+// Themes
+$themes: (
+  default: (
+    $background-color: $background-color--light,
+    $text-color: $text-color--light,
+    $primary-blue: $primary-blue--light,
+    $primary-red: $primary-red--light,
+    $hover-grey: $hover-grey--light,
+    $link-blue: $link-blue--light,
+    $downvote: $downvote--light,
+    $upvote: $upvote--light,
+    $sticky: $sticky--light,
+    $domain-grey: $domain-grey--light,
+    $border-grey: $border-grey--light,
+    $transparent-grey: $transparent-grey--light,
+    $transparent-dark-red: $transparent-dark-red--light,
+    $fully-transparent: $fully-transparent--light,
+    $background-brighter: $background-brighter--light,
+    $gradient-border: $gradient-border--light,
+    $gradient-border-topic: $gradient-border-topic--light,
+    $thumbnail-border: $thumbnail-border--light,
+    $logo: $logo--light,
+    $comment-head: $comment-head--light,
+    $reddit-guy: $reddit-guy--light,
+  ),
+  dark:(
+    $background-color: $background-color--dark,
+    $text-color: $text-color--dark,
+    $primary-blue: $primary-blue--dark,
+    $primary-red: $primary-red--dark,
+    $hover-grey: $hover-grey--dark,
+    $link-blue: $link-blue--dark,
+    $downvote: $downvote--dark,
+    $upvote: $upvote--dark,
+    $sticky: $sticky--dark,
+    $domain-grey: $domain-grey--dark,
+    $border-grey: $border-grey--dark,
+    $transparent-grey: $transparent-grey--dark,
+    $transparent-dark-red: $transparent-dark-red--dark,
+    $fully-transparent: $fully-transparent--dark,
+    $background-brighter: $background-brighter--dark,
+    $gradient-border: $gradient-border--dark,
+    $gradient-border-topic: $gradient-border-topic--dark,
+    $thumbnail-border: $thumbnail-border--dark,
+    $logo: $logo--dark,
+    $comment-head: $comment-head--dark,
+    $reddit-guy: $reddit-guy--dark,
+  ),
+);
+
+
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

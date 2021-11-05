@@ -1,0 +1,84 @@
+
+
+// Tablets, Phones and other small screen devices
+@media only screen and (max-width: 900px) {
+  .App {
+    width: 98%;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    font-size: 0.6rem;
+  }
+  .arrows-container {
+    align-items: center;
+    margin-bottom: 0.5rem;
+    max-width: 8%;
+  }
+  .arrow {
+    background-size: 1500%;
+    max-width: 1rem;
+    height: 1rem;
+    margin-top: 0.8rem; 
+    justify-content: center;   
+  }
+  .main-body {
+    width: 100%;
+  }
+  .topic-container {
+    max-width: 95%;
+  }
+  .subreddit-name {
+    font-size: 1.25rem;
+    padding-left: 2.5rem;
+  }
+  .topic-name {
+    font-size: 0.8rem;
+  }
+  .thumbnail-container {
+    max-width: 25%;
+  }
+  .topic-info {
+    font-size: 0.6rem;
+  }
+  .show-or-hide-comments {
+    font-size: 0.6rem;
+  }
+  .subreddit-button {
+    font-size: 0.8rem;
+  }
+  .comment {
+    width: 106%;
+  }
+  .comments {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 0.5rem
+  }
+  .side-bar {
+    display: none;
+  }
+  .main-subreddit-body {
+    width: 100%;
+  }
+  .all-topics {
+    width: 100%;
+  }
+
+
+  /* 
+  Tried to change loading component properties, not working.
+  .loop-loading {
+    color: $upvote;
+    position:absolute;
+     top: 90%; 
+     left: 10%;  
+     margin: auto;
+     bottom: 0;
+     right: 0;
+    transform: "translate(-50%, -50%)" 
+  }
+  */
+
+
+}

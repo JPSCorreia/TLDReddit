@@ -15,11 +15,11 @@ function ArrowsContainer(props) {
       if (
         document.getElementById(
           `topic-score-${event.target.attributes.topicid.nodeValue}`
-        ).style.color === "rgb(51, 102, 153)"
+        ).classList.contains('topic-score-downvoted')
       ) {
         document.getElementById(
           `topic-score-${event.target.attributes.topicid.nodeValue}`
-        ).style.color = "black";
+        ).classList.remove('topic-score-downvoted')
         setCount(count + 2);
       } else {
         setCount(count + 1);
@@ -33,9 +33,9 @@ function ArrowsContainer(props) {
         .getElementById(event.target.id)
         .setAttribute("alt", "up-arrow-upvoted");
 
-      document.getElementById(
-        `topic-score-${event.target.attributes.topicid.nodeValue}`
-      ).style.color = "#ff4500";
+        document.getElementById(
+          `topic-score-${event.target.attributes.topicid.nodeValue}`
+        ).classList.add('topic-score-upvoted')
       document
         .getElementById(
           `down-arrow-${event.target.attributes.topicid.nodeValue}`
@@ -59,7 +59,7 @@ function ArrowsContainer(props) {
       document.getElementById(event.target.id).setAttribute("alt", "up-arrow");
       document.getElementById(
         `topic-score-${event.target.attributes.topicid.nodeValue}`
-      ).style.color = "black";
+      ).classList.remove('topic-score-upvoted')
       setCount(count + -1);
     }
   }
@@ -73,11 +73,11 @@ function ArrowsContainer(props) {
       if (
         document.getElementById(
           `topic-score-${event.target.attributes.topicid.nodeValue}`
-        ).style.color === "rgb(255, 69, 0)"
+        ).classList.contains('topic-score-upvoted')
       ) {
         document.getElementById(
           `topic-score-${event.target.attributes.topicid.nodeValue}`
-        ).style.color = "black";
+        ).classList.remove('topic-score-upvoted')
         setCount(count - 2);
       } else {
         setCount(count - 1);
@@ -91,9 +91,10 @@ function ArrowsContainer(props) {
         .getElementById(event.target.id)
         .setAttribute("alt", "down-arrow-downvoted");
 
+
       document.getElementById(
         `topic-score-${event.target.attributes.topicid.nodeValue}`
-      ).style.color = "#369";
+      ).classList.add('topic-score-downvoted')
       document
         .getElementById(`up-arrow-${event.target.attributes.topicid.nodeValue}`)
         .classList.remove("up-arrow-upvoted");
@@ -111,9 +112,9 @@ function ArrowsContainer(props) {
       document
         .getElementById(event.target.id)
         .setAttribute("alt", "down-arrow");
-      document.getElementById(
-        `topic-score-${event.target.attributes.topicid.nodeValue}`
-      ).style.color = "black";
+        document.getElementById(
+          `topic-score-${event.target.attributes.topicid.nodeValue}`
+        ).classList.remove('topic-score-downvoted')
       setCount(count + 1);
     }
   }

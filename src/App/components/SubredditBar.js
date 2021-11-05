@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import * as RedditAPI from '../RedditAPI';
 import { NavLink } from "react-router-dom";
-import TLDRedditlogo from '../../Style/TLDReddit-logo-smaller.png'
-import userIcon from '../../Style/user_icon.png'
-import passwordIcon from '../../Style/password_icon.png'
+import LoginBar from './LoginBar';
 
 function SubredditBar(props) {
 
@@ -13,11 +11,15 @@ function SubredditBar(props) {
   // Redux State/Action Management.
   const dispatch = useDispatch();
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value)
+  const theme = useSelector((state) => state.theme.value);
   const routes = useSelector((state) => state.routes.data);
   useEffect(() =>  {
     dispatch(RedditAPI.selectSubreddit(selectedSubreddit))
   },[dispatch,selectedSubreddit])
 
+  function toggleTheme () {
+    dispatch(RedditAPI.toggleTheme(!theme))
+  }
 
   // Push chosen subreddits to a list.
   const subredditBarList = [];
@@ -42,55 +44,24 @@ function SubredditBar(props) {
 
   return (
     <div className='top-bar'>
+      
       <NavLink
         to={'/'}
         className='subreddit-logo' 
         id='subreddit-logo-button'
       >
-        <img 
+      <div 
           className="logo" 
           alt="TLDReddit logo"
-          src={TLDRedditlogo}
         >
-        </img>  
+        </div>  
       </NavLink>
+      
       <div className='subreddit-bar'>
         {subredditBarList}
       </div>
-      <div className='login-bar'>
-        <form 
-          className="input-form"
-          id="login-form"
-          action="" 
-        >
-          <img 
-            className="login-icon" 
-            alt="login icon"
-            src={userIcon}
-          >
-          </img> 
-          <input 
-            type="text" 
-            className='login-input'
-            placeholder="Username" 
-            name="search"
-          >
-          </input>
-          <img 
-            className="password-icon" 
-            alt="login icon"
-            src={passwordIcon}
-          >
-          </img> 
-          <input 
-            type="text" 
-            className='login-input'
-            placeholder="Password" 
-            name="search"
-          >
-          </input>
-        </form>
-      </div>
+      <LoginBar />
+      <i className="fa theme-icon fa-moon-o moon-icon" onClick={toggleTheme} ></i>
     </div>
   )
 }

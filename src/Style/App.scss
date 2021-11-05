@@ -1,62 +1,117 @@
-// Variables
+@import 'Settings';
+@import 'Themes';
+@import 'Mobile';
 
-// Colors:
-$background-color: white;
-$text-color: black;
-$primary-blue: #369;
-$primary-red: #bb0010;
-$hover-grey: #6b6b6b;
-$link-blue: #0079d3;
-$downvote: rgb(51, 102, 153);
-$upvote: #ff4500;
-$sticky: #228822;
-$domain-grey: rgb(110, 110, 110);
-$border-grey: rgb(220, 220, 220);
-$transparent-grey: rgba(230, 230, 230, 0.85);
-$transparent-dark-red: rgba(172, 5, 5, 0);
-$fully-transparent: rgba(0,0,0,0);
+// Theme settings
+.theme--default {
+  background: white;
+}
 
-
+.theme--dark {
+  background: rgb(50, 50, 50);
+}
+.dqbMYY {
+  background: white;
+}
 
 // General HTML elements
 * {
   box-sizing: border-box; // borders stay inside parent elements.
+  
+}
+html {
+
+  @include themed() {
+    background: t($background-color);
+    color: t($text-color);
+  }
+
+}
+body {
+
+  @include themed() {
+    background: t($background-color);
+    color: t($text-color);
+  }
+
 }
 #root {
-  background-color: $background-color;
-  color: $text-color;
   margin: auto;
+
+  @include themed() {
+    background: t($background-color);
+    color: t($text-color);
+  }
+  
 }
 p {
   margin: 0.2rem;
   text-align: left;
+
+  @include themed() {
+    color: t($text-color);
+  }
+  
 }
 a {
-  color: $link-blue;
+
+  @include themed() {
+    color: t($link-blue);
+  }
+
   font-weight: bold;
   text-decoration: none;
   transition-duration: 0.2s;
 
   &:hover {
-    color: $hover-grey;
+    @include themed() {
+      color: t($hover-grey);
+    }
   }
 
 }
 li {
   text-align: left;
+
+  @include themed() {
+    color: t($text-color);
+  }
 }
 code {
   word-break:break-all;
+
+  @include themed() {
+    color: t($text-color);
+  }
 }
 time {
-  color: $domain-grey;
+  @include themed() {
+    color: t($domain-grey);
+  }
 }
 pre {
   white-space: pre;
   word-wrap: normal;
   overflow-x: auto;
 }
+h1,h2,h3,h4,h5,h6 {
 
+  @include themed() {
+    color: t($text-color);
+  }
+
+}
+table {
+  @include themed() {
+    color: t($text-color);
+  }
+}
+
+.separator {
+  @include themed() {
+    color: t($text-color);
+  }
+}
 
 
 // Input form elements
@@ -66,27 +121,38 @@ pre {
 .input-form input[type=text] {
   padding: 5px;
   font-size: 0.8rem;
-  border: $border-grey 1px solid;
   border-radius: 1px;
   float: left;
   width: 70%;
   background: #f1f1f1;
   height: 25px;
+
+  @include themed() {
+    border: t($border-grey) 1px solid;
+  }
+
 }
 .input-form button {
   float: left;
   width: 20%;
   max-width: 35px;
   padding: 5px;
-  background: $primary-red;
   font-size: 0.8rem;
-  color: $background-color;
   border: 1px solid grey;
   border-radius: 1px;
   cursor: pointer;
 
+  @include themed() {
+    background: t($primary-red);
+    color: t($background-color);
+  }
+
   &:hover {
-    background: $hover-grey;
+
+    @include themed() {
+      background: t($hover-grey);
+    }
+
   }
   
 }
@@ -99,6 +165,10 @@ pre {
 .search-icon {
   padding-right: 0.5rem;
   margin-top: 0.25rem;
+
+  @include themed() {
+    color: t($text-color);
+  }
 }
 input:focus {
     outline: none;
@@ -113,18 +183,25 @@ input:focus {
   margin: auto;
   font-family: 'Noto Sans', sans-serif;
   word-break: break-word;
-  background: $background-color;
-  color: $text-color;
 
-  .main-body {
-    width: 100%;
-    margin: auto;
-    font-weight: 400;
-    font-style: normal;
+  @include themed() {
+    background: t($background-color);
+    color: t($text-color);
   }
 
-}
 
+    
+}
+.main-body {
+  width: 100%;
+  margin: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  @include themed() {
+    background: t($background-color);
+  }
+}
 
 
 // Subreddit Bar rules 
@@ -139,30 +216,49 @@ input:focus {
   position: sticky;
   top: 0;
   align-items: center;
-  background-color: $transparent-grey;
   border-width: 2px;
   border-style: solid;
-  border-image: 
-    linear-gradient(
-      to right, 
-      $fully-transparent, 
-      $primary-red,
-      $transparent-dark-red
-    ) 0 0 1 0;
 
-    img.logo {
+  @include themed() {
+    background: t($transparent-grey);
+    border-image: t($gradient-border);
+  }
+
+  .theme-icon {
+    margin-left: 0.15rem;
+    margin-top: 0.15rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    
+    @include themed() {
+      color: t($text-color);
+    }
+  
+  }
+    .logo {
       cursor: pointer;
-      width: 100%;
-      margin: auto;
+      width: 152px;
+      height: 32px;
+      margin-left: 0rem;
+      margin-right: 0.5rem;
+      background-size: 100%;
+      background-repeat: no-repeat;
+
+
+      @include themed() {
+        background-image: t($logo);
+      }
+
     }
     .subreddit-logo {
       display: flex;
       cursor: pointer;
-      margin: auto;
+      width: 172px;
+      height: 28px;
     }
     .subreddit-bar {
       margin: auto;
-      width: 90%;
+      width: 95%;
 
       .subreddit-button {
         cursor: pointer;
@@ -170,17 +266,22 @@ input:focus {
         font-size: 1rem;
         border: 0;
         transition-duration: 0.2s;
-        background-color: $fully-transparent;
         font-family: 'Noto Sans', sans-serif;
         font-weight:100;
         font-size: 0.95rem;
         padding: 0;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
-        color: $text-color;
+
+        @include themed() {
+          background: t($fully-transparent);
+          color: t($text-color);
+        }
 
         &:hover {
-          color: $hover-grey !important ;
+          @include themed() {
+            color: t($hover-grey) !important;
+          }
         }
 
       }
@@ -194,15 +295,12 @@ input:focus {
         border-left: 0;
         border-right: 0;
         border-style: solid;
-        border-image: 
-          linear-gradient(
-            to right, 
-            $fully-transparent, 
-            $primary-red,
-            $fully-transparent
-          ) 0 0 1 0;
-        color: $primary-red;
         transition-duration: 0s;
+
+        @include themed() {
+          color: t($primary-red);
+          border-image: t($gradient-border);
+        }
       }
 
     }
@@ -213,27 +311,22 @@ input:focus {
 
 // Login / Password bar
 .login-bar {
-  margin: auto;
   width: 20%;
   display: flex;
   margin-right: 0.5rem;
+  margin-top: 0.2rem;
 
-  .login-icon {
-    margin-right: 0.25rem;
+  .user-icon {
     margin-left: 0.25rem;
-    margin-top: 0.2rem;
-    opacity: 0.8;
-    width: 20px;
-    height: 20px;
-    vertical-align: center;
+    margin-top: 0.25rem;
+    margin-right: 0.5rem;
+    
+    @include themed() {
+      color: t($text-color);
+    }
+
   }
-  .password-icon {
-    margin-right: 0.25rem;
-    margin-top: 0.2rem;
-    opacity: 0.8;
-    width: 20px;
-    height: 20px;
-  }
+
   #login-form {
     display: flex;
   }
@@ -243,6 +336,16 @@ input:focus {
     background: #f5f5f5 !important;
   }
 
+  .lock-icon {
+   
+    margin-left: 0.75rem;
+    margin-top: 0.25rem;
+    margin-right: 0.5rem;
+  
+    @include themed() {
+      color: t($text-color);
+    }
+  }
 }
 
 
@@ -276,6 +379,23 @@ input:focus {
       width: 48px;
       height: 48px;
       justify-content: center;
+      border-radius: 2px;
+
+    }
+
+    .subreddit-icon-substitute {
+      display: inline-block;
+      height: auto;
+      display: block;
+      width: 48px;
+      height: 48px;
+      justify-content: center;
+      border-radius: 2px;
+
+      @include themed() {
+        background-image: t($reddit-guy);
+      }
+
     }
 
   }
@@ -326,16 +446,16 @@ input:focus {
       padding: 0.25rem 0;
       border-width: 2px;
       border-style: solid;
-      border-image: 
-        linear-gradient(
-          to right, 
-          $fully-transparent, 
-          $primary-red,
-          $transparent-dark-red
-        ) 1 0 0 0;
       justify-content: center;
       width: 100%;
+
+      @include themed() {
+        border-image: t($gradient-border-topic);
+      }
+      
     }
+
+
 
   } 
 
@@ -361,6 +481,10 @@ input:focus {
     width: 100%;
     font-size: 1.6rem;
 
+    @include themed() {
+      color: t($text-color);
+    }
+
     &:active {
       transform: translateY(3px);
     }
@@ -370,7 +494,11 @@ input:focus {
     transition-duration: 0.2s;  
 
     &:hover {
-      color: $hover-grey
+
+      @include themed() {
+        color: t($hover-grey);
+      }
+      
     }
 
   }
@@ -378,20 +506,66 @@ input:focus {
     transition-duration: 0.2s;
 
     &:hover {
-      color: $hover-grey
+
+      @include themed() {
+        color: t($hover-grey);
+      }
+
     }
 
   }
   .topic-score {
     margin-top: 0rem; 
     padding-left: 0.2rem;
-    font-size: 0.7rem
+    font-size: 0.7rem;
+
+    @include themed() {
+      color: t($text-color);
+    }
+
+  }
+
+  .topic-score-upvoted {
+
+    @include themed() {
+      color: t($upvote) !important;
+    }
+
+  }
+  .topic-score-downvoted {
+
+    @include themed() {
+      color: t($downvote) !important;
+    }
+
+  }
+  .up-arrow-normal {
+
+    @include themed() {
+      color: t($text-color);
+    }
+
   }
   .up-arrow-upvoted {
-    color: $upvote;
+
+    @include themed() {
+      color: t($upvote);
+    }
+
+  }
+  .down-arrow-normal {
+
+    @include themed() {
+      color: t($text-color); 
+    }
+
   }
   .down-arrow-downvoted {
-    color: $downvote;
+
+    @include themed() {
+      color: t($downvote); 
+    }
+
   }
 
 }
@@ -426,21 +600,30 @@ input:focus {
     }
 
     .topic-flair {
-      color: $primary-red;
+
       font-size: 0.7rem;
       margin-right: 0.5rem;
-      border: 1px solid $domain-grey;
       border-radius: 4px;
       padding: 0.1rem 0.2rem 0.1rem 0.2rem;
       font-weight: 100;
       float: left;
       margin-top: 2px;
+
+      @include themed() {
+        color: t($primary-red);
+        border: 1px solid t($domain-grey);
+      }
+
     }
     .topic-domain {
-      color: $domain-grey;
       font-size: 0.7rem;
       margin-left: 0.5rem;
       font-weight: 100;
+
+      @include themed() {
+        color: t($domain-grey);
+      }
+
     }
 
   }
@@ -450,18 +633,29 @@ input:focus {
 
 
   .topic-name-link {
-    color: $text-color;
+
+    @include themed() {
+      color: t($text-color);
+    }
 
     &:hover {
       cursor: pointer;
-      color: $hover-grey !important ;
+
+      @include themed() {
+        color: t($hover-grey) !important;
+      }
+
     }
     a {
 
       &:hover {
         text-decoration: none;
         cursor: pointer;
-        color: $hover-grey !important ;
+
+        @include themed() {
+          color: t($hover-grey) !important;
+        }
+
       }
 
     }
@@ -469,12 +663,20 @@ input:focus {
   }
 
   .topic-name-link-sticky {
-    color: $sticky !important;
     font-weight: bold !important;
+
+    @include themed() {
+      color: t($sticky) !important;
+    }
+    transition-duration: 0.2s;
 
     &:hover {
       cursor: pointer;
-      color: $hover-grey !important ;
+      
+      @include themed() {
+        color: t($hover-grey) !important;
+      }
+
     }
 
     a {
@@ -482,7 +684,11 @@ input:focus {
       &:hover {
         text-decoration: none;
         cursor: pointer;
-        color: $hover-grey !important ;
+        
+        @include themed() {
+          color: t($hover-grey) !important;
+        }
+
       }
 
     }
@@ -504,12 +710,19 @@ input:focus {
   margin-right: 0.5rem;
   margin-top: 0.75rem;
 
+
   img.thumbnail {
     max-width: 70px;
     max-height: 52px;
     align-self: center;
     width: 70px;
     height: 62px;
+    border-radius: 2px;
+
+    // @include themed() {
+    //   border: t($thumbnail-border);
+    // }
+
   }
   .thumbnail-substitute {
     max-height: 62px !important;
@@ -526,110 +739,110 @@ input:focus {
   }
   .preview-image-button-open {
     background-position: 0% 0%;
-    background-image: url(image-icon-hover.svg);
+    background-image: url(../Images/image-icon-hover.svg);
 
     &:hover {
       background-position: 0% 0%;
-      background-image: url(image-icon.svg);
+      background-image: url(../Images/image-icon.svg);
     }
 
   }
 
   .preview-image-button-close {
     background-position: 0% 0%;
-    background-image: url(thumbnail-sprites.png);
+    background-image: url(../Images/thumbnail-sprites.png);
 
     &:hover {
       background-position: 0% 9.4%;
-      background-image: url(thumbnail-sprites.png);
+      background-image: url(../Images/thumbnail-sprites.png);
     }
 
   }
 
   .preview-video-button-open {
     background-position: 0% 18.8%;
-    background-image: url(thumbnail-sprites.png);
+    background-image: url(../Images/thumbnail-sprites.png);
 
     &:hover {
       background-position: 0% 28.2%;
-      background-image: url(thumbnail-sprites.png);
+      background-image: url(../Images/thumbnail-sprites.png);
     }
 
   }
 
   .preview-video-button-close {
     background-position: 0% 0%;
-    background-image: url(thumbnail-sprites.png);
+    background-image: url(../Images/thumbnail-sprites.png);
 
     &:hover {
       background-position: 0% 9.4%;
-      background-image: url(thumbnail-sprites.png);
+      background-image: url(../Images/thumbnail-sprites.png);
     }
 
   }
 
   .preview-gallery-button-open {
     background-position: 0% 0%;
-    background-image: url(gallery-icon-hover.svg);
+    background-image: url(../Images/gallery-icon-hover.svg);
 
     &:hover {
       background-position: 0% 0%;
-      background-image: url(gallery-icon.svg);
+      background-image: url(../Images/gallery-icon.svg);
     }
 
   }
 
   .preview-gallery-button-close {
     background-position: 0% 0%;
-    background-image: url(thumbnail-sprites.png);
+    background-image: url(../Images/thumbnail-sprites.png);
 
     &:hover {
       background-position: 0% 9.4%;
-      background-image: url(thumbnail-sprites.png);
+      background-image: url(../Images/thumbnail-sprites.png);
     }
 
   }
 
   .preview-text-button-open {
     background-position: 0% 37.6%;
-    background-image: url(thumbnail-sprites.png);
+    background-image: url(../Images/thumbnail-sprites.png);
 
     &:hover {
       background-position: 0% 47%;
-      background-image: url(thumbnail-sprites.png);
+      background-image: url(../Images/thumbnail-sprites.png);
     }
 
   }
 
   .preview-text-button-close {
     background-position: 0% 0%;
-    background-image: url(thumbnail-sprites.png);
+    background-image: url(../Images/thumbnail-sprites.png);
 
     &:hover {
       background-position: 0% 9.4%;
-      background-image: url(thumbnail-sprites.png);
+      background-image: url(../Images/thumbnail-sprites.png);
     }
 
   }
 
   .preview-tweet-button-open {
     background-position: 0% 37.6%;
-    background-image: url(thumbnail-sprites.png);
+    background-image: url(../Images/thumbnail-sprites.png);
 
     &:hover {
       background-position: 0% 47%;
-      background-image: url(thumbnail-sprites.png);
+      background-image: url(../Images/thumbnail-sprites.png);
     }
 
   }
 
   .preview-tweet-button-close {
     background-position: 0% 0%;
-    background-image: url(thumbnail-sprites.png);
+    background-image: url(../Images/thumbnail-sprites.png);
 
     &:hover {
       background-position: 0% 9.4%;
-      background-image: url(thumbnail-sprites.png);
+      background-image: url(../Images/thumbnail-sprites.png);
     }
 
   }
@@ -644,16 +857,14 @@ input:focus {
   padding-left: 0.7rem;
   margin-bottom: 1rem;
   display: flex;
-
-  .preview-image img {
-    max-height: 60vh;
-    max-width: 60vw;
-  }
-  // Video and gifs preview
-  .preview-image video {
-    max-height: 40vh;
-  }
-
+}
+.preview-image img {
+  max-height: 70vh;
+  max-width: 68.8vw;
+}
+// Video and gifs preview
+.preview-image video {
+  max-height: 40vh;
 }
 
 
@@ -670,19 +881,31 @@ input:focus {
 
   .author-head {
     font-weight: bold;
-    color: $primary-blue;
+    
+    @include themed() {
+      color: t($primary-blue) !important;
+    }
+
   }
   .author-head:hover {
     cursor: pointer;
   }
   .topic-info-subreddit {
     transition-duration: 0.2s;
-    color: $text-color;
     font-weight: 100;
+
+    @include themed() {
+      color: t($text-color);
+    }
+    
   }
   .topic-info-subreddit:hover {
     cursor: pointer;
-    color: $hover-grey !important ;
+    
+    @include themed() {
+      color: t($hover-grey) !important;
+    }
+
   }
 
   // TopicInfo number of comments
@@ -690,16 +913,23 @@ input:focus {
     cursor: pointer;
     border: 0;
     transition-duration: 0.2s;
-    background-color: $fully-transparent;
     font-family: 'Noto Sans', sans-serif;
     font-size: 0.8rem;
     align-self: center;
     justify-self: right;
     margin-right: 0.75rem;
-    color: $text-color;
+
+    @include themed() {
+      background: t($fully-transparent);
+      color: t($text-color);
+    }
 
     &:hover {
-      color: $hover-grey !important;
+
+      @include themed() {
+        color: t($hover-grey) !important;
+      }
+
     }
 
     &:active {
@@ -720,16 +950,20 @@ input:focus {
   font-size: 0.9rem;
 
   .comment-head {
-    background-color: $fully-transparent;
     margin-top: 0.2rem;
     margin-bottom: 0.4rem;
     margin-right: 0.3rem;
     padding-left: 0.3rem;
     border-radius: 5px;
-    border: 1px solid $primary-blue;
     width: 99.5%;
     align-self: center;
     padding: 0.05rem 0.5rem 0.05rem 0.5rem ;
+
+    @include themed() {
+      border: 1px solid t($comment-head);
+      background: t($fully-transparent);
+    }
+
   }
 
 }
@@ -738,19 +972,22 @@ input:focus {
 }
 .comment-number {
   font-weight: bold;
-  color: $domain-grey;
   text-align: left;
   margin: 0.2rem;
   margin-left: 0;
   font-size: 0.7rem;
-  padding: 0
+  padding: 0;
+
+  @include themed() {
+    color: t($domain-grey);
+  }
+
 }
 
 
 
 // Comment rules
 .comment {
-  border: $border-grey 1px solid;
   margin-top: 0.2rem;
   margin-bottom: 0.4rem;
   border-radius: 5px;
@@ -761,6 +998,10 @@ input:focus {
   margin-left: 0.5rem;
   margin-right: 0.3rem;
 
+  @include themed() {
+    border: t($border-grey) 1px solid;
+  }
+
   p {
     margin-left: 0.2rem;
   }
@@ -770,16 +1011,20 @@ input:focus {
 
     .author {
       font-weight: bold;
-      color: $primary-blue;
       text-align: left;
       margin: 0.2rem;
       margin-left: 0;
       font-size: 0.7rem;
       padding: 0 2px 0 2px;
+
+      @include themed() {
+        color: t($primary-blue);
+      }
+
     }
     .author-darkblue {
       font-weight: bold;
-      color: white;
+      color: white !important;
       text-align: left;
       margin: 0.2rem;
       margin-left: 1px;
@@ -793,6 +1038,11 @@ input:focus {
       font-weight: bold;
       align-self: center;
       padding: 0 2px 0 2px;
+
+      @include themed() {
+        color: t($text-color);
+      }
+
     }
     .comment-created-when {
       font-size: 0.7rem;
@@ -810,16 +1060,33 @@ input:focus {
 
 }
 
+.comment-brighter {
 
+  @include themed() {
+    background: t($background-color);
+  }
+
+}
+
+.comment-darker {
+
+  @include themed() {
+    background: t($background-brighter) !important;
+  }
+
+}
 
 // PageChanger Rules
 .page-changer {
   display: flex;
   margin-top: 1rem;
   margin-bottom: 0;
-  color: $text-color;
   justify-content: center;
   align-items: center;
+
+  @include themed() {
+    color: t($text-color);
+  }
 
   .page-arrow-and-name {
     display: flex;
@@ -839,13 +1106,21 @@ input:focus {
     align-items: center;
     margin-left: 1rem;
     margin-right: 1rem;
-    color: $domain-grey;
+
+
+    @include themed() {
+      color: t($domain-grey);
+    }
   }
   .page-arrow-and-name:active {
     transform: translateY(3px);
   }
   .page-arrow-and-name:hover {
-    color: $primary-red;
+    
+    @include themed() {
+      color: t($primary-red);
+    }
+
   }
   .page-arrow {
     font-size: 2rem;
@@ -888,19 +1163,31 @@ input:focus {
       font-weight: bold;
       font-size: 1.1rem;
       margin-left: 3.2px;
+
+      @include themed() {
+        color: t($text-color);
+      }
+
     }
     .sidebar-subreddit-subscribers {
       margin-top: 0.5rem;
       font-size: 0.8rem;
-      color: $primary-blue;
       font-weight: bold;
       margin-left: 3.2px;
+
+      @include themed() {
+        color: t($primary-blue);
+      }
     }
     .sidebar-subreddit-accounts-active {
       font-size: 0.8rem;
-      color: $sticky;
       font-weight: bold;
       margin-left: 3.2px;
+
+      @include themed() {
+        color: t($sticky);
+      }
+
     }
     .sidebar-subreddit-public-description {
       margin-top: 0.5rem;
@@ -917,13 +1204,16 @@ input:focus {
 
 
 
-/* Gallery changer */
+// Gallery changer
 .gallery-changer {
   display: flex;
   margin-bottom: 0;
-  color: $text-color;
   align-items: center;
   width: 100%;
+
+  @include themed() {
+    color: t($text-color);
+  }
 
   .gallery-arrow-and-name {
     display: flex;
@@ -952,14 +1242,18 @@ input:focus {
     transform: translateY(3px);
   }
   .gallery-arrow-and-name:hover {
-    color: $hover-grey;
-  }
 
+    @include themed() {
+      color: t($hover-grey);
+    }
+
+  }
+  
 }
 
 
 
-/* Youtube Embed */
+// Youtube Embed
 .video-responsive {
   overflow: hidden;
   padding-bottom: 56.25%;
@@ -980,90 +1274,6 @@ input:focus {
 
 
 
-
-
-// Tablets, Phones and other small screen devices
-@media only screen and (max-width: 900px) {
-  .App {
-    width: 98%;
-    align-items: center;
-    align-content: center;
-    margin: auto;
-    font-size: 0.6rem;
-  }
-  .arrows-container {
-    align-items: center;
-    margin-bottom: 0.5rem;
-    max-width: 8%;
-  }
-  .arrow {
-    background-size: 1500%;
-    max-width: 1rem;
-    height: 1rem;
-    margin-top: 0.8rem; 
-    justify-content: center;   
-  }
-  .main-body {
-    width: 100%;
-  }
-  .topic-container {
-    max-width: 95%;
-  }
-  .subreddit-name {
-    font-size: 1.25rem;
-    padding-left: 2.5rem;
-  }
-  .topic-name {
-    font-size: 0.8rem;
-  }
-  .thumbnail-container {
-    max-width: 25%;
-  }
-  .topic-info {
-    font-size: 0.6rem;
-  }
-  .show-or-hide-comments {
-    font-size: 0.6rem;
-  }
-  .subreddit-button {
-    font-size: 0.8rem;
-  }
-  .comment {
-    width: 106%;
-  }
-  .comments {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-left: 0.5rem
-  }
-  .side-bar {
-    display: none;
-  }
-  .main-subreddit-body {
-    width: 100%;
-  }
-  .all-topics {
-    width: 100%;
-  }
-
-
-  /* 
-  Tried to change loading component properties, not working.
-  .loop-loading {
-    color: $upvote;
-    position:absolute;
-     top: 90%; 
-     left: 10%;  
-     margin: auto;
-     bottom: 0;
-     right: 0;
-    transform: "translate(-50%, -50%)" 
-  }
-  */
-
-
-}
 
 
 

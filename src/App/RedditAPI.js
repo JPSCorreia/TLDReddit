@@ -114,3 +114,11 @@ export const addToRouteList = createAsyncThunk(
     return route;
   }
 )
+
+// Toggle theme Action
+export const toggleTheme = createAsyncThunk(
+  "theme/toggleTheme",
+  async (sub) => {
+    return sub;
+  }
+)

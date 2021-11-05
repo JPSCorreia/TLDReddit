@@ -1,8 +1,8 @@
 import React from 'react'
-import textIcon from "../../Style/text-icon-larger.png";
-import nsfwIcon from "../../Style/nsfw-icon-larger.png";
-import spoilerIcon from "../../Style/spoiler-alert.png";
-import noPreviewIcon from "../../Style/no-preview-icon.png";
+import textIcon from "../../Images/text-icon-larger.png";
+import nsfwIcon from "../../Images/nsfw-icon-larger.png";
+import spoilerIcon from "../../Images/spoiler-alert.png";
+import noPreviewIcon from "../../Images/no-preview-icon.png";
 import { useSelector, useDispatch } from 'react-redux';
 import * as RedditAPI from '../RedditAPI';
 
