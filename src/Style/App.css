@@ -98,8 +98,26 @@
   background: #323232;
 }
 
-.dqbMYY {
+.dqbMYY .theme--dark {
+  background: #323232;
+  color: #ff4500;
+}
+
+.dqbMYY .theme--default {
   background: white;
+  color: red;
+}
+
+body .theme--dark {
+  background: #323232;
+}
+
+body .theme--default {
+  background: white;
+}
+
+body {
+  background: #323232;
 }
 
 * {

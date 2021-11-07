@@ -18,6 +18,7 @@ function TopicList(props) {
   const selectedSubreddit = useSelector((state) => state.selectedSubreddit.value);
   const topicList = useSelector((state) => state.topicList[selectedSubreddit] || [])
   const searchItem = useSelector((state) => state.searchItem.value);
+  const theme = useSelector((state) => state.theme.value);
   const { id }  = useParams();
 
 
@@ -61,8 +62,7 @@ function TopicList(props) {
         <div className='all-topics'>
           {totalTopicList.isLoading? (
             <LoopCircleLoading
-              color='red'
-              backgroundColor='green'
+              color={ theme ? '#ff4500' : '#bb0010' }
             />
           )
           : 
@@ -71,7 +71,7 @@ function TopicList(props) {
           {totalTopicList.isLoading?
             '' 
           : 
-            <PageChanger /> 
+          (list.length === 0 && searchItem.length > 0? '' : <PageChanger /> )
           }
           {list.length === 0 && searchItem.length > 0?
             <p 

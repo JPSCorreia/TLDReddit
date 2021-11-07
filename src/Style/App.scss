@@ -9,15 +9,34 @@
 
 .theme--dark {
   background: rgb(50, 50, 50);
+
+
 }
-.dqbMYY {
+
+.dqbMYY .theme--dark{
+  background: rgb(50, 50, 50);
+  color: #ff4500;
+}
+.dqbMYY .theme--default{
   background: white;
+  color: red;
+}
+
+body .theme--dark{
+  background: rgb(50, 50, 50);
+}
+body .theme--default{
+  background: white;
+}
+body {
+  background: rgb(50, 50, 50);
 }
 
 // General HTML elements
 * {
   box-sizing: border-box; // borders stay inside parent elements.
-  
+
+
 }
 html {
 

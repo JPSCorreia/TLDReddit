@@ -31,13 +31,3 @@ function App() {
 }
 
 export default App;
-
-/* 
-
- function toggleUpArrow(event) {
-
-
-
-
-
-*/

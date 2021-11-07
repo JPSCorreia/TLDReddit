@@ -19,6 +19,17 @@ function SubredditBar(props) {
 
   function toggleTheme () {
     dispatch(RedditAPI.toggleTheme(!theme))
+    if (theme) {
+      document.body.classList.add('theme--default')
+      document.body.classList.remove('theme--dark')
+      document.getElementById('theme-icon').classList.add('fa-sun-o')
+      document.getElementById('theme-icon').classList.remove('fa-moon-o')
+    } else {
+      document.body.classList.add('theme--dark')
+      document.body.classList.remove('theme--default')
+      document.getElementById('theme-icon').classList.add('fa-moon-o')
+      document.getElementById('theme-icon').classList.remove('fa-sun-o')
+    }
   }
 
   // Push chosen subreddits to a list.
@@ -61,7 +72,7 @@ function SubredditBar(props) {
         {subredditBarList}
       </div>
       <LoginBar />
-      <i className="fa theme-icon fa-moon-o moon-icon" onClick={toggleTheme} ></i>
+      <i className="fa theme-icon fa-moon-o moon-icon" onClick={toggleTheme} id='theme-icon'></i>
     </div>
   )
 }
