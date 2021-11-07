@@ -1,8 +1,4 @@
 import React from 'react'
-import textIcon from "../../Images/text-icon-larger.png";
-import nsfwIcon from "../../Images/nsfw-icon-larger.png";
-import spoilerIcon from "../../Images/spoiler-alert.png";
-import noPreviewIcon from "../../Images/no-preview-icon.png";
 import { useSelector, useDispatch } from 'react-redux';
 import * as RedditAPI from '../RedditAPI';
 
@@ -56,45 +52,41 @@ function ThumbnailContainer(props) {
       if (["default", "self", ""].includes(thumbnail) && (props.topicData.domain === "i.imgur.com" || props.topicData.domain === "giant.gfycat.com")) {
         return (
           <a href={url} target='_blank' rel='noreferrer'>
-          <img
+          <div
             alt='thumbnail'
             id={`thumbnail-${id}`}
             title='spoiler-icon'
-            src={noPreviewIcon}
-            className='thumbnail thumbnail-substitute'
-          ></img>
+            className='thumbnail thumbnail-substitute-nopreview'
+          ></div>
           </a>
         )
 
       } else if (["nsfw"].includes(thumbnail)) {
         return (
-          <img
+          <div
             alt='thumbnail'
             id={`thumbnail-${id}`}
             title='nsfw-icon'
-            src={nsfwIcon}
-            className='thumbnail thumbnail-substitute'
-          ></img>
+            className='thumbnail thumbnail-substitute-nsfw'
+          ></div>
         );
       } else if (["spoiler"].includes(thumbnail)) {
         return (
-          <img
+          <div
             alt='thumbnail'
             id={`thumbnail-${id}`}
             title='spoiler-icon'
-            src={spoilerIcon}
-            className='thumbnail thumbnail-substitute'
-          ></img>
+            className='thumbnail thumbnail-substitute-spoiler'
+          ></div>
         );
       } else if (["default", "self", ""].includes(thumbnail)) {
         return (
-          <img
+          <div
             alt='thumbnail'
             id={`thumbnail-${id}`}
             title='text-icon'
-            src={textIcon}
-            className='thumbnail thumbnail-substitute'
-          ></img>
+            className='thumbnail thumbnail-substitute-text'
+          ></div>
         );
       } else {
         return (

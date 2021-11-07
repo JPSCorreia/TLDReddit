@@ -34,6 +34,10 @@ $thumbnail-border--light: 0px;
 $logo--light: url(../Images/TLDReddit-logo-smaller.png);
 $comment-head--light: #369;
 $reddit-guy--light: url(../Images/reddit_guy.png);
+$nsfw-icon--light: url(../Images/nsfw-icon-larger.png);
+$no-preview-icon--light: url(../Images/no-preview-icon.png);
+$spoiler-icon--light: url(../Images/spoiler-alert.png);
+$text-icon--light: url(../Images/text-icon-larger.png);
 
 
 // Colors (dark theme):
@@ -68,8 +72,10 @@ $thumbnail-border--dark: 1px solid rgba(255, 69, 0, 0.3);
 $logo--dark: url(../Images/TLDReddit-logo-smaller_inverted.png);
 $comment-head--dark: #ff4500;
 $reddit-guy--dark: url(../Images/reddit_guy_inverted.png);
-
-
+$nsfw-icon--dark: url(../Images/nsfw-icon-larger-dark.png);
+$no-preview-icon--dark: url(../Images/no-preview-icon-dark.png);
+$spoiler-icon--dark: url(../Images/spoiler-alert-dark.png);
+$text-icon--dark: url(../Images/text-icon-larger-dark.png);
 
 
 
@@ -94,4 +100,8 @@ $gradient-border-topic: 'gradient-border-topic';
 $thumbnail-border: 'thumbnail-border';
 $logo: 'logo';
 $comment-head: 'comment-head';
-$reddit-guy: 'reddit-guy'
+$reddit-guy: 'reddit-guy';
+$nsfw-icon: 'nsfw-icon';
+$no-preview-icon: 'no-preview-icon';
+$spoiler-icon: 'spoiler-icon';
+$text-icon: 'text-icon';

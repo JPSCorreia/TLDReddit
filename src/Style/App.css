@@ -406,6 +406,8 @@ input:focus {
   margin-top: 0.15rem;
   margin-right: 0.5rem;
   cursor: pointer;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
 }
 
 .theme--default .top-bar .theme-icon {
@@ -414,6 +416,14 @@ input:focus {
 
 .theme--dark .top-bar .theme-icon {
   color: rgba(255, 255, 255, 0.87);
+}
+
+.theme--default .top-bar .theme-icon:hover {
+  color: #6b6b6b !important;
+}
+
+.theme--dark .top-bar .theme-icon:hover {
+  color: #6b6b6b !important;
 }
 
 .top-bar .logo {
@@ -1013,6 +1023,70 @@ input:focus {
 
 .thumbnail-container .thumbnail-substitute {
   max-height: 62px !important;
+}
+
+.thumbnail-container .thumbnail-substitute-nopreview {
+  width: 70px;
+  height: 62px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+
+.theme--default .thumbnail-container .thumbnail-substitute-nopreview {
+  background-image: url(../Images/no-preview-icon.png);
+}
+
+.theme--dark .thumbnail-container .thumbnail-substitute-nopreview {
+  background-image: url(../Images/no-preview-icon-dark.png);
+}
+
+.thumbnail-container .thumbnail-substitute-nsfw {
+  width: 70px;
+  height: 62px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+
+.theme--default .thumbnail-container .thumbnail-substitute-nsfw {
+  background-image: url(../Images/nsfw-icon-larger.png);
+}
+
+.theme--dark .thumbnail-container .thumbnail-substitute-nsfw {
+  background-image: url(../Images/nsfw-icon-larger-dark.png);
+}
+
+.thumbnail-container .thumbnail-substitute-spoiler {
+  width: 70px;
+  height: 62px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+
+.theme--default .thumbnail-container .thumbnail-substitute-spoiler {
+  background-image: url(../Images/spoiler-alert.png);
+}
+
+.theme--dark .thumbnail-container .thumbnail-substitute-spoiler {
+  background-image: url(../Images/spoiler-alert-dark.png);
+}
+
+.thumbnail-container .thumbnail-substitute-text {
+  width: 70px;
+  height: 62px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+
+.theme--default .thumbnail-container .thumbnail-substitute-text {
+  background-image: url(../Images/text-icon-larger.png);
+}
+
+.theme--dark .thumbnail-container .thumbnail-substitute-text {
+  background-image: url(../Images/text-icon-larger-dark.png);
 }
 
 .thumbnail-container .preview-image-button {

@@ -24,6 +24,10 @@ $themes: (
     $logo: $logo--light,
     $comment-head: $comment-head--light,
     $reddit-guy: $reddit-guy--light,
+    $nsfw-icon: $nsfw-icon--light,
+    $no-preview-icon: $no-preview-icon--light,
+    $spoiler-icon: $spoiler-icon--light,
+    $text-icon: $text-icon--light,
   ),
   dark:(
     $background-color: $background-color--dark,
@@ -47,6 +51,10 @@ $themes: (
     $logo: $logo--dark,
     $comment-head: $comment-head--dark,
     $reddit-guy: $reddit-guy--dark,
+    $nsfw-icon: $nsfw-icon--dark,
+    $no-preview-icon: $no-preview-icon--dark,
+    $spoiler-icon: $spoiler-icon--dark,
+    $text-icon: $text-icon--dark,
   ),
 );
 

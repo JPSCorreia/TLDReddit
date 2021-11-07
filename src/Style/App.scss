@@ -248,9 +248,16 @@ input:focus {
     margin-top: 0.15rem;
     margin-right: 0.5rem;
     cursor: pointer;
+    transition-duration: 0.2s;
     
     @include themed() {
       color: t($text-color);
+    }
+
+    &:hover {
+      @include themed() {
+        color: t($hover-grey) !important;
+      }
     }
   
   }
@@ -738,14 +745,56 @@ input:focus {
     height: 62px;
     border-radius: 2px;
 
-    // @include themed() {
-    //   border: t($thumbnail-border);
-    // }
 
   }
   .thumbnail-substitute {
     max-height: 62px !important;
   }
+  .thumbnail-substitute-nopreview {
+    width: 70px;
+    height: 62px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+
+    @include themed() {
+      background-image: t($no-preview-icon);
+    }
+  }
+  .thumbnail-substitute-nsfw {
+    width: 70px;
+    height: 62px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+
+    @include themed() {
+      background-image: t($nsfw-icon);
+    }
+  }
+  .thumbnail-substitute-spoiler {
+    width: 70px;
+    height: 62px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+
+    @include themed() {
+      background-image: t($spoiler-icon);
+    }
+  }
+  .thumbnail-substitute-text {
+    width: 70px;
+    height: 62px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+
+    @include themed() {
+      background-image: t($text-icon);
+    }
+  }
+ 
   // ThumbnailContainer Preview image/video button 
   .preview-image-button {
     align-self: flex-end;
