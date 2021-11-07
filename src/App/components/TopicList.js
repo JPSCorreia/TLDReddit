@@ -68,11 +68,6 @@ function TopicList(props) {
           : 
             list 
           }
-          {totalTopicList.isLoading?
-            '' 
-          : 
-          (list.length === 0 && searchItem.length > 0? '' : <PageChanger /> )
-          }
           {list.length === 0 && searchItem.length > 0?
             <p 
               className='no-results-found'
@@ -82,6 +77,12 @@ function TopicList(props) {
           : 
             ''
           }
+          {totalTopicList.isLoading?
+            '' 
+          : 
+            <PageChanger /> 
+          }
+
         </div>
         {totalTopicList.isLoading?
           '' 
