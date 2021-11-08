@@ -82,11 +82,7 @@ a {
   text-decoration: none;
   transition-duration: 0.2s;
 
-  &:hover {
-    @include themed() {
-      color: t($hover-grey);
-    }
-  }
+
 
 }
 li {
@@ -166,13 +162,7 @@ table {
     color: t($background-color);
   }
 
-  &:hover {
 
-    @include themed() {
-      background: t($hover-grey);
-    }
-
-  }
   
 }
 // Clear floats 
@@ -254,11 +244,7 @@ input:focus {
       color: t($text-color);
     }
 
-    &:hover {
-      @include themed() {
-        color: t($hover-grey) !important;
-      }
-    }
+
   
   }
     .logo {
@@ -304,11 +290,7 @@ input:focus {
           color: t($text-color);
         }
 
-        &:hover {
-          @include themed() {
-            color: t($hover-grey) !important;
-          }
-        }
+
 
       }
 
@@ -519,25 +501,13 @@ input:focus {
   .up-arrow {
     transition-duration: 0.2s;  
 
-    &:hover {
 
-      @include themed() {
-        color: t($hover-grey);
-      }
-      
-    }
 
   }
   .down-arrow {
     transition-duration: 0.2s;
 
-    &:hover {
 
-      @include themed() {
-        color: t($hover-grey);
-      }
-
-    }
 
   }
   .topic-score {
@@ -659,69 +629,28 @@ input:focus {
 
 
   .topic-name-link {
-
+    cursor: pointer;
     @include themed() {
       color: t($text-color);
     }
-
-    &:hover {
-      cursor: pointer;
-
-      @include themed() {
-        color: t($hover-grey) !important;
-      }
-
-    }
     a {
-
-      &:hover {
-        text-decoration: none;
-        cursor: pointer;
-
-        @include themed() {
-          color: t($hover-grey) !important;
-        }
-
-      }
-
+      text-decoration: none;
+      cursor: pointer;
     }
-
   }
 
   .topic-name-link-sticky {
     font-weight: bold !important;
-
+    cursor: pointer;
+    transition-duration: 0.2s;
     @include themed() {
       color: t($sticky) !important;
     }
-    transition-duration: 0.2s;
-
-    &:hover {
-      cursor: pointer;
-      
-      @include themed() {
-        color: t($hover-grey) !important;
-      }
-
-    }
-
     a {
-
-      &:hover {
-        text-decoration: none;
-        cursor: pointer;
-        
-        @include themed() {
-          color: t($hover-grey) !important;
-        }
-
-      }
-
+      text-decoration: none;
+      cursor: pointer;
     }
-
   }
-
-
 }
 
 
@@ -808,111 +737,51 @@ input:focus {
   .preview-image-button-open {
     background-position: 0% 0%;
     background-image: url(../Images/image-icon-hover.svg);
-
-    &:hover {
-      background-position: 0% 0%;
-      background-image: url(../Images/image-icon.svg);
-    }
-
   }
 
   .preview-image-button-close {
     background-position: 0% 0%;
     background-image: url(../Images/thumbnail-sprites.png);
-
-    &:hover {
-      background-position: 0% 9.4%;
-      background-image: url(../Images/thumbnail-sprites.png);
-    }
-
   }
 
   .preview-video-button-open {
     background-position: 0% 18.8%;
     background-image: url(../Images/thumbnail-sprites.png);
-
-    &:hover {
-      background-position: 0% 28.2%;
-      background-image: url(../Images/thumbnail-sprites.png);
-    }
-
   }
 
   .preview-video-button-close {
     background-position: 0% 0%;
     background-image: url(../Images/thumbnail-sprites.png);
-
-    &:hover {
-      background-position: 0% 9.4%;
-      background-image: url(../Images/thumbnail-sprites.png);
-    }
-
   }
 
   .preview-gallery-button-open {
     background-position: 0% 0%;
     background-image: url(../Images/gallery-icon-hover.svg);
-
-    &:hover {
-      background-position: 0% 0%;
-      background-image: url(../Images/gallery-icon.svg);
-    }
-
   }
 
   .preview-gallery-button-close {
     background-position: 0% 0%;
     background-image: url(../Images/thumbnail-sprites.png);
-
-    &:hover {
-      background-position: 0% 9.4%;
-      background-image: url(../Images/thumbnail-sprites.png);
-    }
-
   }
 
   .preview-text-button-open {
     background-position: 0% 37.6%;
     background-image: url(../Images/thumbnail-sprites.png);
-
-    &:hover {
-      background-position: 0% 47%;
-      background-image: url(../Images/thumbnail-sprites.png);
-    }
-
   }
 
   .preview-text-button-close {
     background-position: 0% 0%;
     background-image: url(../Images/thumbnail-sprites.png);
-
-    &:hover {
-      background-position: 0% 9.4%;
-      background-image: url(../Images/thumbnail-sprites.png);
-    }
-
   }
 
   .preview-tweet-button-open {
     background-position: 0% 37.6%;
     background-image: url(../Images/thumbnail-sprites.png);
-
-    &:hover {
-      background-position: 0% 47%;
-      background-image: url(../Images/thumbnail-sprites.png);
-    }
-
   }
 
   .preview-tweet-button-close {
     background-position: 0% 0%;
     background-image: url(../Images/thumbnail-sprites.png);
-
-    &:hover {
-      background-position: 0% 9.4%;
-      background-image: url(../Images/thumbnail-sprites.png);
-    }
-
   }
 
 }
@@ -949,32 +818,25 @@ input:focus {
 
   .author-head {
     font-weight: bold;
+    cursor: pointer;
     
     @include themed() {
       color: t($primary-blue) !important;
     }
 
   }
-  .author-head:hover {
-    cursor: pointer;
-  }
+
   .topic-info-subreddit {
     transition-duration: 0.2s;
     font-weight: 100;
+    cursor: pointer;
 
     @include themed() {
       color: t($text-color);
     }
     
   }
-  .topic-info-subreddit:hover {
-    cursor: pointer;
-    
-    @include themed() {
-      color: t($hover-grey) !important;
-    }
 
-  }
 
   // TopicInfo number of comments
   .show-or-hide-comments {
@@ -992,13 +854,7 @@ input:focus {
       color: t($text-color);
     }
 
-    &:hover {
 
-      @include themed() {
-        color: t($hover-grey) !important;
-      }
-
-    }
 
     &:active {
       transform: translateY(3px);
@@ -1187,13 +1043,7 @@ input:focus {
   .page-arrow-and-name:active {
     transform: translateY(3px);
   }
-  .page-arrow-and-name:hover {
-    
-    @include themed() {
-      color: t($primary-red);
-    }
 
-  }
   .page-arrow {
     font-size: 2rem;
     margin-left: 1rem;
@@ -1313,13 +1163,7 @@ input:focus {
   .gallery-arrow-and-name:active {
     transform: translateY(3px);
   }
-  .gallery-arrow-and-name:hover {
 
-    @include themed() {
-      color: t($hover-grey);
-    }
-
-  }
   
 }
 
@@ -1342,6 +1186,133 @@ input:focus {
 
 }
 
+
+// Hover rules
+@media (hover: hover) and (pointer: fine) {
+
+  a:hover {
+    @include themed() {
+      color: t($hover-grey);
+    }
+  }
+
+  .input-form button:hover {
+    @include themed() {
+      background: t($hover-grey);
+    }
+  }
+
+  .theme-icon:hover {
+    @include themed() {
+      color: t($hover-grey) !important;
+    }
+  }
+
+  .show-or-hide-comments:hover {
+    @include themed() {
+      color: t($hover-grey) !important;
+    }
+  }
+
+  .page-changer .page-arrow-and-name:hover {
+    @include themed() {
+      color: t($primary-red);
+    }
+  }
+  .subreddit-button:hover {
+    @include themed() {
+      color: t($hover-grey) !important;
+    }
+  }
+
+  .up-arrow:hover {
+    @include themed() {
+      color: t($hover-grey);
+    } 
+  }
+
+  .down-arrow:hover {
+    @include themed() {
+      color: t($hover-grey);
+    }
+  }
+
+  .topic-name-link:hover {
+    @include themed() {
+      color: t($hover-grey) !important;
+    }
+  }
+
+  .topic-name-link a:hover {
+    @include themed() {
+      color: t($hover-grey) !important;
+    }
+  }
+
+  .topic-name-link-sticky:hover {
+    @include themed() {
+      color: t($hover-grey) !important;
+    }
+  }
+  .topic-name-link-sticky a:hover {
+    @include themed() {
+      color: t($hover-grey) !important;
+    }
+  }
+
+  .preview-image-button-open:hover {
+    background-position: 0% 0%;
+    background-image: url(../Images/image-icon.svg);
+  }
+  .preview-image-button-close:hover {
+    background-position: 0% 9.4%;
+    background-image: url(../Images/thumbnail-sprites.png);
+  }
+  .preview-video-button-open:hover {
+    background-position: 0% 28.2%;
+    background-image: url(../Images/thumbnail-sprites.png);
+  }
+  .preview-video-button-close:hover {
+    background-position: 0% 9.4%;
+    background-image: url(../Images/thumbnail-sprites.png);
+  }
+  .preview-gallery-button-open:hover {
+    background-position: 0% 0%;
+    background-image: url(../Images/gallery-icon.svg);
+  }
+  .preview-gallery-button-close:hover {
+    background-position: 0% 9.4%;
+    background-image: url(../Images/thumbnail-sprites.png);
+  }
+  .preview-text-button-open:hover {
+    background-position: 0% 47%;
+    background-image: url(../Images/thumbnail-sprites.png);
+  }
+  .preview-text-button-close:hover {
+    background-position: 0% 9.4%;
+    background-image: url(../Images/thumbnail-sprites.png);
+  }
+  .preview-tweet-button-open:hover {
+    background-position: 0% 47%;
+    background-image: url(../Images/thumbnail-sprites.png);
+  }
+  .preview-tweet-button-close:hover {
+    background-position: 0% 9.4%;
+    background-image: url(../Images/thumbnail-sprites.png);
+  }
+
+  .topic-info-subreddit:hover {
+    @include themed() {
+      color: t($hover-grey) !important;
+    }
+  }
+
+  .gallery-arrow-and-name:hover {
+    @include themed() {
+      color: t($hover-grey);
+    }
+  }
+}
 
 @import 'Mobile';
 

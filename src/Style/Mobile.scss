@@ -1,4 +1,9 @@
+@import 'Settings';
+@import 'Themes';
+
+
 // Tablets, Phones and other small screen devices
+
 @media only screen and (max-width: 900px) {
 
 
@@ -13,9 +18,7 @@
     
   }
 
-  // .thumbnail-container {
-  //   max-width: 25%;
-  // }
+
   .topic-info {
     font-size: 0.6rem;
   }
@@ -88,13 +91,14 @@
 
 // Upvote and Downvote arrows for topics
 .arrows-container {
-  margin-bottom: 0;
+  margin-bottom: 0rem;
   margin-top: 0;
-  padding-left: 0.25rem;
+  max-width: 6%;
 
   .arrow {
     font-size: 1.2rem;
-    height: 1.5rem;
+    height: 2rem;
+    max-width: 2.55rem;
   }
   .up-arrow {
     margin-bottom: 0;
@@ -150,6 +154,7 @@
 padding-right: 0.15rem;
   .topic-name {
     font-size: 0.8rem;
+    padding-left: 0.25rem;
 
     .topic-flair {
       font-size: 0.45rem;
@@ -164,6 +169,7 @@ padding-right: 0.15rem;
 
 .topic-info {
   padding-right: 0.25rem;
+  padding-left: 0.1rem;
   max-width: 100%;
 
   p {
@@ -187,8 +193,29 @@ padding-right: 0.15rem;
     margin-left: 0rem;
     padding-right: 0;
 
+
     @include themed() {
       border: 0;
+    }
+    .author-info {
+      padding-top: 0.25rem;
+      .author {
+        font-size: 0.5rem;
+        margin: 0;
+      }
+      .author-darkblue {
+        font-size: 0.5rem;
+      }
+      .points {
+        font-size: 0.5rem;
+        margin: 0;
+
+      }
+      .comment-created-when {
+        font-size: 0.5rem;
+        margin: 0;
+       
+      }
     }
 
   }
@@ -210,7 +237,8 @@ padding-right: 0.15rem;
 }
 
 .preview-image video {
-  max-height: 27vh;
+  max-height: 93vh;
+  max-width: 53vh;
 }
 
 
