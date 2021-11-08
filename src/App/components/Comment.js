@@ -8,9 +8,9 @@ function Comment(props) {
 
   let classesToAdd = '';
   if (props.depth%2 === 0) {
-    classesToAdd = 'comment comment-brighter'
-  } else {
     classesToAdd = 'comment comment-darker'
+  } else {
+    classesToAdd = 'comment comment-brighter'
   }
 
 

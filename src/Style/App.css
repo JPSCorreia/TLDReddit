@@ -1246,16 +1246,14 @@ input:focus {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  padding: 0.05rem 0.25rem 0.05rem 0.5rem;
 }
 
 .theme--default .comments .comment-head {
-  border: 1px solid #369;
   background: rgba(0, 0, 0, 0);
 }
 
 .theme--dark .comments .comment-head {
-  border: 1px solid #ff4500;
   background: rgba(0, 0, 0, 0);
 }
 
@@ -1280,6 +1278,10 @@ input:focus {
   color: #aaaaaa;
 }
 
+.theme--default .comment {
+  border: gainsboro 1px solid;
+}
+
 .comment {
   margin-top: 0.2rem;
   margin-bottom: 0.4rem;
@@ -1289,17 +1291,9 @@ input:focus {
   -ms-flex-item-align: right;
       -ms-grid-row-align: right;
       align-self: right;
-  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  padding: 0.05rem 0.25rem 0.05rem 0.5rem;
   margin-left: 0.5rem;
   margin-right: 0.3rem;
-}
-
-.theme--default .comment {
-  border: gainsboro 1px solid;
-}
-
-.theme--dark .comment {
-  border: gainsboro 1px solid;
 }
 
 .comment p {
