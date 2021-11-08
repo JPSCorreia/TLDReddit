@@ -6,11 +6,6 @@ import Moment from "react-moment";
 
 function Comment(props) {
 
-  // const commentDepth = {
-  //   // width: `${99.5 - props.depth*1.25}%`
-  //   backgroundColor: `${(props.depth%2 === 0)? 'rgb(255, 255, 255)' : 'rgb(247, 247, 248)'}`
-  // };
-
   let classesToAdd = '';
   if (props.depth%2 === 0) {
     classesToAdd = 'comment comment-brighter'
