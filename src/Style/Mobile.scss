@@ -59,128 +59,135 @@
 
 
 
-// Subreddit name
-.subreddit-name-border {
-  width: 100%;
-  padding-left: 0.75rem;
+  // Subreddit name
+  .subreddit-name-border {
+    width: 100%;
+    // padding-left: 0.75rem;
 
 
 
-  .subreddit-name {
-    margin-right: 0;
+    .subreddit-name {
+      margin-right: 0;
+      width: 100%;
+      border: 1px solid green;
+      width: 100%;
+
+      h2 {
+        margin-left: 0.5rem;
+        border: 1px solid blue;
+      }
+      .subreddit-icon {
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+      }
+
+      .subreddit-icon-substitute {
+        width: 50px;
+        height: 50px;
+        border: 1px solid red;
+      }
+
+    }
+    .subreddit-name-sidebar {
+      display: none;
+    }
+  }
+
+
+
+  // Upvote and Downvote arrows for topics
+  .arrows-container {
+    margin-bottom: 0rem;
+    margin-top: 0;
+    max-width: 6%;
+
+    .arrow {
+      font-size: 1.2rem;
+      height: 2rem;
+      max-width: 2.55rem;
+    }
+    .up-arrow {
+      margin-bottom: 0;
+    }
+
+    .topic-score {
+      display: none;
+
+    }
+  }
+
+
+
+
+
+
+  .whole-topic-container {
+    align-items: baseline;
     width: 100%;
 
-    h2 {
-      margin-left: 0.5rem;
-    }
-    .subreddit-icon {
-      width: 60px;
-    }
+    .topic-container {
+      max-width: 97%;
 
-    .subreddit-icon-substitute {
-      width: 60px;
-    }
-
-  }
-  .subreddit-name-sidebar {
-    display: none;
-  }
-}
-
-
-
-// Upvote and Downvote arrows for topics
-.arrows-container {
-  margin-bottom: 0rem;
-  margin-top: 0;
-  max-width: 6%;
-
-  .arrow {
-    font-size: 1.2rem;
-    height: 2rem;
-    max-width: 2.55rem;
-  }
-  .up-arrow {
-    margin-bottom: 0;
-  }
-
-  .topic-score {
-    display: none;
-
-  }
-}
-
-
-
-
-
-
-.whole-topic-container {
-  align-items: baseline;
-  width: 100%;
-
-  .topic-container {
-    max-width: 97%;
-
-    .topic {
-      padding-bottom: 0.1rem;
-      padding-top: 0.5rem;
+      .topic {
+        padding-bottom: 0.1rem;
+        padding-top: 0.5rem;
+      }
     }
   }
-}
 
 
-// ThumbnailContainer rules
-.thumbnail-container {
-  margin-right: 0.1rem;
-  width: 100px;
-  height: 50px;
-  margin-top: 0rem;
-  margin-left: 0.25rem;
+  // ThumbnailContainer rules
+  .thumbnail-container {
+    margin-right: 0.1rem;
+    width: 100px;
+    height: 50px;
+    margin-top: 0rem;
+    margin-left: 0.25rem;
 
 
 
-  .preview-image-button {
-    margin-bottom: 0;
-    width: 1rem;
-    height: 1rem;
-  
+    .preview-image-button {
+      margin-bottom: 0;
+      width: 1rem;
+      height: 1rem;
+    
+    }
+
   }
 
-}
 
+  .topic-and-thumbnail {
+    padding-right: 0.15rem;
+    .topic-name {
+      font-size: 0.8rem;
+      padding-left: 0.25rem;
 
-.topic-and-thumbnail {
-padding-right: 0.15rem;
-  .topic-name {
-    font-size: 0.8rem;
-    padding-left: 0.25rem;
-
-    .topic-flair {
-      font-size: 0.45rem;
-      margin-right: 0.35rem;
+      .topic-flair {
+        font-size: 0.45rem;
+        margin-right: 0.35rem;
+      }
+      .topic-domain {
+        font-size: 0.6rem;
+      }
     }
-    .topic-domain {
+
+  }
+
+  .topic-info {
+    padding-right: 0.25rem;
+    padding-left: 0.1rem;
+    max-width: 100%;
+
+    p {
+      max-width: 70%;
+    }
+    .show-or-hide-comments {
       font-size: 0.6rem;
+      margin-right: 0;
     }
-  }
 
-}
-
-.topic-info {
-  padding-right: 0.25rem;
-  padding-left: 0.1rem;
-  max-width: 100%;
-
-  p {
-    max-width: 70%;
   }
-  .show-or-hide-comments {
-    font-size: 0.6rem;
-    margin-right: 0;
-  }
-  
-}
 
 
 
@@ -230,16 +237,133 @@ padding-right: 0.15rem;
   }
 
 
-// Video and gifs preview
-.preview-image {
-  margin-top: 0.5rem;
-  padding-left: 0;
+  // Video and gifs preview
+  .preview-image {
+    margin-top: 0.5rem;
+    padding-left: 0;
+  }
+
+  .preview-image video {
+    max-height: 90vh;
+    max-width: 51vh;
+  }
+
+
+
+
+  .theme-icon {
+    font-size: 2rem;
+    border: 1px solid yellow;
+
+    @include themed() {
+      color: t($text-color);
+    }
+
+
+  }
+
+
+  .subreddit-name h2 {
+    margin-left: 0.5rem;
+  }
+
+  .mobile-top-bar {
+    display: flex;
+    border: 1px solid red;
+  }
+
+  .mobile-navbar-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 0 1.5em;
+    padding-top: 0.5rem;
+
+
+
+  }
+
+  #theme-icon-mobile {
+    // width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    // padding: 0 1.5em;
+    padding-top: 0.2rem;
+  }
+
+
+  .mobile-navbar-menu-container {
+    min-width: 300px;
+    width: 100%;
+    max-width: 89%;
+    height: 100%;
+    // border-left: 1px solid orange;
+    box-shadow: -2px 0 2px rgba(15, 15, 15, 0.3);
+    z-index: 90;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(4em);
+    user-select: none;
+    padding: 1em 2.5em;
+
+    @include themed() {
+      background: t($background-color);
+      border-left: t($gradient-border-topic);
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
-.preview-image video {
-  max-height: 93vh;
-  max-width: 53vh;
-}
 
 
 
@@ -250,21 +374,3 @@ padding-right: 0.15rem;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

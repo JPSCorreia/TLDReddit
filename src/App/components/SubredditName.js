@@ -1,9 +1,7 @@
 import React from 'react'
 import redditGuy from '../../Images/reddit_guy.png'
 import { useSelector } from 'react-redux';
-
-
-
+import MobileTopBar from './MobileTopBar';
 
 function SubredditName(props) {
 
@@ -32,8 +30,8 @@ function SubredditName(props) {
         {selectedSubreddit}
       </h2> 
     </div>
-    <div className='subreddit-name-sidebar'>
-    </div>
+    <MobileTopBar />
+    <div className='subreddit-name-sidebar'> </div>
     </div>
   );
 }

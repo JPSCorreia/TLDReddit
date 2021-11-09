@@ -17,6 +17,7 @@ function App() {
   return (
     <div className={'App ' + ( theme? 'theme--dark' : 'theme--default')}>
       <SubredditBar />
+      
       <div className="main-body">
         <Switch>
           <Route exact path="/">
