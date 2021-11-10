@@ -161,6 +161,9 @@
     font-size: 0.6rem;
     margin-right: 0;
   }
+  .comment-head {
+    font-size: 0.7rem;
+  }
   .comment {
     font-size: 0.7rem;
     margin-right: 0rem;
