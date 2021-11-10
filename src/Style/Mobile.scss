@@ -62,30 +62,50 @@
   // Subreddit name
   .subreddit-name-border {
     width: 100%;
-    // padding-left: 0.75rem;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 0 2px rgba(15, 15, 15, 0.3);
+    @include themed() {
+      background-color: t($background-color);
+      border-bottom: 1px solid t($text-color);
+    }
+    padding-bottom: 0.05rem;
+    padding-top: 0.1rem;
+    // border-width: 2px;
+    // border-style: solid;
+
+    
+    // @include themed() {
+    //   border-image: t($gradient-border);
+    // }
+
 
 
 
     .subreddit-name {
       margin-right: 0;
       width: 100%;
-      border: 1px solid green;
       width: 100%;
+      justify-content: center;
+      // border: 1px solid green;
 
       h2 {
         margin-left: 0.5rem;
-        border: 1px solid blue;
+        font-size: 1rem;
+        justify-content: center;
+        // border: 1px solid blue;
+        margin: 0;
       }
       .subreddit-icon {
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 44px;
         justify-content: center;
+        margin-left: 0.1rem;
       }
 
       .subreddit-icon-substitute {
-        width: 50px;
-        height: 50px;
-        border: 1px solid red;
+        width: 48px;
+        height: 44px;
       }
 
     }
@@ -99,20 +119,19 @@
   // Upvote and Downvote arrows for topics
   .arrows-container {
     margin-bottom: 0rem;
-    margin-top: 0;
+    margin-top: 0.35rem;
     max-width: 6%;
 
     .arrow {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       height: 2rem;
       max-width: 2.55rem;
     }
     .up-arrow {
-      margin-bottom: 0;
+      margin-bottom: 0.05rem;
     }
-
     .topic-score {
-      display: none;
+      font-size: 0.45rem;
 
     }
   }
@@ -123,7 +142,6 @@
 
 
   .whole-topic-container {
-    align-items: baseline;
     width: 100%;
 
     .topic-container {
@@ -248,12 +266,15 @@
     max-width: 51vh;
   }
 
-
+  //todo: video controls stay on top
+  video {
+    z-index: 1;
+  }
 
 
   .theme-icon {
-    font-size: 2rem;
-    border: 1px solid yellow;
+    font-size: 1.25rem;
+    // border: 1px solid yellow;
 
     @include themed() {
       color: t($text-color);
@@ -265,11 +286,11 @@
 
   .subreddit-name h2 {
     margin-left: 0.5rem;
+
   }
 
   .mobile-top-bar {
     display: flex;
-    border: 1px solid red;
   }
 
   .mobile-navbar-container {
@@ -290,7 +311,9 @@
     flex-direction: row-reverse;
     align-items: center;
     // padding: 0 1.5em;
-    padding-top: 0.2rem;
+    // padding-top: 0.2rem;
+    margin-right: 0.25rem;
+    margin-left: 0.75rem;
   }
 
 
@@ -299,39 +322,113 @@
     width: 100%;
     max-width: 89%;
     height: 100%;
-    // border-left: 1px solid orange;
-    box-shadow: -2px 0 2px rgba(15, 15, 15, 0.3);
+    box-shadow: -2px 0 0px rgba(15, 15, 15, 0.3);
     z-index: 90;
     position: fixed;
-    top: 0;
+    top: 2.85rem;
     right: 0;
     transform: translateX(4em);
     user-select: none;
-    padding: 1em 2.5em;
+    padding: 0.7em 2.3em 1em 0.5em;
+
 
     @include themed() {
       background: t($background-color);
-      border-left: t($gradient-border-topic);
+      border-top: 1px solid t($text-color);
     }
 
   }
 
+  .mobile-navbar-top-container {
+    display: flex;
+    width: 100%;
+    padding-bottom: 0.4rem;
+    border-width: 2px;
+    border-style: solid;
+    
+    @include themed() {
+      border-image: t($gradient-border);
+    }
+
+  }
+
+  .mobile-navbar-content-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    // margin-top: 1em;
+    // border: 1px solid purple;
+  }
+
+  .mobile-navbar-hamburger-menu-container {
+    display: flex;
+  }
+
+
+  .login-bar {
+    // border: 1px solid blue;
+    width: 100%;
+    margin: 0;
+    margin-top: 0.05rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-bar form {
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
+  }
+  .lock-icon {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  .user-icon {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  .login-bar .login-input {
+    margin-right: 0;
+  }
+  .input-form input[type=text] {
+    font-size: 0.6rem;
+    height: 20px;
+    line-height: 50px;
+  }
+
+
+  .mobile-navbar-navlist {
+    padding: 0 0.8em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-navbar-navmenu-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
 
 
+  .mobile-sub-button {
+    font-weight: 400;
+    height: 2.3rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  
+    a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 50ms ease-in-out;
+  
+      @include themed() {
+        color: t($text-color);
+      }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    }
+  }
 
 
 

@@ -1,36 +1,12 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
-const NavMenuContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
 
-const NavList = styled.ul`
-  padding: 0 0.8em;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
+const SubButton = styled(motion.li)``;
 
-const NavLink = styled(motion.li)`
-  font-weight: 600;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  a {
-    text-decoration: none;
-    // color: #444;
-    font-size: 20px;
-    transition: all 50ms ease-in-out;
-
-  }
-
-`;
 
 const variants = {
   show: {
@@ -43,60 +19,54 @@ const variants = {
   },
 };
 
-export function NavMenu({ isOpen }) {
-  return (
-    <NavMenuContainer>
-      <NavList>
-        <NavLink
-          initial={false}
-          animate={isOpen ? "show" : "hide"}
-          variants={{
-            show: {
-              ...variants.show,
-              transition: { delay: 0.5, duration: 0.2 },
-            },
-            hide: {
-              ...variants.hide,
-              transition: { delay: 0.15, duration: 0.05 },
-            },
-          }}
-        >
-          <h1>Sub 1</h1>
-        </NavLink>
-        <NavLink
-          initial={false}
-          animate={isOpen ? "show" : "hide"}
-          variants={{
-            show: {
-              ...variants.show,
-              transition: { delay: 0.5, duration: 0.2 },
-            },
-            hide: {
-              ...variants.hide,
-              transition: { delay: 0.15, duration: 0.05 },
-            },
-          }}
-        >
-          <h1>Sub 2</h1>
-        </NavLink>
-        <NavLink
-          initial={false}
-          animate={isOpen ? "show" : "hide"}
-          variants={{
-            show: {
-              ...variants.show,
-              transition: { delay: 0.5, duration: 0.2 },
-            },
-            hide: {
-              ...variants.hide,
-              transition: { delay: 0.15, duration: 0.05 },
-            },
-          }}
-        >
-          <h1>Sub 3</h1>
-        </NavLink>
+export function NavMenu({ isOpen, toggle }) {
 
-      </NavList>
-    </NavMenuContainer>
+  const routes = useSelector((state) => state.routes.data);
+
+  const subredditBarList = [];
+  routes.forEach((subreddit, index) => {
+    const id = `subreddit-button-${subreddit.substr(3)}-${index}`
+    subredditBarList.push(
+      <SubButton
+        className='mobile-sub-button'
+        initial={false}
+        animate={isOpen ? "show" : "hide"}
+        variants={{
+          show: {
+            ...variants.show,
+            transition: { delay: 0.5, duration: 0.2 },
+          },
+          hide: {
+            ...variants.hide,
+            transition: { delay: 0.15, duration: 0.05 },
+          },
+        }}
+      >
+        <NavLink
+          to={subreddit.substr(3)}
+          className='subreddit-button' 
+          id={id} 
+          key={index}
+          onClick={toggle}
+        >
+          {subreddit.substr(3)}
+        </NavLink>
+      </SubButton>
+    )
+  })
+
+
+
+  return (
+    <div className='mobile-navbar-navmenu-container'>
+      <ul className='mobile-navbar-navlist' >
+      {subredditBarList}
+      </ul>
+    </div>
   );
 }
+
+
+
+
+

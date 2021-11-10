@@ -10,54 +10,9 @@ import { NavMenu } from "./navMenu";
 import * as RedditAPI from '../../RedditAPI';
 import { useSelector, useDispatch } from 'react-redux';
 
-const HamburgerMenuContainer = styled.div`
-  display: flex;
-`;
 
-
-const MenuContainer = styled(motion.div)`
-`;
-
-const TopContainer = styled.div`
-  display: flex;
-  width: 100%;
-  border: 1px solid blue;
-`;
-
-
-const LoginButton = styled(motion.button)`
-  border: 0;
-  background: transparent;
-  color: white;
-  font-size: 14px;
-  font-weight: 900;
-  transition: all 250ms ease-in-out;
-  display: flex;
-  cursor: pointer;
-  padding: 5px 12px;
-  margin: auto 0;
-  border: 1px solid red;
-
-  &:hover {
-    color: #666;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:not(:last-of-type) {
-    border-right: 1px solid #b4b4b4;
-  }
-`;
-
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 1em;
-  border: 1px solid green;
-`;
-
+const MenuContainer = styled(motion.div)``;
+const LoginBar = styled(motion.div)``;
 const menuVariants = {
   open: {
     transform: "translateX(3%)",
@@ -66,14 +21,12 @@ const menuVariants = {
     transform: "translateX(103%)",
   },
 };
-
 const menuTransition = {
   type: "spring",
   duration: 1,
   stiffness: 33,
   delay: 0.1,
 };
-
 const commonVariants = {
   show: {
     transform: "translateX(0em)",
@@ -88,8 +41,6 @@ const commonVariants = {
     opacity: 0,
   },
 };
-
-const commonTransition = { type: "spring", duration: 0.05 };
 
 
 
@@ -119,7 +70,7 @@ export function HamburgerMenu(props) {
   }
 
   return (
-    <HamburgerMenuContainer>
+    <div className='mobile-navbar-hamburger-menu-container'>
       <MenuToggle toggle={toggleMenu} isOpen={isOpen} />
       <MenuContainer
         className='mobile-navbar-menu-container'
@@ -128,38 +79,43 @@ export function HamburgerMenu(props) {
         variants={menuVariants}
         transition={menuTransition}
       >
-        <TopContainer>
-        {/* <LoginBar 
+        <div className='mobile-navbar-top-container'>
+          <LoginBar 
+            className='login-bar'
             initial={false}
             animate={isOpen ? "show" : "hide"}
             variants={commonVariants}
-            transition={commonTransition}
-        /> */}
-          <LoginButton
-            initial={false}
-            animate={isOpen ? "show" : "hide"}
-            variants={commonVariants}
-            transition={commonTransition}
           >
-
-            LOGIN
-          </LoginButton>
-          <LoginButton
-            initial={false}
-            animate={isOpen ? "show" : "hide"}
-            variants={commonVariants}
-            transition={commonTransition}
-          >
-            
-              <i className="fa theme-icon fa-moon-o moon-icon" onClick={toggleTheme} id='theme-icon-mobile'></i>
-            
-          </LoginButton>
-
-        </TopContainer>
-        <ContentContainer>
-          <NavMenu isOpen={isOpen} />
-        </ContentContainer>
+            <form 
+              className="input-form"
+              id="login-form"
+              action="" 
+            >
+              <i className="fa fa-user user-icon"></i>
+              <input 
+                type="text" 
+                className='login-input'
+                placeholder="Username" 
+                name="search"
+              >
+              </input>
+              <i className="fa fa-lock lock-icon"></i>
+              <input 
+                type="text" 
+                className='login-input'
+                placeholder="Password" 
+                name="search"
+              >
+              </input>
+            </form>
+            <i className="fa theme-icon fa-moon-o moon-icon" onClick={toggleTheme} id='theme-icon-mobile'></i>
+          </LoginBar>
+          
+        </div>
+        <div className='mobile-navbar-content-container'>
+          <NavMenu isOpen={isOpen} toggle={toggleMenu} />
+        </div>
       </MenuContainer>
-    </HamburgerMenuContainer>
+    </div>
   );
 }

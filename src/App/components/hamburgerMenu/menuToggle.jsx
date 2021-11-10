@@ -17,7 +17,7 @@ const Path = (props) => (
   />
 );
 
-const transition = { duration: 0.3 };
+const transition = { duration: 0.2 };
 
 export function MenuToggle({ toggle, isOpen }) {
 

@@ -37,6 +37,7 @@ body {
   box-sizing: border-box; // borders stay inside parent elements.
 
 
+
 }
 html {
 
@@ -509,7 +510,7 @@ input:focus {
   }
   .down-arrow {
     transition-duration: 0.2s;
-
+    
 
 
   }
@@ -1177,7 +1178,7 @@ input:focus {
 
 // Youtube Embed
 .video-responsive {
-  overflow: hidden;
+  // overflow: hidden;
   padding-bottom: 56.25%;
   position: relative;
   height: 0;

@@ -119,6 +119,11 @@ function ArrowsContainer(props) {
     }
   }
 
+  // Format thousands to K
+  function kFormatter(num) {
+    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
+}
+
   return (
 <div className='arrows-container'>
         <div
@@ -132,7 +137,7 @@ function ArrowsContainer(props) {
           className='topic-score'
           id={`topic-score-${props.topicData.subreddit}-${props.dataKey}`}
         >
-          {count}
+          {kFormatter(count)}
         </div>
         <div
           className='down-arrow arrow'
