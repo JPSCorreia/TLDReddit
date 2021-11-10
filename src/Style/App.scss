@@ -399,6 +399,8 @@ input:focus {
       height: 48px;
       justify-content: center;
       border-radius: 2px;
+      background-size: 100%;
+      background-repeat: no-repeat;
 
       @include themed() {
         background-image: t($reddit-guy);
@@ -488,6 +490,7 @@ input:focus {
     cursor: pointer;
     width: 100%;
     font-size: 1.6rem;
+    user-select: none;
 
     @include themed() {
       color: t($text-color);
@@ -1025,6 +1028,7 @@ input:focus {
     align-items: center;
     margin-left: 1rem;
     margin-right: 1rem;
+    user-select: none;
   }
   .page-arrow-and-name-unavailable {
     display: flex;
@@ -1034,6 +1038,7 @@ input:focus {
     align-items: center;
     margin-left: 1rem;
     margin-right: 1rem;
+    user-select: none;
 
 
     @include themed() {
@@ -1145,6 +1150,7 @@ input:focus {
     align-content: center;
     align-items: center;
     margin-right: 1rem;
+    user-select: none;
   }
   .gallery-arrow {
     font-size: 1.25rem;

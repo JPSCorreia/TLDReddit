@@ -5,6 +5,7 @@ import * as RedditAPI from '../RedditAPI';
 import { NavLink } from "react-router-dom";
 import LoginBar from './LoginBar';
 
+
 function SubredditBar(props) {
 
 

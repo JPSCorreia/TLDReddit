@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from 'react-redux';
 
 const Button = styled.div`
   z-index: 99;
@@ -19,21 +20,26 @@ const Path = (props) => (
 const transition = { duration: 0.3 };
 
 export function MenuToggle({ toggle, isOpen }) {
+
+  const theme = useSelector((state) => state.theme.value);
+  
+
   return (
     <Button onClick={toggle}>
       <svg width="23" height="23" viewBox="0 0 23 23">
         <Path
           animate={isOpen ? "open" : "closed"}
           initial={false}
+          stroke={theme? 'white' : 'black'}
           variants={{
-            closed: { d: "M 2 2.5 L 20 2.5", stroke: "hsl(0, 0%, 100%)" },
+            closed: { d: "M 2 2.5 L 20 2.5" },
             open: { d: "M 3 16.5 L 17 2.5" },
           }}
           transition={transition}
         />
         <Path
           d="M 2 9.423 L 20 9.423"
-          stroke="hsl(0, 0%, 100%)"
+          stroke={theme? 'white' : 'black'}
           animate={isOpen ? "open" : "closed"}
           initial={false}
           variants={{
@@ -45,8 +51,9 @@ export function MenuToggle({ toggle, isOpen }) {
         <Path
           animate={isOpen ? "open" : "closed"}
           initial={false}
+          stroke={theme? 'white' : 'black'}
           variants={{
-            closed: { d: "M 2 16.346 L 20 16.346", stroke: "hsl(0, 0%, 100%)" },
+            closed: { d: "M 2 16.346 L 20 16.346" },
             open: { d: "M 3 2.5 L 17 16.346" },
           }}
           transition={transition}

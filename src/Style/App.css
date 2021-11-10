@@ -512,6 +512,8 @@ input:focus {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 2px;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .theme--default .subreddit-name-border .subreddit-name .subreddit-icon-substitute {
@@ -626,6 +628,10 @@ input:focus {
   cursor: pointer;
   width: 100%;
   font-size: 1.6rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .theme--default .arrows-container .arrow {
@@ -1268,6 +1274,10 @@ input:focus {
           align-items: center;
   margin-left: 1rem;
   margin-right: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .page-changer .page-arrow-and-name-unavailable {
@@ -1286,6 +1296,10 @@ input:focus {
           align-items: center;
   margin-left: 1rem;
   margin-right: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .theme--default .page-changer .page-arrow-and-name-unavailable {
@@ -1430,6 +1444,10 @@ input:focus {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .gallery-changer .gallery-arrow {
