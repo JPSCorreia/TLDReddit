@@ -40,6 +40,7 @@
   }
   .top-bar {
     display: none;
+    z-index: 1;
   }
   .side-bar {
     display: none;
@@ -64,9 +65,10 @@
     width: 100%;
     position: sticky;
     top: 0;
+    z-index: 2;
     box-shadow: 0 0 0 2px rgba(15, 15, 15, 0.3);
     @include themed() {
-      background-color: t($background-color);
+      background-color: t($transparent-mobile-bar-background);
       border-bottom: 1px solid t($text-color);
     }
     padding-bottom: 0.05rem;
@@ -266,11 +268,6 @@
     max-width: 51vh;
   }
 
-  //todo: video controls stay on top
-  video {
-    z-index: 1;
-  }
-
 
   .theme-icon {
     font-size: 1.25rem;
@@ -322,7 +319,7 @@
     width: 100%;
     max-width: 89%;
     height: 100%;
-    box-shadow: -2px 0 0px rgba(15, 15, 15, 0.3);
+    // box-shadow: -2px 0 0px rgba(15, 15, 15, 0.3);
     z-index: 90;
     position: fixed;
     top: 2.85rem;
@@ -333,7 +330,7 @@
 
 
     @include themed() {
-      background: t($background-color);
+      background: t($transparent-mobile-bar-background);
       border-top: 1px solid t($text-color);
     }
 

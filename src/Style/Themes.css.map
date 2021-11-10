@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "Themes.scss",
+        "Settings.scss"
+    ],
+    "names": [],
+    "file": "Themes.css"
+}

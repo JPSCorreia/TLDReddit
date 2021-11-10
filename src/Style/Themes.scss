@@ -1,4 +1,4 @@
-
+@import 'Settings';
 
 // Themes
 $themes: (
@@ -28,6 +28,7 @@ $themes: (
     $no-preview-icon: $no-preview-icon--light,
     $spoiler-icon: $spoiler-icon--light,
     $text-icon: $text-icon--light,
+    $transparent-mobile-bar-background: $transparent-mobile-bar-background--light,
   ),
   dark:(
     $background-color: $background-color--dark,
@@ -55,6 +56,7 @@ $themes: (
     $no-preview-icon: $no-preview-icon--dark,
     $spoiler-icon: $spoiler-icon--dark,
     $text-icon: $text-icon--dark,
+    $transparent-mobile-bar-background: $transparent-mobile-bar-background--dark,
   ),
 );
 

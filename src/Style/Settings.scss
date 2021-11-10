@@ -38,6 +38,8 @@ $nsfw-icon--light: url(../Images/nsfw-icon-larger.png);
 $no-preview-icon--light: url(../Images/no-preview-icon.png);
 $spoiler-icon--light: url(../Images/spoiler-alert.png);
 $text-icon--light: url(../Images/text-icon-larger.png);
+$transparent-mobile-bar-background--light: rgba(255, 255, 255, 0.9);
+
 
 
 // Colors (dark theme):
@@ -76,6 +78,7 @@ $nsfw-icon--dark: url(../Images/nsfw-icon-larger-dark.png);
 $no-preview-icon--dark: url(../Images/no-preview-icon-dark.png);
 $spoiler-icon--dark: url(../Images/spoiler-alert-dark.png);
 $text-icon--dark: url(../Images/text-icon-larger-dark.png);
+$transparent-mobile-bar-background--dark: rgba(50, 50, 50, 0.9);
 
 
 
@@ -105,3 +108,4 @@ $nsfw-icon: 'nsfw-icon';
 $no-preview-icon: 'no-preview-icon';
 $spoiler-icon: 'spoiler-icon';
 $text-icon: 'text-icon';
+$transparent-mobile-bar-background: 'transparent-mobile-bar-background';
