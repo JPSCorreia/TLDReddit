@@ -49,7 +49,7 @@ function ThumbnailContainer(props) {
   //todo: Keep same thumbnail aspect ratio as reddit, get width and height from thumbnail_width and thumbnail_height.
   const thumbnailExists = (thumbnail, url, id) => {
       
-      if (["default", "self", ""].includes(thumbnail) && (props.topicData.domain === "i.imgur.com" || props.topicData.domain === "giant.gfycat.com")) {
+      if (["default", "self", "",].includes(thumbnail) && (props.topicData.domain === "i.imgur.com" || props.topicData.domain === "giant.gfycat.com")) {
         return (
           <a href={url} target='_blank' rel='noreferrer'>
           <div
@@ -86,6 +86,15 @@ function ThumbnailContainer(props) {
             id={`thumbnail-${id}`}
             title='text-icon'
             className='thumbnail thumbnail-substitute-text'
+          ></div>
+        );
+      } else if (["image"].includes(thumbnail)) {
+        return (
+          <div
+            alt='thumbnail'
+            id={`thumbnail-${id}`}
+            title='spoiler-icon'
+            className='thumbnail thumbnail-substitute-nopreview'
           ></div>
         );
       } else {
