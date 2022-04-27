@@ -5,7 +5,6 @@ export const exampleSubreddits = [
   'Astronomy',
   'formula1',
   'Futurology',
-  'Games',
   'gifs',
   'movies',
   'pcgaming',
@@ -16,7 +15,6 @@ export const exampleSubreddits = [
   'space',
   'science',
   'technology',
-  'Twitch',
   'worldnews'
 ]
 
